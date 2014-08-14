@@ -175,7 +175,7 @@ FormaUSPROH                        Window
                                      			EXTENSION      	ViewFormActions(ABC)          
                                      			EXTENSION      	WindowResize(ABC)             
     
-Brw:Permisos                       Window
+Brw_Permisos                       Window
                                      			CONTROL        	BrowseBox(ABC)                
                                      			CONTROL        	BrowseUpdateButtons(ABC)      
                                      			CONTROL        	CloseButton(ABC)              
