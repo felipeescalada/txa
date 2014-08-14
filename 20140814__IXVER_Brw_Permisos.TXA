@@ -4,7 +4,7 @@ NAME Brw_Permisos
 DESCRIPTION 'Catálogo de GRU'
 FROM ABC Window
 CATEGORY 'Browse'
-MODIFIED '2014/08/14' '15:14:39'
+MODIFIED '2014/08/14' '15:18:52'
 [DATA]
 [SCREENCONTROLS]
 ! ENTRY(@s80),USE(CurrentTab)
@@ -466,12 +466,12 @@ WHEN '()'
 PROPERTY:BEGIN
 PRIORITY 4500
 PROPERTY:END
- CASE USGRUH:PERMISO
- OF 1
-    loc:permiso = 'Concedido'
- ELSE
-    loc:permiso = 'Denegado'
- END
+! CASE USGRUH:PERMISO
+! OF 1
+!    loc:permiso = 'Concedido'
+! ELSE
+!    loc:permiso = 'Denegado'
+! END
 [END]
 [END]
 [END]
@@ -1707,8 +1707,9 @@ WHEN  ('EIP_USGRUH:IDPROCEDIMIENTO') (0)
 
 %NewClassProperty DEPEND %NewClassPropertyItems DEFAULT TIMES 0
 
-%NewClassDataType DEPEND %NewClassPropertyItems DEFAULT TIMES 1
+%NewClassDataType DEPEND %NewClassPropertyItems DEFAULT TIMES 2
 WHEN  ('BrowseEIPManager')TIMES 0
+WHEN  ('EIP_loc:permiso')TIMES 0
 
 %NewClassOtherType DEPEND %NewClassPropertyItems DEFAULT TIMES 0
 
@@ -1734,8 +1735,9 @@ WHEN  ('BrowseEIPManager')TIMES 0
 
 %ClassProperty DEPEND %ClassPropertyItems DEFAULT TIMES 0
 
-%ClassDataType DEPEND %ClassPropertyItems DEFAULT TIMES 1
+%ClassDataType DEPEND %ClassPropertyItems DEFAULT TIMES 2
 WHEN  ('BrowseEIPManager')TIMES 0
+WHEN  ('EIP_loc:permiso')TIMES 0
 
 %ClassOtherType DEPEND %ClassPropertyItems DEFAULT TIMES 0
 
