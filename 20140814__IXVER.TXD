@@ -1,0 +1,1977 @@
+Planificacion          FILE,DRIVER('MSSQL',GLO:DRIVEROPTIONS),OWNER(GLO:DSN),NAME('Planificacion'),PRE(PLA),CREATE,THREAD
+!!> IDENT(68),USAGE(File)
+pk_plan KEY(PLA:idplan),NOCASE,OPT,PRIMARY
+!!> IDENT(130)
+fk_proyecto KEY(PLA:iDproyecto),DUP,NOCASE,OPT
+!!> IDENT(131)
+fk_req KEY(PLA:CNSREQ),DUP,NOCASE,OPT
+!!> IDENT(132)
+fk_user KEY(PLA:USUARIO),DUP,NOCASE,OPT
+!!> IDENT(133)
+Record                   RECORD
+[SCREENCONTROLS]
+! PROMPT('idplan:'),USE(?PLA:idplan:Prompt)
+! ENTRY(@n-14),USE(PLA:idplan),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(PLA:idplan),RIGHT(1)
+idplan                     LONG
+!!> IDENT(828),PROMPT('idplan:'),HEADER('idplan'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('i Dproyecto:'),USE(?PLA:iDproyecto:Prompt)
+! ENTRY(@n-14),USE(PLA:iDproyecto),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(PLA:iDproyecto),RIGHT(1)
+iDproyecto                 LONG
+!!> IDENT(829),VALID(INFILE(Proyectos,Proyectos:Planificacion)),PROMPT('i Dproyecto:'),HEADER('i Dproyecto'),PICTURE(@n-14),JUSTIFY(RIGHT,1),DERIVEDFROM('PRY:iDproyecto')
+[SCREENCONTROLS]
+! PROMPT('No. Versión:'),USE(?PLA:CNSREQ:Prompt)
+! ENTRY(@s20),USE(PLA:CNSREQ),MSG('Consecutivo:'),TIP('Consecutivo:')
+[REPORTCONTROLS]
+! STRING(@s20),USE(PLA:CNSREQ)
+CNSREQ                     CSTRING(21) !Consecutivo:
+!!> IDENT(830),PROMPT('No. Versión:'),HEADER('No. Versión'),MESSAGE('Consecutivo:'),TOOLTIP('Consecutivo:'),PICTURE(@s20),DERIVEDFROM('REQ:CNSREQ')
+[SCREENCONTROLS]
+! PROMPT('Fecha Plan:'),USE(?PLA:FechaPlan:Prompt)
+! ENTRY(@d6),USE(PLA:FechaPlan)
+[REPORTCONTROLS]
+! STRING(@d6),USE(PLA:FechaPlan)
+FechaPlan                  DATE
+!!> IDENT(831),PROMPT('Fecha Plan:'),HEADER('Fecha Plan'),PICTURE(@d6)
+[SCREENCONTROLS]
+! PROMPT('Fecha Terminacion:'),USE(?PLA:FechaTerminacion:Prompt)
+! ENTRY(@d17),USE(PLA:FechaTerminacion)
+[REPORTCONTROLS]
+! STRING(@d17),USE(PLA:FechaTerminacion)
+FechaTerminacion           DATE
+!!> IDENT(832),PROMPT('Fecha Terminacion:'),HEADER('Fecha Terminacion'),PICTURE(@d17)
+[SCREENCONTROLS]
+! PROMPT('Compañía:'),USE(?PLA:COMPANIA:Prompt)
+! ENTRY(@s4),USE(PLA:COMPANIA),MSG('Compañía'),TIP('Compañía'),REQ,UPR
+[REPORTCONTROLS]
+! STRING(@s4),USE(PLA:COMPANIA)
+COMPANIA                   CSTRING(5) !Compañía
+!!> IDENT(833),VALID(NONZERO),PROMPT('Compañía:'),HEADER('Compañía'),MESSAGE('Compañía'),TOOLTIP('Compañía'),PICTURE(@s4),CASE(UPPER),DERIVEDFROM('USU:COMPANIA')
+[SCREENCONTROLS]
+! PROMPT('Usuario:'),USE(?PLA:USUARIO:Prompt)
+! ENTRY(@s20),USE(PLA:USUARIO),MSG('Usuario'),TIP('Usuario'),UPR
+[REPORTCONTROLS]
+! STRING(@s20),USE(PLA:USUARIO)
+USUARIO                    CSTRING(21) !Usuario
+!!> IDENT(834),VALID(INFILE(USU,USU:Planificacion)),PROMPT('Usuario:'),HEADER('Usuario'),MESSAGE('Usuario'),TOOLTIP('Usuario'),PICTURE(@s20),CASE(UPPER),DERIVEDFROM('USU:USUARIO')
+[SCREENCONTROLS]
+! PROMPT('Descripcion:'),USE(?PLA:Descripcion:Prompt)
+! ENTRY(@s254),USE(PLA:Descripcion)
+[REPORTCONTROLS]
+! STRING(@s254),USE(PLA:Descripcion)
+Descripcion                CSTRING(255)
+!!> IDENT(836),PROMPT('Descripcion:'),HEADER('Descripcion'),PICTURE(@s254)
+[SCREENCONTROLS]
+! PROMPT('Estado:'),USE(?PLA:Estado:Prompt)
+! ENTRY(@n3),USE(PLA:Estado)
+[REPORTCONTROLS]
+! STRING(@n3),USE(PLA:Estado)
+Estado                     BYTE
+!!> IDENT(837),PROMPT('Estado:'),HEADER('Estado'),PICTURE(@n3)
+[SCREENCONTROLS]
+! PROMPT('anio:'),USE(?PLA:anio:Prompt)
+! ENTRY(@n-14),USE(PLA:anio),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(PLA:anio),RIGHT(1)
+anio                       LONG
+!!> IDENT(839),PROMPT('anio:'),HEADER('anio'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('Mes:'),USE(?PLA:Mes:Prompt)
+! ENTRY(@n-14),USE(PLA:Mes),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(PLA:Mes),RIGHT(1)
+Mes                        LONG
+!!> IDENT(840),PROMPT('Mes:'),HEADER('Mes'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('dia:'),USE(?PLA:dia:Prompt)
+! ENTRY(@n-14),USE(PLA:dia),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(PLA:dia),RIGHT(1)
+dia                        LONG
+!!> IDENT(841),PROMPT('dia:'),HEADER('dia'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('Fecha Inicial Plan:'),USE(?PLA:FechaInicialPlan:Prompt)
+! ENTRY(@d17),USE(PLA:FechaInicialPlan)
+[REPORTCONTROLS]
+! STRING(@d17),USE(PLA:FechaInicialPlan)
+FechaInicialPlan           DATE
+!!> IDENT(842),PROMPT('Fecha Inicial Plan:'),HEADER('Fecha Inicial Plan'),PICTURE(@d17)
+[SCREENCONTROLS]
+! PROMPT('Fecha Final Plan:'),USE(?PLA:FechaFinalPlan:Prompt)
+! ENTRY(@d17),USE(PLA:FechaFinalPlan)
+[REPORTCONTROLS]
+! STRING(@d17),USE(PLA:FechaFinalPlan)
+FechaFinalPlan             DATE
+!!> IDENT(843),PROMPT('Fecha Final Plan:'),HEADER('Fecha Final Plan'),PICTURE(@d17)
+[SCREENCONTROLS]
+! OPTION('Tipo'),AT(,,50,48),USE(PLA:Tipo),BOXED
+! RADIO('Proyecto'),USE(?PLA:Tipo:Radio1),VALUE('1')
+! RADIO('Requerimiento'),USE(?PLA:Tipo:Radio2),VALUE('2')
+! RADIO('Tarea'),USE(?PLA:Tipo:Radio3),VALUE('3')
+[REPORTCONTROLS]
+! STRING(@n3),USE(PLA:Tipo)
+Tipo                       BYTE
+!!> IDENT(845),VALID(INLIST('Proyecto|Requerimiento|Tarea')),PROMPT('Tipo:'),HEADER('Tipo'),PICTURE(@n3),VALUES('1|2|3')
+                         END
+                       END
+Avances FILE,DRIVER('MSSQL',GLO:DRIVEROPTIONS),OWNER(GLO:DSN),NAME('Avances'),PRE(AVA),CREATE,THREAD
+!!> IDENT(65),USAGE(File)
+pk_avance KEY(AVA:iDproyecto,-AVA:Fecha),NOCASE,OPT,PRIMARY
+!!> IDENT(124)
+key_fecha KEY(AVA:Fecha),DUP,NOCASE,OPT
+!!> IDENT(127)
+Record                   RECORD
+[SCREENCONTROLS]
+! PROMPT('i Dproyecto:'),USE(?AVA:iDproyecto:Prompt)
+! ENTRY(@n-14),USE(AVA:iDproyecto),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(AVA:iDproyecto),RIGHT(1)
+iDproyecto                 LONG
+!!> IDENT(814),PROMPT('i Dproyecto:'),HEADER('i Dproyecto'),PICTURE(@n-14),JUSTIFY(RIGHT,1),DERIVEDFROM('PRY:iDproyecto')
+[SCREENCONTROLS]
+! PROMPT('Fecha:'),USE(?AVA:Fecha:Prompt)
+! ENTRY(@d17),USE(AVA:Fecha)
+[REPORTCONTROLS]
+! STRING(@d17),USE(AVA:Fecha)
+Fecha                      DATE
+!!> IDENT(816),PROMPT('Fecha:'),HEADER('Fecha'),PICTURE(@d17)
+                         END
+                       END
+Proyectos FILE,DRIVER('MSSQL',GLO:DRIVEROPTIONS),OWNER(GLO:DSN),NAME('Proyectos'),PRE(PRY),CREATE,THREAD
+!!> IDENT(63),USAGE(File)
+fk_tipo KEY(PRY:idtipopry),DUP,NOCASE,OPT
+!!> IDENT(122)
+fk_cia KEY(PRY:COMPANIA),DUP,NOCASE,OPT
+!!> IDENT(114)
+fk_area KEY(PRY:COMPANIA,PRY:iDArea),DUP,NOCASE,OPT
+!!> IDENT(115)
+PkProyecto KEY(PRY:iDproyecto),NOCASE,OPT,PRIMARY
+!!> IDENT(110)
+PorNombre KEY(PRY:Nombre),DUP,NOCASE,OPT
+!!> IDENT(111)
+fk_sis KEY(PRY:SISTEMA),DUP,NOCASE,OPT
+!!> IDENT(116)
+fk_solicitado KEY(PRY:SolicitadoPor),DUP,NOCASE,OPT
+!!> IDENT(117)
+fk_responsable KEY(PRY:Responsable),DUP,NOCASE,OPT
+!!> IDENT(120)
+Record                   RECORD
+[SCREENCONTROLS]
+! PROMPT('i Dproyecto:'),USE(?PRY:iDproyecto:Prompt)
+! ENTRY(@n-14),USE(PRY:iDproyecto),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(PRY:iDproyecto),RIGHT(1)
+iDproyecto                 LONG
+!!> IDENT(789),PROMPT('i Dproyecto:'),HEADER('i Dproyecto'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('Nombre:'),USE(?PRY:Nombre:Prompt)
+! ENTRY(@s100),USE(PRY:Nombre)
+[REPORTCONTROLS]
+! STRING(@s100),USE(PRY:Nombre)
+Nombre                     CSTRING(101)
+!!> IDENT(790),PROMPT('Nombre:'),HEADER('Nombre'),PICTURE(@s100)
+[SCREENCONTROLS]
+! PROMPT('Fecha Solicitud:'),USE(?PRY:FechaSolicitud:Prompt)
+! ENTRY(@d6),USE(PRY:FechaSolicitud)
+[REPORTCONTROLS]
+! STRING(@d6),USE(PRY:FechaSolicitud)
+FechaSolicitud             DATE
+!!> IDENT(791),PROMPT('Fecha Solicitud:'),HEADER('Fecha Solicitud'),PICTURE(@d6)
+[SCREENCONTROLS]
+! PROMPT('Fecha Aprobacion:'),USE(?PRY:FechaAprobacion:Prompt)
+! ENTRY(@d6),USE(PRY:FechaAprobacion)
+[REPORTCONTROLS]
+! STRING(@d6),USE(PRY:FechaAprobacion)
+FechaAprobacion            DATE
+!!> IDENT(792),PROMPT('Fecha Aprobacion:'),HEADER('Fecha Aprobacion'),PICTURE(@d6)
+[SCREENCONTROLS]
+! PROMPT('Solicitado Por:'),USE(?PRY:SolicitadoPor:Prompt)
+! ENTRY(@s20),USE(PRY:SolicitadoPor)
+[REPORTCONTROLS]
+! STRING(@s20),USE(PRY:SolicitadoPor)
+SolicitadoPor              CSTRING(21)
+!!> IDENT(793),PROMPT('Solicitado Por:'),HEADER('Solicitado Por'),PICTURE(@s20)
+[SCREENCONTROLS]
+! PROMPT('Aprobado Por:'),USE(?PRY:AprobadoPor:Prompt)
+! ENTRY(@s20),USE(PRY:AprobadoPor)
+[REPORTCONTROLS]
+! STRING(@s20),USE(PRY:AprobadoPor)
+AprobadoPor                CSTRING(21)
+!!> IDENT(794),PROMPT('Aprobado Por:'),HEADER('Aprobado Por'),PICTURE(@s20)
+[SCREENCONTROLS]
+! PROMPT('Compañía:'),USE(?PRY:COMPANIA:Prompt)
+! ENTRY(@s4),USE(PRY:COMPANIA),MSG('Compañía'),TIP('Compañía'),REQ,UPR
+[REPORTCONTROLS]
+! STRING(@s4),USE(PRY:COMPANIA)
+COMPANIA                   CSTRING(5) !Compañía
+!!> IDENT(796),VALID(NONZERO),PROMPT('Compañía:'),HEADER('Compañía'),MESSAGE('Compañía'),TOOLTIP('Compañía'),PICTURE(@s4),CASE(UPPER),DERIVEDFROM('CIA:COMPANIA')
+[SCREENCONTROLS]
+! PROMPT('i DA rea:'),USE(?PRY:iDArea:Prompt)
+! ENTRY(@n-14),USE(PRY:iDArea),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(PRY:iDArea),RIGHT(1)
+iDArea                     LONG
+!!> IDENT(797),PROMPT('i DA rea:'),HEADER('i DA rea'),PICTURE(@n-14),JUSTIFY(RIGHT,1),DERIVEDFROM('ARE:iDArea')
+[SCREENCONTROLS]
+! PROMPT('Sistema:'),USE(?PRY:SISTEMA:Prompt)
+! ENTRY(@s20),USE(PRY:SISTEMA),MSG('Sistema'),TIP('Sistema')
+[REPORTCONTROLS]
+! STRING(@s20),USE(PRY:SISTEMA)
+SISTEMA                    CSTRING(21) !Sistema
+!!> IDENT(798),PROMPT('Sistema:'),HEADER('Sistema'),MESSAGE('Sistema'),TOOLTIP('Sistema'),PICTURE(@s20),DERIVEDFROM('SIS:SISTEMA')
+[SCREENCONTROLS]
+! PROMPT('Descripcion:'),USE(?PRY:Descripcion:Prompt)
+! TEXT,USE(PRY:Descripcion)
+[REPORTCONTROLS]
+! TEXT,USE(PRY:Descripcion)
+Descripcion                CSTRING(5001)
+!!> IDENT(802),PROMPT('Descripcion:'),HEADER('Descripcion'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('Usuario:'),USE(?PRY:Responsable:Prompt)
+! ENTRY(@s20),USE(PRY:Responsable),MSG('Usuario'),TIP('Usuario'),REQ,UPR
+[REPORTCONTROLS]
+! STRING(@s20),USE(PRY:Responsable)
+Responsable                CSTRING(21) !Usuario
+!!> IDENT(805),VALID(NONZERO),PROMPT('Usuario:'),HEADER('Usuario'),MESSAGE('Usuario'),TOOLTIP('Usuario'),PICTURE(@s20),CASE(UPPER),DERIVEDFROM('USU:USUARIO')
+[SCREENCONTROLS]
+! PROMPT('IDESTADO:'),USE(?PRY:Estado:Prompt)
+! ENTRY(@s2),USE(PRY:Estado)
+[REPORTCONTROLS]
+! STRING(@s2),USE(PRY:Estado)
+Estado                     CSTRING(3)
+!!> IDENT(810),PROMPT('IDESTADO:'),HEADER('IDESTADO'),PICTURE(@s2),DERIVEDFROM('EST:IDESTADO')
+[SCREENCONTROLS]
+! PROMPT('idtipopry:'),USE(?PRY:idtipopry:Prompt)
+! ENTRY(@n-14),USE(PRY:idtipopry),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(PRY:idtipopry),RIGHT(1)
+idtipopry                  LONG
+!!> IDENT(812),PROMPT('idtipopry:'),HEADER('idtipopry'),PICTURE(@n-14),JUSTIFY(RIGHT,1),DERIVEDFROM('TIPry:idtipopry')
+[SCREENCONTROLS]
+! PROMPT('link:'),USE(?PRY:link:Prompt)
+! TEXT,USE(PRY:link)
+[REPORTCONTROLS]
+! TEXT,USE(PRY:link)
+link                       CSTRING(500)
+!!> IDENT(855),PROMPT('link:'),HEADER('link'),PICTURE(@s255)
+                         END
+                       END
+Areas FILE,DRIVER('MSSQL',GLO:DRIVEROPTIONS),OWNER(GLO:DSN),NAME('Areas'),PRE(ARE),CREATE,THREAD
+!!> IDENT(59),USAGE(File)
+Pk_Area KEY(ARE:COMPANIA,ARE:iDArea),NOCASE,OPT,PRIMARY
+!!> IDENT(101),AUTO
+Record                   RECORD
+[SCREENCONTROLS]
+! PROMPT('Compañía:'),USE(?ARE:COMPANIA:Prompt)
+! ENTRY(@s4),USE(ARE:COMPANIA),MSG('Compañía'),TIP('Compañía'),REQ,UPR
+[REPORTCONTROLS]
+! STRING(@s4),USE(ARE:COMPANIA)
+COMPANIA                   CSTRING(5) !Compañía
+!!> IDENT(742),VALID(NONZERO),PROMPT('Compañía:'),HEADER('Compañía'),MESSAGE('Compañía'),TOOLTIP('Compañía'),PICTURE(@s4),CASE(UPPER),DERIVEDFROM('CIA:COMPANIA')
+[SCREENCONTROLS]
+! PROMPT('i DA rea:'),USE(?ARE:iDArea:Prompt)
+! ENTRY(@n-14),USE(ARE:iDArea),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(ARE:iDArea),RIGHT(1)
+iDArea                     LONG
+!!> IDENT(743),PROMPT('i DA rea:'),HEADER('i DA rea'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('Nombre:'),USE(?ARE:Nombre:Prompt)
+! ENTRY(@s254),USE(ARE:Nombre)
+[REPORTCONTROLS]
+! STRING(@s254),USE(ARE:Nombre)
+Nombre                     CSTRING(255)
+!!> IDENT(744),PROMPT('Nombre:'),HEADER('Nombre'),PICTURE(@s254)
+                         END
+                       END
+AvanceDet FILE,DRIVER('MSSQL',GLO:DRIVEROPTIONS),OWNER(GLO:DSN),NAME('AvanceDet'),PRE(AvaDet),CREATE,THREAD
+!!> IDENT(66),USAGE(File)
+pk_avancedet KEY(AvaDet:iDproyecto,AvaDet:Fecha,AvaDet:Item),NOCASE,OPT,PRIMARY
+!!> IDENT(125),AUTO
+Record                   RECORD
+[SCREENCONTROLS]
+! PROMPT('i Dproyecto:'),USE(?AvaDet:iDproyecto:Prompt)
+! ENTRY(@n-14),USE(AvaDet:iDproyecto),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(AvaDet:iDproyecto),RIGHT(1)
+iDproyecto                 LONG
+!!> IDENT(818),PROMPT('i Dproyecto:'),HEADER('i Dproyecto'),PICTURE(@n-14),JUSTIFY(RIGHT,1),DERIVEDFROM('PRY:iDproyecto')
+[SCREENCONTROLS]
+! PROMPT('Fecha:'),USE(?AvaDet:Fecha:Prompt)
+! ENTRY(@d17),USE(AvaDet:Fecha)
+[REPORTCONTROLS]
+! STRING(@d17),USE(AvaDet:Fecha)
+Fecha                      DATE
+!!> IDENT(847),PROMPT('Fecha:'),HEADER('Fecha'),PICTURE(@d17)
+[SCREENCONTROLS]
+! PROMPT('Item:'),USE(?AvaDet:Item:Prompt)
+! ENTRY(@n-14),USE(AvaDet:Item),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(AvaDet:Item),RIGHT(1)
+Item                       LONG
+!!> IDENT(820),PROMPT('Item:'),HEADER('Item'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('Descripcion:'),USE(?AvaDet:Descripcion:Prompt)
+! TEXT,USE(AvaDet:Descripcion)
+[REPORTCONTROLS]
+! TEXT,USE(AvaDet:Descripcion)
+Descripcion                CSTRING(5000)
+!!> IDENT(821),PROMPT('Descripcion:'),HEADER('Descripcion'),PICTURE(@s255)
+                         END
+                       END
+Avance_Integrantes FILE,DRIVER('MSSQL',GLO:DRIVEROPTIONS),OWNER(GLO:DSN),NAME('Avance_Integrantes'),PRE(AVAintegrantes),CREATE,THREAD
+!!> IDENT(67),USAGE(File)
+pk_avaintegra KEY(AVAintegrantes:idavance,AVAintegrantes:iDproyecto,AVAintegrantes:USUARIO),NOCASE,OPT,PRIMARY
+!!> IDENT(128)
+fk_usuario KEY(AVAintegrantes:USUARIO),DUP,NOCASE,OPT
+!!> IDENT(129)
+Record                   RECORD
+[SCREENCONTROLS]
+! PROMPT('i Dproyecto:'),USE(?AVAintegrantes:iDproyecto:Prompt)
+! ENTRY(@n-14),USE(AVAintegrantes:iDproyecto),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(AVAintegrantes:iDproyecto),RIGHT(1)
+iDproyecto                 LONG
+!!> IDENT(823),PROMPT('i Dproyecto:'),HEADER('i Dproyecto'),PICTURE(@n-14),JUSTIFY(RIGHT,1),DERIVEDFROM('AVA:iDproyecto')
+[SCREENCONTROLS]
+! PROMPT('idavance:'),USE(?AVAintegrantes:idavance:Prompt)
+! ENTRY(@n-14),USE(AVAintegrantes:idavance),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(AVAintegrantes:idavance),RIGHT(1)
+idavance                   LONG
+!!> IDENT(824),PROMPT('idavance:'),HEADER('idavance'),PICTURE(@n-14),JUSTIFY(RIGHT,1),DERIVEDFROM('AVA:idavance')
+[SCREENCONTROLS]
+! PROMPT('Usuario:'),USE(?AVAintegrantes:USUARIO:Prompt)
+! ENTRY(@s20),USE(AVAintegrantes:USUARIO),MSG('Usuario'),TIP('Usuario'),REQ,UPR
+[REPORTCONTROLS]
+! STRING(@s20),USE(AVAintegrantes:USUARIO)
+USUARIO                    CSTRING(21) !Usuario
+!!> IDENT(826),VALID(NONZERO),PROMPT('Usuario:'),HEADER('Usuario'),MESSAGE('Usuario'),TOOLTIP('Usuario'),PICTURE(@s20),CASE(UPPER),DERIVEDFROM('USU:USUARIO')
+                         END
+                       END
+ESTADO FILE,DRIVER('MSSQL',GLO:DRIVEROPTIONS),OWNER(GLO:DSN),NAME('ESTADO'),PRE(EST),CREATE,THREAD
+!!> IDENT(39),USAGE(File)
+KEY_ORDEN KEY(EST:MARK),DUP,NOCASE,OPT
+!!> IDENT(99)
+PK_ESTADO KEY(EST:IDESTADO,EST:TABLA),NOCASE,OPT,PRIMARY
+!!> IDENT(75),AUTO
+KEY_ESTADO KEY(EST:TABLA,EST:DESCRIPCION),DUP,NOCASE,OPT
+!!> IDENT(76)
+KEY_DESCRIPCION KEY(EST:DESCRIPCION,EST:TABLA,EST:IDESTADO),DUP,NOCASE,OPT
+!!> IDENT(84)
+Record                   RECORD
+[SCREENCONTROLS]
+! PROMPT('IDESTADO:'),USE(?EST:IDESTADO:Prompt)
+! ENTRY(@s2),USE(EST:IDESTADO)
+[REPORTCONTROLS]
+! STRING(@s2),USE(EST:IDESTADO)
+IDESTADO                   CSTRING(3)
+!!> IDENT(526),PROMPT('IDESTADO:'),HEADER('IDESTADO'),PICTURE(@s2)
+[SCREENCONTROLS]
+! PROMPT('TABLA:'),USE(?EST:TABLA:Prompt)
+! ENTRY(@s20),USE(EST:TABLA)
+[REPORTCONTROLS]
+! STRING(@s20),USE(EST:TABLA)
+TABLA                      STRING(20)
+!!> IDENT(527),PROMPT('TABLA:'),HEADER('TABLA'),PICTURE(@s20)
+[SCREENCONTROLS]
+! PROMPT('DESCRIPCION:'),USE(?EST:DESCRIPCION:Prompt)
+! ENTRY(@s20),USE(EST:DESCRIPCION)
+[REPORTCONTROLS]
+! STRING(@s20),USE(EST:DESCRIPCION)
+DESCRIPCION                STRING(20)
+!!> IDENT(531),PROMPT('DESCRIPCION:'),HEADER('DESCRIPCION'),PICTURE(@s20)
+[SCREENCONTROLS]
+! PROMPT('ESTADOANULADO:'),USE(?EST:ESTADOANULADO:Prompt)
+! ENTRY(@s3),USE(EST:ESTADOANULADO),MSG('Estado al que pasa cuando esta anulado'),TIP('Estado al que pasa cuando esta anulado')
+[REPORTCONTROLS]
+! STRING(@s3),USE(EST:ESTADOANULADO)
+ESTADOANULADO              STRING(3) !Estado al que pasa cuando esta anulado
+!!> IDENT(528),PROMPT('ESTADOANULADO:'),HEADER('ESTADOANULADO'),MESSAGE('Estado al que pasa cuando esta anulado'),TOOLTIP('Estado al que pasa cuando esta anulado'),PICTURE(@s3)
+[SCREENCONTROLS]
+! PROMPT('AMBITO:'),USE(?EST:AMBITO:Prompt)
+! ENTRY(@s254),USE(EST:AMBITO)
+[REPORTCONTROLS]
+! STRING(@s254),USE(EST:AMBITO)
+AMBITO                     CSTRING(255)
+!!> IDENT(529),PROMPT('AMBITO:'),HEADER('AMBITO'),PICTURE(@s254)
+[SCREENCONTROLS]
+! PROMPT('MARK:'),USE(?EST:MARK:Prompt)
+! ENTRY(@n3),USE(EST:MARK)
+[REPORTCONTROLS]
+! STRING(@n3),USE(EST:MARK)
+MARK                       BYTE
+!!> IDENT(717),PROMPT('MARK:'),HEADER('MARK'),PICTURE(@n3)
+                         END
+                       END
+WDUM FILE,DRIVER('MSSQL',GLO:CONEXION),OWNER(GLO:DSN),NAME('WDUM'),PRE(WDU)  !Tabla Estupida
+!!> IDENT(25),USAGE(File)
+Record                   RECORD
+[SCREENCONTROLS]
+! PROMPT('C1:'),USE(?WDU:C1:Prompt)
+! TEXT,USE(WDU:C1),BOXED,MSG('Campo 1'),TIP('Campo 1')
+[REPORTCONTROLS]
+! TEXT,USE(WDU:C1),BOXED
+C1                         CSTRING(256) !Campo 1
+!!> IDENT(326),PROMPT('C1:'),HEADER('C1'),MESSAGE('Campo 1'),TOOLTIP('Campo 1'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('C2:'),USE(?WDU:C2:Prompt)
+! TEXT,USE(WDU:C2),BOXED,MSG('Campo 1'),TIP('Campo 1')
+[REPORTCONTROLS]
+! TEXT,USE(WDU:C2),BOXED
+C2                         CSTRING(256) !Campo 2
+!!> IDENT(327),PROMPT('C2:'),HEADER('C2'),MESSAGE('Campo 1'),TOOLTIP('Campo 1'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('C3:'),USE(?WDU:C3:Prompt)
+! TEXT,USE(WDU:C3),BOXED,MSG('Campo 1'),TIP('Campo 1')
+[REPORTCONTROLS]
+! TEXT,USE(WDU:C3),BOXED
+C3                         CSTRING(256) !Campo 3
+!!> IDENT(328),PROMPT('C3:'),HEADER('C3'),MESSAGE('Campo 1'),TOOLTIP('Campo 1'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('C4:'),USE(?WDU:C4:Prompt)
+! TEXT,USE(WDU:C4),BOXED,MSG('Campo 1'),TIP('Campo 1')
+[REPORTCONTROLS]
+! TEXT,USE(WDU:C4),BOXED
+C4                         CSTRING(256) !Campo 4
+!!> IDENT(329),PROMPT('C4:'),HEADER('C4'),MESSAGE('Campo 1'),TOOLTIP('Campo 1'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('C5:'),USE(?WDU:C5:Prompt)
+! TEXT,USE(WDU:C5),BOXED,MSG('Campo 1'),TIP('Campo 1')
+[REPORTCONTROLS]
+! TEXT,USE(WDU:C5),BOXED
+C5                         CSTRING(256) !Campo 5
+!!> IDENT(330),PROMPT('C5:'),HEADER('C5'),MESSAGE('Campo 1'),TOOLTIP('Campo 1'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('C6:'),USE(?WDU:C6:Prompt)
+! TEXT,USE(WDU:C6),BOXED,MSG('Campo 1'),TIP('Campo 1')
+[REPORTCONTROLS]
+! TEXT,USE(WDU:C6),BOXED
+C6                         CSTRING(256) !Campo 6
+!!> IDENT(331),PROMPT('C6:'),HEADER('C6'),MESSAGE('Campo 1'),TOOLTIP('Campo 1'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('C7:'),USE(?WDU:C7:Prompt)
+! TEXT,USE(WDU:C7),BOXED,MSG('Campo 1'),TIP('Campo 1')
+[REPORTCONTROLS]
+! TEXT,USE(WDU:C7),BOXED
+C7                         CSTRING(256) !Campo 7
+!!> IDENT(332),PROMPT('C7:'),HEADER('C7'),MESSAGE('Campo 1'),TOOLTIP('Campo 1'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('C8:'),USE(?WDU:C8:Prompt)
+! TEXT,USE(WDU:C8),BOXED,MSG('Campo 1'),TIP('Campo 1')
+[REPORTCONTROLS]
+! TEXT,USE(WDU:C8),BOXED
+C8                         CSTRING(256) !Campo 8
+!!> IDENT(333),PROMPT('C8:'),HEADER('C8'),MESSAGE('Campo 1'),TOOLTIP('Campo 1'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('C9:'),USE(?WDU:C9:Prompt)
+! TEXT,USE(WDU:C9),BOXED,MSG('Campo 1'),TIP('Campo 1')
+[REPORTCONTROLS]
+! TEXT,USE(WDU:C9),BOXED
+C9                         CSTRING(256) !Campo 9
+!!> IDENT(334),PROMPT('C9:'),HEADER('C9'),MESSAGE('Campo 1'),TOOLTIP('Campo 1'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('C10:'),USE(?WDU:C10:Prompt)
+! TEXT,USE(WDU:C10),BOXED,MSG('Campo 1'),TIP('Campo 1')
+[REPORTCONTROLS]
+! TEXT,USE(WDU:C10),BOXED
+C10                        CSTRING(256) !Campo 10
+!!> IDENT(335),PROMPT('C10:'),HEADER('C10'),MESSAGE('Campo 1'),TOOLTIP('Campo 1'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('C10:'),USE(?WDU:C11:Prompt)
+! TEXT,USE(WDU:C11),BOXED,MSG('Campo 1'),TIP('Campo 1')
+[REPORTCONTROLS]
+! TEXT,USE(WDU:C11),BOXED
+C11                        CSTRING(256) !Campo 11
+!!> IDENT(336),PROMPT('C10:'),HEADER('C10'),MESSAGE('Campo 1'),TOOLTIP('Campo 1'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('C12:'),USE(?WDU:C12:Prompt)
+! TEXT,USE(WDU:C12),BOXED,MSG('Campo 1'),TIP('Campo 1')
+[REPORTCONTROLS]
+! TEXT,USE(WDU:C12),BOXED
+C12                        CSTRING(256) !Campo 12
+!!> IDENT(337),PROMPT('C12:'),HEADER('C12'),MESSAGE('Campo 1'),TOOLTIP('Campo 1'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('C 13:'),USE(?WDU:C13:Prompt)
+! TEXT,USE(WDU:C13),BOXED
+[REPORTCONTROLS]
+! TEXT,USE(WDU:C13),BOXED
+C13                        CSTRING(256)
+!!> IDENT(338),PROMPT('C 13:'),HEADER('C 13'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('C 14:'),USE(?WDU:C14:Prompt)
+! TEXT,USE(WDU:C14),BOXED
+[REPORTCONTROLS]
+! TEXT,USE(WDU:C14),BOXED
+C14                        CSTRING(256)
+!!> IDENT(339),PROMPT('C 14:'),HEADER('C 14'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('C 15:'),USE(?WDU:C15:Prompt)
+! TEXT,USE(WDU:C15),BOXED
+[REPORTCONTROLS]
+! TEXT,USE(WDU:C15),BOXED
+C15                        CSTRING(256)
+!!> IDENT(340),PROMPT('C 15:'),HEADER('C 15'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('C 16:'),USE(?WDU:C16:Prompt)
+! TEXT,USE(WDU:C16),BOXED
+[REPORTCONTROLS]
+! TEXT,USE(WDU:C16),BOXED
+C16                        CSTRING(256)
+!!> IDENT(341),PROMPT('C 16:'),HEADER('C 16'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('C 17:'),USE(?WDU:C17:Prompt)
+! TEXT,USE(WDU:C17),BOXED
+[REPORTCONTROLS]
+! TEXT,USE(WDU:C17),BOXED
+C17                        CSTRING(256)
+!!> IDENT(342),PROMPT('C 17:'),HEADER('C 17'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('C 18:'),USE(?WDU:C18:Prompt)
+! TEXT,USE(WDU:C18),BOXED,MSG('Campo 18'),TIP('Campo 18')
+[REPORTCONTROLS]
+! TEXT,USE(WDU:C18),BOXED
+C18                        CSTRING(256) !Campo 18
+!!> IDENT(343),PROMPT('C 18:'),HEADER('C 18'),MESSAGE('Campo 18'),TOOLTIP('Campo 18'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('C 19:'),USE(?WDU:C19:Prompt)
+! TEXT,USE(WDU:C19),BOXED,MSG('Campo 18'),TIP('Campo 18')
+[REPORTCONTROLS]
+! TEXT,USE(WDU:C19),BOXED
+C19                        CSTRING(256) !Campo 19
+!!> IDENT(344),PROMPT('C 19:'),HEADER('C 19'),MESSAGE('Campo 18'),TOOLTIP('Campo 18'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('C 20:'),USE(?WDU:C20:Prompt)
+! TEXT,USE(WDU:C20),BOXED,MSG('Campo 20'),TIP('Campo 20')
+[REPORTCONTROLS]
+! TEXT,USE(WDU:C20),BOXED
+C20                        CSTRING(256) !Campo 20
+!!> IDENT(345),PROMPT('C 20:'),HEADER('C 20'),MESSAGE('Campo 20'),TOOLTIP('Campo 20'),PICTURE(@s255)
+                         END
+                       END
+WDF FILE,DRIVER('MSSQL',GLO:DRIVEROPTIONS),OWNER(GLO:DSN),NAME('WDF'),PRE(WDF)  !Tabla Estupida Fechas
+!!> IDENT(24),USAGE(File)
+Record                   RECORD
+[QUICKCODE]
+!NOPOPULATE
+[SCREENCONTROLS]
+! PROMPT('C1:'),USE(?WDF:C1:Prompt)
+! ENTRY(@s8),USE(WDF:C1),MSG('Campo 1'),TIP('Campo 1')
+[REPORTCONTROLS]
+! STRING(@s8),USE(WDF:C1)
+C1                         STRING(8) !Campo 1
+!!> IDENT(320),PROMPT('C1:'),HEADER('C1'),MESSAGE('Campo 1'),TOOLTIP('Campo 1'),PICTURE(@s8)
+[QUICKCODE]
+!NOPOPULATE
+[SCREENCONTROLS]
+! PROMPT('C 1 GROUP:'),USE(?WDF:C1_GROUP:Prompt)
+! ENTRY(@s8),USE(WDF:C1_GROUP)
+[REPORTCONTROLS]
+! STRING(@s8),USE(WDF:C1_GROUP)
+C1_GROUP                   GROUP,OVER(C1)
+!!> IDENT(321),PROMPT('C 1 GROUP:'),HEADER('C 1 GROUP'),PICTURE(@s8)
+[SCREENCONTROLS]
+! PROMPT('C 1 DATE:'),USE(?WDF:C1_DATE:Prompt)
+! ENTRY(@d6),USE(WDF:C1_DATE)
+[REPORTCONTROLS]
+! STRING(@d6),USE(WDF:C1_DATE)
+C1_DATE                      DATE
+!!> IDENT(322),PROMPT('C 1 DATE:'),HEADER('C 1 DATE'),PICTURE(@d6)
+[SCREENCONTROLS]
+! PROMPT('C 1 TIME:'),USE(?WDF:C1_TIME:Prompt)
+! ENTRY(@t1),USE(WDF:C1_TIME)
+[REPORTCONTROLS]
+! STRING(@t1),USE(WDF:C1_TIME)
+C1_TIME                      TIME
+!!> IDENT(323),PROMPT('C 1 TIME:'),HEADER('C 1 TIME'),PICTURE(@t1)
+                           END
+!!> IDENT(324)
+                         END
+                       END
+CIAP FILE,DRIVER('MSSQL',GLO:DRIVEROPTIONS),OWNER(GLO:DSN),NAME('CIAP'),PRE(CIAP),THREAD  !Compañías Personal
+!!> IDENT(20),USAGE(File)
+CIAPCOMPANIA KEY(CIAP:COMPANIA,CIAP:USUARIO),PRIMARY !Compañía/ Usuario
+!!> IDENT(46)
+Record                   RECORD
+[SCREENCONTROLS]
+! PROMPT('Compañía:'),USE(?CIAP:COMPANIA:Prompt)
+! ENTRY(@s4),USE(CIAP:COMPANIA),MSG('Compañía'),TIP('Compañía'),REQ,UPR
+[REPORTCONTROLS]
+! STRING(@s4),USE(CIAP:COMPANIA)
+COMPANIA                   CSTRING(5) !Compañía
+!!> IDENT(245),VALID(NONZERO),PROMPT('Compañía:'),HEADER('Compañía'),MESSAGE('Compañía'),TOOLTIP('Compañía'),PICTURE(@s4),CASE(UPPER)
+[SCREENCONTROLS]
+! PROMPT('Usuario:'),USE(?CIAP:USUARIO:Prompt)
+! ENTRY(@s20),USE(CIAP:USUARIO),MSG('Usuario'),TIP('Usuario'),REQ,UPR
+[REPORTCONTROLS]
+! STRING(@s20),USE(CIAP:USUARIO)
+USUARIO                    CSTRING(21) !Usuario
+!!> IDENT(246),VALID(NONZERO),PROMPT('Usuario:'),HEADER('Usuario'),MESSAGE('Usuario'),TOOLTIP('Usuario'),PICTURE(@s20),CASE(UPPER),DERIVEDFROM('USU:USUARIO')
+[SCREENCONTROLS]
+! PROMPT('Nombre:'),USE(?CIAP:NOMBRE:Prompt)
+! ENTRY(@s80),USE(CIAP:NOMBRE),MSG('Nombre'),TIP('Nombre')
+[REPORTCONTROLS]
+! STRING(@s80),USE(CIAP:NOMBRE)
+NOMBRE                     CSTRING(81) !Nombre
+!!> IDENT(396),PROMPT('Nombre:'),HEADER('Nombre'),MESSAGE('Nombre'),TOOLTIP('Nombre'),PICTURE(@s80)
+[SCREENCONTROLS]
+! PROMPT('Cargo:'),USE(?CIAP:CARGO:Prompt)
+! ENTRY(@s80),USE(CIAP:CARGO),MSG('Cargo'),TIP('Cargo')
+[REPORTCONTROLS]
+! STRING(@s80),USE(CIAP:CARGO)
+CARGO                      CSTRING(81) !Cargo
+!!> IDENT(398),PROMPT('Cargo:'),HEADER('Cargo'),MESSAGE('Cargo'),TOOLTIP('Cargo'),PICTURE(@s80)
+                         END
+                       END
+EVENTO FILE,DRIVER('MSSQL',GLO:DRIVEROPTIONS),OWNER(GLO:DSN),NAME('EVENTO'),PRE(EVE),CREATE,THREAD
+!!> IDENT(43),USAGE(File)
+PK_ESTADO KEY(EVE:IDEVENTO,EVE:TABLA),NOCASE,OPT,PRIMARY
+!!> IDENT(81),AUTO
+KEY_ESTADO KEY(EVE:TABLA,EVE:DESCRIPCION),DUP,NOCASE,OPT
+!!> IDENT(82)
+KEY_DESCRIPCION KEY(EVE:DESCRIPCION,EVE:TABLA,EVE:IDEVENTO),DUP,NOCASE,OPT
+!!> IDENT(83)
+Record                   RECORD
+[SCREENCONTROLS]
+! PROMPT('IDEVENTO:'),USE(?EVE:IDEVENTO:Prompt)
+! ENTRY(@s2),USE(EVE:IDEVENTO)
+[REPORTCONTROLS]
+! STRING(@s2),USE(EVE:IDEVENTO)
+IDEVENTO                   CSTRING(3)
+!!> IDENT(557),PROMPT('IDEVENTO:'),HEADER('IDEVENTO'),PICTURE(@s2)
+[SCREENCONTROLS]
+! PROMPT('TABLA:'),USE(?EVE:TABLA:Prompt)
+! ENTRY(@s20),USE(EVE:TABLA)
+[REPORTCONTROLS]
+! STRING(@s20),USE(EVE:TABLA)
+TABLA                      STRING(20)
+!!> IDENT(558),PROMPT('TABLA:'),HEADER('TABLA'),PICTURE(@s20)
+[SCREENCONTROLS]
+! PROMPT('DESCRIPCION:'),USE(?EVE:DESCRIPCION:Prompt)
+! ENTRY(@s20),USE(EVE:DESCRIPCION)
+[REPORTCONTROLS]
+! STRING(@s20),USE(EVE:DESCRIPCION)
+DESCRIPCION                STRING(20)
+!!> IDENT(559),PROMPT('DESCRIPCION:'),HEADER('DESCRIPCION'),PICTURE(@s20)
+[SCREENCONTROLS]
+! PROMPT('ESTADOANULADO:'),USE(?EVE:ESTADOANULADO:Prompt)
+! ENTRY(@s3),USE(EVE:ESTADOANULADO),MSG('Estado al que pasa cuando esta anulado'),TIP('Estado al que pasa cuando esta anulado')
+[REPORTCONTROLS]
+! STRING(@s3),USE(EVE:ESTADOANULADO)
+ESTADOANULADO              STRING(3) !Estado al que pasa cuando esta anulado
+!!> IDENT(560),PROMPT('ESTADOANULADO:'),HEADER('ESTADOANULADO'),MESSAGE('Estado al que pasa cuando esta anulado'),TOOLTIP('Estado al que pasa cuando esta anulado'),PICTURE(@s3)
+[SCREENCONTROLS]
+! PROMPT('AMBITO:'),USE(?EVE:AMBITO:Prompt)
+! ENTRY(@s254),USE(EVE:AMBITO)
+[REPORTCONTROLS]
+! STRING(@s254),USE(EVE:AMBITO)
+AMBITO                     CSTRING(255)
+!!> IDENT(561),PROMPT('AMBITO:'),HEADER('AMBITO'),PICTURE(@s254)
+                         END
+                       END
+USGRUH FILE,DRIVER('MSSQL',GLO:DRIVEROPTIONS),OWNER(GLO:DSN),NAME('USGRUH'),PRE(USGRUH),BINDABLE,THREAD  !Permisos de Grupo de Usuarios
+!!> IDENT(28),USAGE(File)
+USGRUHGRUPO KEY(USGRUH:GRUPO,USGRUH:IDPROCEDIMIENTO,USGRUH:IDCONTROL),PRIMARY !Por Grupo
+!!> IDENT(54)
+Record                   RECORD
+[SCREENCONTROLS]
+! PROMPT('Grupo de Usuario:'),USE(?USGRUH:GRUPO:Prompt)
+! ENTRY(@s20),USE(USGRUH:GRUPO),MSG('Grupo de Usuario'),TIP('Grupo de Usuario'),REQ
+[REPORTCONTROLS]
+! STRING(@s20),USE(USGRUH:GRUPO)
+GRUPO                      CSTRING(21) !Grupo de Usuario
+!!> IDENT(392),VALID(NONZERO),PROMPT('Grupo de Usuario:'),HEADER('Grupo de Usuario'),MESSAGE('Grupo de Usuario'),TOOLTIP('Grupo de Usuario'),PICTURE(@s20),DERIVEDFROM('GRU:GRUPO')
+[SCREENCONTROLS]
+! PROMPT('Id. Procedimiento:'),USE(?USGRUH:IDPROCEDIMIENTO:Prompt)
+! ENTRY(@s30),USE(USGRUH:IDPROCEDIMIENTO),MSG('Id. Procedimiento'),TIP('Id. Procedimiento'),REQ
+[REPORTCONTROLS]
+! STRING(@s30),USE(USGRUH:IDPROCEDIMIENTO)
+IDPROCEDIMIENTO            CSTRING(31) !Id. Procedimiento
+!!> IDENT(393),VALID(NONZERO),PROMPT('Id. Procedimiento:'),HEADER('Id. Procedimiento'),MESSAGE('Id. Procedimiento'),TOOLTIP('Id. Procedimiento'),PICTURE(@s30),DERIVEDFROM('USPRO:IDPROCEDIMIENTO')
+[SCREENCONTROLS]
+! PROMPT('IDCONTROL:'),USE(?USGRUH:IDCONTROL:Prompt)
+! ENTRY(@s100),USE(USGRUH:IDCONTROL),MSG('Control'),TIP('Control')
+[REPORTCONTROLS]
+! STRING(@s100),USE(USGRUH:IDCONTROL)
+IDCONTROL                  CSTRING(101) !Control
+!!> IDENT(394),PROMPT('IDCONTROL:'),HEADER('IDCONTROL'),MESSAGE('Control'),TOOLTIP('Control'),PICTURE(@s100)
+[SCREENCONTROLS]
+! CHECK('Permiso'),USE(USGRUH:PERMISO),MSG('Permiso'),TIP('Permiso')
+[REPORTCONTROLS]
+! STRING(@n3),USE(USGRUH:PERMISO)
+PERMISO                    BYTE !Permiso
+!!> IDENT(395),PROMPT('Permiso:'),HEADER('Permiso'),MESSAGE('Permiso'),TOOLTIP('Permiso'),PICTURE(@n3)
+                         END
+                       END
+TipoProyecto FILE,DRIVER('MSSQL',GLO:DRIVEROPTIONS),OWNER(GLO:DSN),NAME('TipoProyecto'),PRE(TIPry),CREATE,THREAD
+!!> IDENT(64),USAGE(File)
+pk_tipoProyecto KEY(TIPry:idtipopry),NOCASE,OPT,PRIMARY
+!!> IDENT(121),AUTO
+Record                   RECORD
+[SCREENCONTROLS]
+! PROMPT('idtipopry:'),USE(?TIPry:idtipopry:Prompt)
+! ENTRY(@n-14),USE(TIPry:idtipopry),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(TIPry:idtipopry),RIGHT(1)
+idtipopry                  LONG
+!!> IDENT(807),PROMPT('idtipopry:'),HEADER('idtipopry'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('Nombre:'),USE(?TIPry:Nombre:Prompt)
+! ENTRY(@s20),USE(TIPry:Nombre)
+[REPORTCONTROLS]
+! STRING(@s20),USE(TIPry:Nombre)
+Nombre                     STRING(20)
+!!> IDENT(808),PROMPT('Nombre:'),HEADER('Nombre'),PICTURE(@s20)
+                         END
+                       END
+USPROH FILE,DRIVER('MSSQL',GLO:DRIVEROPTIONS),OWNER(GLO:DSN),NAME('USPROH'),PRE(USPROH),BINDABLE,THREAD  !Uso Sistema  Procedimientos Controles
+!!> IDENT(27),USAGE(File)
+USPROHIDPROCEDIMIENTO KEY(USPROH:IDPROCEDIMIENTO,USPROH:IDCONTROL),PRIMARY !Id. Procedimiento
+!!> IDENT(53)
+Record                   RECORD
+[SCREENCONTROLS]
+! PROMPT('Id. Procedimiento:'),USE(?USPROH:IDPROCEDIMIENTO:Prompt)
+! ENTRY(@s30),USE(USPROH:IDPROCEDIMIENTO),MSG('Id. Procedimiento'),TIP('Id. Procedimiento'),REQ
+[REPORTCONTROLS]
+! STRING(@s30),USE(USPROH:IDPROCEDIMIENTO)
+IDPROCEDIMIENTO            CSTRING(31) !Id. Procedimiento
+!!> IDENT(384),VALID(NONZERO),PROMPT('Id. Procedimiento:'),HEADER('Id. Procedimiento'),MESSAGE('Id. Procedimiento'),TOOLTIP('Id. Procedimiento'),PICTURE(@s30)
+[SCREENCONTROLS]
+! PROMPT('Control:'),USE(?USPROH:IDCONTROL:Prompt)
+! ENTRY(@s100),USE(USPROH:IDCONTROL),MSG('Control'),TIP('Control'),REQ
+[REPORTCONTROLS]
+! STRING(@s100),USE(USPROH:IDCONTROL)
+IDCONTROL                  CSTRING(101) !Control
+!!> IDENT(385),VALID(NONZERO),PROMPT('Control:'),HEADER('Control'),MESSAGE('Control'),TOOLTIP('Control'),PICTURE(@s100)
+[SCREENCONTROLS]
+! OPTION('Control'),AT(,,50,60),USE(USPROH:TIPO),BOXED,MSG('Control'),TIP('Control')
+! RADIO('Registro'),USE(?USPROH:TIPO:Radio1),VALUE('R')
+! RADIO('Proceso'),USE(?USPROH:TIPO:Radio2),VALUE('P')
+! RADIO('Impresora'),USE(?USPROH:TIPO:Radio3),VALUE('I')
+! RADIO('Menú'),USE(?USPROH:TIPO:Radio4),VALUE('M')
+[REPORTCONTROLS]
+! STRING(@s1),USE(USPROH:TIPO)
+TIPO                       CSTRING(2) !Control
+!!> IDENT(386),VALID(INLIST('Registro|Proceso|Impresora|Menú')),PROMPT('Control:'),HEADER('Control'),MESSAGE('Control'),TOOLTIP('Control'),PICTURE(@s1),VALUES('R|P|I|M')
+[SCREENCONTROLS]
+! PROMPT('Descripción:'),USE(?USPROH:DESCRIPCION:Prompt)
+! ENTRY(@s80),USE(USPROH:DESCRIPCION),MSG('Descripción'),TIP('Descripción')
+[REPORTCONTROLS]
+! STRING(@s80),USE(USPROH:DESCRIPCION)
+DESCRIPCION                CSTRING(81) !Descripción
+!!> IDENT(387),PROMPT('Descripción:'),HEADER('Descripción'),MESSAGE('Descripción'),TOOLTIP('Descripción'),PICTURE(@s80)
+                         END
+                       END
+USPRO FILE,DRIVER('MSSQL',GLO:DRIVEROPTIONS),OWNER(GLO:DSN),NAME('USPRO'),PRE(USPRO),BINDABLE,THREAD  !Uso Sistema  Procedimientos
+!!> IDENT(26),USAGE(File)
+USPROIDPROCEDIMIENTO KEY(USPRO:IDPROCEDIMIENTO),PRIMARY !Id. Procedimiento
+!!> IDENT(52)
+Record                   RECORD
+[SCREENCONTROLS]
+! PROMPT('Id. Procedimiento:'),USE(?USPRO:IDPROCEDIMIENTO:Prompt)
+! ENTRY(@s30),USE(USPRO:IDPROCEDIMIENTO),MSG('Id. Procedimiento'),TIP('Id. Procedimiento'),REQ
+[REPORTCONTROLS]
+! STRING(@s30),USE(USPRO:IDPROCEDIMIENTO)
+IDPROCEDIMIENTO            CSTRING(31) !Id. Procedimiento
+!!> IDENT(379),VALID(NONZERO),PROMPT('Id. Procedimiento:'),HEADER('Id. Procedimiento'),MESSAGE('Id. Procedimiento'),TOOLTIP('Id. Procedimiento'),PICTURE(@s30)
+[SCREENCONTROLS]
+! PROMPT('Descripción:'),USE(?USPRO:DESCPROCEDIMIENTO:Prompt)
+! ENTRY(@s60),USE(USPRO:DESCPROCEDIMIENTO),MSG('Descripción Procedimiento'),TIP('Descripción Procedimiento'),REQ
+[REPORTCONTROLS]
+! STRING(@s60),USE(USPRO:DESCPROCEDIMIENTO)
+DESCPROCEDIMIENTO          CSTRING(61) !Descripción Procedimiento
+!!> IDENT(380),VALID(NONZERO),PROMPT('Descripción:'),HEADER('Descripción'),MESSAGE('Descripción Procedimiento'),TOOLTIP('Descripción Procedimiento'),PICTURE(@s60)
+                         END
+                       END
+req_des_pro FILE,DRIVER('MSSQL',GLO:DRIVEROPTIONS),OWNER(GLO:DSN),NAME('req_des_pro'),PRE(RDP),CREATE,THREAD  !Detalle de Procedimientos
+!!> IDENT(62),USAGE(File)
+pk_req_des_pro KEY(RDP:CNSREQ,RDP:ITEM,RDP:LINEA),NOCASE,OPT,PRIMARY
+!!> IDENT(109)
+Record                   RECORD
+[SCREENCONTROLS]
+! PROMPT('No. Versión:'),USE(?RDP:CNSREQ:Prompt)
+! ENTRY(@s20),USE(RDP:CNSREQ),MSG('Consecutivo:'),TIP('Consecutivo:')
+[REPORTCONTROLS]
+! STRING(@s20),USE(RDP:CNSREQ)
+CNSREQ                     CSTRING(21) !Consecutivo:
+!!> IDENT(777),PROMPT('No. Versión:'),HEADER('No. Versión'),MESSAGE('Consecutivo:'),TOOLTIP('Consecutivo:'),PICTURE(@s20),DERIVEDFROM('REQ_DES:CNSREQ')
+[SCREENCONTROLS]
+! PROMPT('ITEM:'),USE(?RDP:ITEM:Prompt)
+! ENTRY(@n-14),USE(RDP:ITEM),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(RDP:ITEM),RIGHT(1)
+ITEM                       LONG
+!!> IDENT(778),PROMPT('ITEM:'),HEADER('ITEM'),PICTURE(@n-14),JUSTIFY(RIGHT,1),DERIVEDFROM('REQ_DES:ITEM')
+[SCREENCONTROLS]
+! PROMPT('LINEA:'),USE(?RDP:LINEA:Prompt)
+! ENTRY(@n-14),USE(RDP:LINEA),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(RDP:LINEA),RIGHT(1)
+LINEA                      LONG
+!!> IDENT(779),PROMPT('LINEA:'),HEADER('LINEA'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('NOMBRE:'),USE(?RDP:NOMBRE:Prompt)
+! ENTRY(@s50),USE(RDP:NOMBRE)
+[REPORTCONTROLS]
+! STRING(@s50),USE(RDP:NOMBRE)
+NOMBRE                     CSTRING(51)
+!!> IDENT(780),PROMPT('NOMBRE:'),HEADER('NOMBRE'),PICTURE(@s50)
+[SCREENCONTROLS]
+! PROMPT('fecha:'),USE(?RDP:fecha:Prompt)
+! ENTRY(@s8),USE(RDP:fecha)
+[REPORTCONTROLS]
+! STRING(@s8),USE(RDP:fecha)
+fecha                      STRING(8)
+!!> IDENT(785),PROMPT('fecha:'),HEADER('fecha'),PICTURE(@s8)
+[SCREENCONTROLS]
+! PROMPT('fechag:'),USE(?RDP:fechag:Prompt)
+! ENTRY(@s8),USE(RDP:fechag)
+[REPORTCONTROLS]
+! STRING(@s8),USE(RDP:fechag)
+fechag                     GROUP,OVER(fecha)
+!!> IDENT(786),PROMPT('fechag:'),HEADER('fechag'),PICTURE(@s8)
+[SCREENCONTROLS]
+! PROMPT('fecha date:'),USE(?RDP:fecha_date:Prompt)
+! ENTRY(@d17),USE(RDP:fecha_date)
+[REPORTCONTROLS]
+! STRING(@d17),USE(RDP:fecha_date)
+fecha_date                   DATE
+!!> IDENT(781),PROMPT('fecha date:'),HEADER('fecha date'),PICTURE(@d17)
+[SCREENCONTROLS]
+! PROMPT('fecha hora:'),USE(?RDP:fecha_hora:Prompt)
+! ENTRY(@t7),USE(RDP:fecha_hora)
+[REPORTCONTROLS]
+! STRING(@t7),USE(RDP:fecha_hora)
+fecha_hora                   TIME
+!!> IDENT(782),PROMPT('fecha hora:'),HEADER('fecha hora'),PICTURE(@t7)
+                           END
+!!> IDENT(787)
+                         END
+                       END
+REQ_EV FILE,DRIVER('MSSQL',GLO:DRIVEROPTIONS),OWNER(GLO:DSN),NAME('REQ_EVENTOS'),PRE(REQ_EV),CREATE,THREAD  !Requerimiento Detalle
+!!> IDENT(40),USAGE(File)
+REQCNSREQ KEY(REQ_EV:CNSREQ,REQ_EV:ITEM),PRIMARY !Por No. Requerimiento
+!!> IDENT(77)
+Record                   RECORD
+[SCREENCONTROLS]
+! PROMPT('No. Versión:'),USE(?REQ_EV:CNSREQ:Prompt)
+! ENTRY(@s20),USE(REQ_EV:CNSREQ),MSG('Consecutivo:'),TIP('Consecutivo:')
+[REPORTCONTROLS]
+! STRING(@s20),USE(REQ_EV:CNSREQ)
+CNSREQ                     CSTRING(21) !Consecutivo:
+!!> IDENT(537),PROMPT('No. Versión:'),HEADER('No. Versión'),MESSAGE('Consecutivo:'),TOOLTIP('Consecutivo:'),PICTURE(@s20)
+[SCREENCONTROLS]
+! PROMPT('ITEM:'),USE(?REQ_EV:ITEM:Prompt)
+! ENTRY(@n-14),USE(REQ_EV:ITEM),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(REQ_EV:ITEM),RIGHT(1)
+ITEM                       LONG
+!!> IDENT(538),PROMPT('ITEM:'),HEADER('ITEM'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('IDARCHIVO:'),USE(?REQ_EV:IDARCHIVO:Prompt)
+! ENTRY(@s20),USE(REQ_EV:IDARCHIVO)
+[REPORTCONTROLS]
+! STRING(@s20),USE(REQ_EV:IDARCHIVO)
+IDARCHIVO                  CSTRING(21)
+!!> IDENT(539),PROMPT('IDARCHIVO:'),HEADER('IDARCHIVO'),PICTURE(@s20)
+[SCREENCONTROLS]
+! PROMPT('Nombre Procedimiento:'),USE(?REQ_EV:NOMPRE:Prompt)
+! ENTRY(@s50),USE(REQ_EV:NOMPRE),MSG('Nombre Procedimiento'),TIP('Nombre Procedimiento')
+[REPORTCONTROLS]
+! STRING(@s50),USE(REQ_EV:NOMPRE)
+NOMPRE                     CSTRING(51) !Nombre de Archivo
+!!> IDENT(540),PROMPT('Nombre Procedimiento:'),HEADER('Nombre Procedimiento'),MESSAGE('Nombre Procedimiento'),TOOLTIP('Nombre Procedimiento'),PICTURE(@s50),DERIVEDFROM('PRD:NOMPRD')
+[SCREENCONTROLS]
+! PROMPT('EXTENSION:'),USE(?REQ_EV:EXTENSION:Prompt)
+! ENTRY(@s3),USE(REQ_EV:EXTENSION)
+[REPORTCONTROLS]
+! STRING(@s3),USE(REQ_EV:EXTENSION)
+EXTENSION                  CSTRING(4)
+!!> IDENT(541),PROMPT('EXTENSION:'),HEADER('EXTENSION'),PICTURE(@s3)
+[SCREENCONTROLS]
+! PROMPT('Usuario:'),USE(?REQ_EV:USUARIO:Prompt)
+! ENTRY(@s20),USE(REQ_EV:USUARIO),MSG('Usuario'),TIP('Usuario'),REQ,UPR
+[REPORTCONTROLS]
+! STRING(@s20),USE(REQ_EV:USUARIO)
+USUARIO                    CSTRING(21) !Usuario
+!!> IDENT(542),VALID(NONZERO),PROMPT('Usuario:'),HEADER('Usuario'),MESSAGE('Usuario'),TOOLTIP('Usuario'),PICTURE(@s20),CASE(UPPER),DERIVEDFROM('USU:USUARIO')
+[SCREENCONTROLS]
+! PROMPT('Detalle:'),USE(?REQ_EV:DETALLE:Prompt)
+! TEXT,USE(REQ_EV:DETALLE),BOXED,MSG('Detalle'),TIP('Detalle')
+[REPORTCONTROLS]
+! TEXT,USE(REQ_EV:DETALLE),BOXED
+DETALLE                    CSTRING(2049) !Detalle
+!!> IDENT(543),PROMPT('Detalle:'),HEADER('Detalle'),MESSAGE('Detalle'),TOOLTIP('Detalle'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('Usuario Recibe Req:'),USE(?REQ_EV:USUARIORECIBE:Prompt)
+! ENTRY(@s20),USE(REQ_EV:USUARIORECIBE),MSG('Usuario Recibe Req'),TIP('Usuario Recibe Req'),REQ,UPR
+[REPORTCONTROLS]
+! STRING(@s20),USE(REQ_EV:USUARIORECIBE)
+USUARIORECIBE              CSTRING(21) !Usuario Recibe Req
+!!> IDENT(544),VALID(NONZERO),PROMPT('Usuario Recibe Req:'),HEADER('Usuario Recibe Req'),MESSAGE('Usuario Recibe Req'),TOOLTIP('Usuario Recibe Req'),PICTURE(@s20),CASE(UPPER),DERIVEDFROM('USU:USUARIO')
+[QUICKCODE]
+!NOPOPULATE
+[SCREENCONTROLS]
+! PROMPT('FECHARECIBO:'),USE(?REQ_EV:FECHARECIBO:Prompt)
+! ENTRY(@s8),USE(REQ_EV:FECHARECIBO)
+[REPORTCONTROLS]
+! STRING(@s8),USE(REQ_EV:FECHARECIBO)
+FECHARECIBO                STRING(8)
+!!> IDENT(545),PROMPT('FECHARECIBO:'),HEADER('FECHARECIBO'),PICTURE(@s8)
+[QUICKCODE]
+!NOPOPULATE
+[SCREENCONTROLS]
+! PROMPT('FECHARECIBO GROUP:'),USE(?REQ_EV:FECHARECIBO_GROUP:Prompt)
+! ENTRY(@s8),USE(REQ_EV:FECHARECIBO_GROUP)
+[REPORTCONTROLS]
+! STRING(@s8),USE(REQ_EV:FECHARECIBO_GROUP)
+FECHARECIBO_GROUP          GROUP,OVER(FECHARECIBO)
+!!> IDENT(546),PROMPT('FECHARECIBO GROUP:'),HEADER('FECHARECIBO GROUP'),PICTURE(@s8),DERIVEDFROM('VRS:FECHACIERRE_GROUP')
+[SCREENCONTROLS]
+! PROMPT('Fecha Recibo:'),USE(?REQ_EV:FECHARECIBO_DATE:Prompt)
+! SPIN(@d6.),USE(REQ_EV:FECHARECIBO_DATE),MSG('Fecha Recibo'),TIP('Fecha Recibo')
+[REPORTCONTROLS]
+! STRING(@d6.),USE(REQ_EV:FECHARECIBO_DATE)
+FECHARECIBO_DATE             DATE !Fecha Recibo
+!!> IDENT(547),PROMPT('Fecha Recibo:'),HEADER('Fecha Recibo'),MESSAGE('Fecha Recibo'),TOOLTIP('Fecha Recibo'),PICTURE(@d6.),DERIVEDFROM('VRS:FECHACIERRE_DATE')
+[SCREENCONTROLS]
+! PROMPT('Hora Recibo:'),USE(?REQ_EV:FECHARECIBO_TIME:Prompt)
+! SPIN(@t4),USE(REQ_EV:FECHARECIBO_TIME),MSG('Hora Recibo'),TIP('Hora Recibo')
+[REPORTCONTROLS]
+! STRING(@t4),USE(REQ_EV:FECHARECIBO_TIME)
+FECHARECIBO_TIME             TIME !Hora Recibo
+!!> IDENT(548),PROMPT('Hora Recibo:'),HEADER('Hora Recibo'),MESSAGE('Hora Recibo'),TOOLTIP('Hora Recibo'),PICTURE(@t4),DERIVEDFROM('VRS:FECHACIERRE_TIME')
+                           END
+!!> IDENT(549)
+[SCREENCONTROLS]
+! PROMPT('ESTADO NUEVO:'),USE(?REQ_EV:ESTADO_NUEVO:Prompt)
+! ENTRY(@s2),USE(REQ_EV:ESTADO_NUEVO)
+[REPORTCONTROLS]
+! STRING(@s2),USE(REQ_EV:ESTADO_NUEVO)
+ESTADO_NUEVO               CSTRING(3)
+!!> IDENT(550),PROMPT('ESTADO NUEVO:'),HEADER('ESTADO NUEVO'),PICTURE(@s2)
+[SCREENCONTROLS]
+! PROMPT('ESTADO ANT:'),USE(?REQ_EV:ESTADO_ANT:Prompt)
+! ENTRY(@s2),USE(REQ_EV:ESTADO_ANT)
+[REPORTCONTROLS]
+! STRING(@s2),USE(REQ_EV:ESTADO_ANT)
+ESTADO_ANT                 CSTRING(3)
+!!> IDENT(551),PROMPT('ESTADO ANT:'),HEADER('ESTADO ANT'),PICTURE(@s2)
+[SCREENCONTROLS]
+! PROMPT('EVENTO:'),USE(?REQ_EV:EVENTO:Prompt)
+! ENTRY(@s2),USE(REQ_EV:EVENTO)
+[REPORTCONTROLS]
+! STRING(@s2),USE(REQ_EV:EVENTO)
+EVENTO                     CSTRING(3)
+!!> IDENT(562),PROMPT('EVENTO:'),HEADER('EVENTO'),PICTURE(@s2)
+                         END
+                       END
+REQ_DES FILE,DRIVER('MSSQL',GLO:DRIVEROPTIONS),OWNER(GLO:DSN),NAME('REQ_DES'),PRE(REQ_DES),CREATE,THREAD  !Detalles de Desarrollo
+!!> IDENT(45),USAGE(File)
+key_portipo KEY(REQ_DES:CNSREQ,REQ_DES:TIPO),DUP,NOCASE,OPT
+!!> IDENT(107)
+REQCNSREQ KEY(REQ_DES:CNSREQ,REQ_DES:ITEM),PRIMARY !Por No. Requerimiento
+!!> IDENT(85)
+[SCREENCONTROLS]
+! IMAGE,USE(?REQ_DES:DICOM)
+[REPORTCONTROLS]
+! IMAGE,USE(?REQ_DES:DICOM)
+DICOM                      BLOB,BINARY
+!!> IDENT(583),PROMPT('DICOM:'),HEADER('DICOM'),PICTURE(@s20)
+Record                   RECORD
+[SCREENCONTROLS]
+! PROMPT('No. Versión:'),USE(?REQ_DES:CNSREQ:Prompt)
+! ENTRY(@s20),USE(REQ_DES:CNSREQ),MSG('Consecutivo:'),TIP('Consecutivo:')
+[REPORTCONTROLS]
+! STRING(@s20),USE(REQ_DES:CNSREQ)
+CNSREQ                     CSTRING(21) !Consecutivo:
+!!> IDENT(567),PROMPT('No. Versión:'),HEADER('No. Versión'),MESSAGE('Consecutivo:'),TOOLTIP('Consecutivo:'),PICTURE(@s20)
+[SCREENCONTROLS]
+! PROMPT('ITEM:'),USE(?REQ_DES:ITEM:Prompt)
+! ENTRY(@n-14),USE(REQ_DES:ITEM),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(REQ_DES:ITEM),RIGHT(1)
+ITEM                       LONG
+!!> IDENT(568),PROMPT('ITEM:'),HEADER('ITEM'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('IDARCHIVO:'),USE(?REQ_DES:IDARCHIVO:Prompt)
+! ENTRY(@s20),USE(REQ_DES:IDARCHIVO)
+[REPORTCONTROLS]
+! STRING(@s20),USE(REQ_DES:IDARCHIVO)
+IDARCHIVO                  CSTRING(21)
+!!> IDENT(569),PROMPT('IDARCHIVO:'),HEADER('IDARCHIVO'),PICTURE(@s20)
+[SCREENCONTROLS]
+! PROMPT('Nombre Procedimiento:'),USE(?REQ_DES:NOMPRE:Prompt)
+! ENTRY(@s50),USE(REQ_DES:NOMPRE),MSG('Nombre Procedimiento'),TIP('Nombre Procedimiento')
+[REPORTCONTROLS]
+! STRING(@s50),USE(REQ_DES:NOMPRE)
+NOMPRE                     CSTRING(51) !Nombre de Archivo
+!!> IDENT(570),PROMPT('Nombre Procedimiento:'),HEADER('Nombre Procedimiento'),MESSAGE('Nombre Procedimiento'),TOOLTIP('Nombre Procedimiento'),PICTURE(@s50),DERIVEDFROM('PRD:NOMPRD')
+[SCREENCONTROLS]
+! PROMPT('EXTENSION:'),USE(?REQ_DES:EXTENSION:Prompt)
+! ENTRY(@s3),USE(REQ_DES:EXTENSION)
+[REPORTCONTROLS]
+! STRING(@s3),USE(REQ_DES:EXTENSION)
+EXTENSION                  CSTRING(4)
+!!> IDENT(571),PROMPT('EXTENSION:'),HEADER('EXTENSION'),PICTURE(@s3)
+[SCREENCONTROLS]
+! PROMPT('Usuario:'),USE(?REQ_DES:USUARIO:Prompt)
+! ENTRY(@s20),USE(REQ_DES:USUARIO),MSG('Usuario'),TIP('Usuario'),REQ,UPR
+[REPORTCONTROLS]
+! STRING(@s20),USE(REQ_DES:USUARIO)
+USUARIO                    CSTRING(21) !Usuario
+!!> IDENT(572),VALID(NONZERO),PROMPT('Usuario:'),HEADER('Usuario'),MESSAGE('Usuario'),TOOLTIP('Usuario'),PICTURE(@s20),CASE(UPPER),DERIVEDFROM('USU:USUARIO')
+[SCREENCONTROLS]
+! PROMPT('Detalle:'),USE(?REQ_DES:DETALLE:Prompt)
+! TEXT,USE(REQ_DES:DETALLE),BOXED,MSG('Detalle'),TIP('Detalle')
+[REPORTCONTROLS]
+! TEXT,USE(REQ_DES:DETALLE),BOXED
+DETALLE                    CSTRING(2049) !Detalle
+!!> IDENT(573),PROMPT('Detalle:'),HEADER('Detalle'),MESSAGE('Detalle'),TOOLTIP('Detalle'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('Usuario Recibe Req:'),USE(?REQ_DES:USUARIORECIBE:Prompt)
+! ENTRY(@s20),USE(REQ_DES:USUARIORECIBE),MSG('Usuario Recibe Req'),TIP('Usuario Recibe Req'),REQ,UPR
+[REPORTCONTROLS]
+! STRING(@s20),USE(REQ_DES:USUARIORECIBE)
+USUARIORECIBE              CSTRING(21) !Usuario Recibe Req
+!!> IDENT(574),VALID(NONZERO),PROMPT('Usuario Recibe Req:'),HEADER('Usuario Recibe Req'),MESSAGE('Usuario Recibe Req'),TOOLTIP('Usuario Recibe Req'),PICTURE(@s20),CASE(UPPER),DERIVEDFROM('USU:USUARIO')
+[QUICKCODE]
+!NOPOPULATE
+[SCREENCONTROLS]
+! PROMPT('FECHARECIBO:'),USE(?REQ_DES:FECHARECIBO:Prompt)
+! ENTRY(@s8),USE(REQ_DES:FECHARECIBO)
+[REPORTCONTROLS]
+! STRING(@s8),USE(REQ_DES:FECHARECIBO)
+FECHARECIBO                STRING(8)
+!!> IDENT(575),PROMPT('FECHARECIBO:'),HEADER('FECHARECIBO'),PICTURE(@s8)
+[QUICKCODE]
+!NOPOPULATE
+[SCREENCONTROLS]
+! PROMPT('FECHARECIBO GROUP:'),USE(?REQ_DES:FECHARECIBO_GROUP:Prompt)
+! ENTRY(@s8),USE(REQ_DES:FECHARECIBO_GROUP)
+[REPORTCONTROLS]
+! STRING(@s8),USE(REQ_DES:FECHARECIBO_GROUP)
+FECHARECIBO_GROUP          GROUP,OVER(FECHARECIBO)
+!!> IDENT(576),PROMPT('FECHARECIBO GROUP:'),HEADER('FECHARECIBO GROUP'),PICTURE(@s8),DERIVEDFROM('VRS:FECHACIERRE_GROUP')
+[SCREENCONTROLS]
+! PROMPT('Fecha Recibo:'),USE(?REQ_DES:FECHARECIBO_DATE:Prompt)
+! SPIN(@d6.),USE(REQ_DES:FECHARECIBO_DATE),MSG('Fecha Recibo'),TIP('Fecha Recibo')
+[REPORTCONTROLS]
+! STRING(@d6.),USE(REQ_DES:FECHARECIBO_DATE)
+FECHARECIBO_DATE             DATE !Fecha Recibo
+!!> IDENT(577),PROMPT('Fecha Recibo:'),HEADER('Fecha Recibo'),MESSAGE('Fecha Recibo'),TOOLTIP('Fecha Recibo'),PICTURE(@d6.),DERIVEDFROM('VRS:FECHACIERRE_DATE')
+[SCREENCONTROLS]
+! PROMPT('Hora Recibo:'),USE(?REQ_DES:FECHARECIBO_TIME:Prompt)
+! SPIN(@t4),USE(REQ_DES:FECHARECIBO_TIME),MSG('Hora Recibo'),TIP('Hora Recibo')
+[REPORTCONTROLS]
+! STRING(@t4),USE(REQ_DES:FECHARECIBO_TIME)
+FECHARECIBO_TIME             TIME !Hora Recibo
+!!> IDENT(578),PROMPT('Hora Recibo:'),HEADER('Hora Recibo'),MESSAGE('Hora Recibo'),TOOLTIP('Hora Recibo'),PICTURE(@t4),DERIVEDFROM('VRS:FECHACIERRE_TIME')
+                           END
+!!> IDENT(579)
+[SCREENCONTROLS]
+! PROMPT('TIPO:'),USE(?REQ_DES:TIPO:Prompt)
+! ENTRY(@s20),USE(REQ_DES:TIPO)
+[REPORTCONTROLS]
+! STRING(@s20),USE(REQ_DES:TIPO)
+TIPO                       CSTRING(21)
+!!> IDENT(585),VALID(NOCHECKS('TXA|VARIABLES|DICCIONARIO|SQL|SPK|FNK|TK|VWK|IMAGEN')),PROMPT('TIPO:'),HEADER('TIPO'),PICTURE(@s20),VALUES('TXA|VARIABLES|DICCIONARIO|SQL|SPK|FNK|TK|VWK|IMAGEN')
+                         END
+                       END
+SXC FILE,DRIVER('MSSQL',GLO:DRIVEROPTIONS),OWNER(GLO:DSN),NAME('SXC'),PRE(SXC),THREAD  !Sistemas x Compañía
+!!> IDENT(13),USAGE(File)
+SXCCOMPANIA KEY(SXC:COMPANIA,SXC:SISTEMA),PRIMARY !Compañía
+!!> IDENT(31)
+SXCSISTEMA KEY(SXC:SISTEMA,SXC:COMPANIA) !Por Sistema
+!!> IDENT(33)
+Record                   RECORD
+[SCREENCONTROLS]
+! PROMPT('Compañía:'),USE(?SXC:COMPANIA:Prompt)
+! ENTRY(@s4),USE(SXC:COMPANIA),MSG('Compañía'),TIP('Compañía'),REQ,UPR
+[REPORTCONTROLS]
+! STRING(@s4),USE(SXC:COMPANIA)
+COMPANIA                   CSTRING(5) !Compañía
+!!> IDENT(180),VALID(NONZERO),PROMPT('Compañía:'),HEADER('Compañía'),MESSAGE('Compañía'),TOOLTIP('Compañía'),PICTURE(@s4),CASE(UPPER)
+[SCREENCONTROLS]
+! PROMPT('Sistema:'),USE(?SXC:SISTEMA:Prompt)
+! ENTRY(@s20),USE(SXC:SISTEMA),MSG('Sistema'),TIP('Sistema')
+[REPORTCONTROLS]
+! STRING(@s20),USE(SXC:SISTEMA)
+SISTEMA                    CSTRING(21) !Sistema
+!!> IDENT(183),PROMPT('Sistema:'),HEADER('Sistema'),MESSAGE('Sistema'),TOOLTIP('Sistema'),PICTURE(@s20),DERIVEDFROM('SIS:SISTEMA')
+[SCREENCONTROLS]
+! PROMPT('Estado:'),USE(?SXC:ESTADO:Prompt)
+! LIST,USE(SXC:ESTADO),MSG('Estado'),TIP('Estado'),DROP(5),FROM('Licenciado|#LI|Prueba|#PR|Demo|#DE|No Instalado|#NO')
+[REPORTCONTROLS]
+! STRING(@s2),USE(SXC:ESTADO)
+ESTADO                     CSTRING(3) !Estado
+!!> IDENT(185),VALID(INLIST('Licenciado|Prueba|Demo|No Instalado')),INITIAL('''NO'''),PROMPT('Estado:'),HEADER('Estado'),MESSAGE('Estado'),TOOLTIP('Estado'),PICTURE(@s2),VALUES('LI|PR|DE|NO')
+                         END
+                       END
+SIS FILE,DRIVER('MSSQL',GLO:DRIVEROPTIONS),OWNER(GLO:DSN),NAME('SIS'),PRE(SIS),THREAD  !Sistemas IX
+!!> IDENT(10),USAGE(File)
+SISSISTEMA KEY(SIS:SISTEMA),PRIMARY !Por Sistema
+!!> IDENT(19)
+SISNOMBRE KEY(SIS:NOMBRE) !Por Nombre
+!!> IDENT(21)
+Record                   RECORD
+[SCREENCONTROLS]
+! PROMPT('Sistema:'),USE(?SIS:SISTEMA:Prompt)
+! ENTRY(@s20),USE(SIS:SISTEMA),MSG('Sistema'),TIP('Sistema')
+[REPORTCONTROLS]
+! STRING(@s20),USE(SIS:SISTEMA)
+SISTEMA                    CSTRING(21) !Sistema
+!!> IDENT(108),PROMPT('Sistema:'),HEADER('Sistema'),MESSAGE('Sistema'),TOOLTIP('Sistema'),PICTURE(@s20)
+[SCREENCONTROLS]
+! PROMPT('Nombre:'),USE(?SIS:NOMBRE:Prompt)
+! ENTRY(@s60),USE(SIS:NOMBRE),MSG('Razón Social'),TIP('Razón Social'),REQ
+[REPORTCONTROLS]
+! STRING(@s60),USE(SIS:NOMBRE)
+NOMBRE                     CSTRING(61) !Nombre
+!!> IDENT(109),VALID(NONZERO),PROMPT('Nombre:'),HEADER('Nombre'),MESSAGE('Razón Social'),TOOLTIP('Razón Social'),PICTURE(@s60)
+                         END
+                       END
+PRD FILE,DRIVER('MSSQL',GLO:DRIVEROPTIONS),OWNER(GLO:DSN),NAME('PRD'),PRE(PRD),THREAD  !Procedimientos
+!!> IDENT(14),USAGE(File)
+PRDSISTEMA KEY(PRD:SISTEMA,PRD:IDAPP,PRD:NOMPRD),PRIMARY !Por Sistema
+!!> IDENT(35)
+PRDAPP KEY(PRD:IDAPP,PRD:SISTEMA,PRD:NOMPRD) !Por Nombre
+!!> IDENT(36)
+PRDNOMPRD KEY(PRD:NOMPRD,PRD:IDAPP,PRD:SISTEMA) !Por Procedimiento
+!!> IDENT(37)
+Record                   RECORD
+[SCREENCONTROLS]
+! PROMPT('Sistema:'),USE(?PRD:SISTEMA:Prompt)
+! ENTRY(@s20),USE(PRD:SISTEMA),MSG('Sistema'),TIP('Sistema')
+[REPORTCONTROLS]
+! STRING(@s20),USE(PRD:SISTEMA)
+SISTEMA                    CSTRING(21) !Sistema
+!!> IDENT(192),PROMPT('Sistema:'),HEADER('Sistema'),MESSAGE('Sistema'),TOOLTIP('Sistema'),PICTURE(@s20),DERIVEDFROM('SIS:SISTEMA')
+[SCREENCONTROLS]
+! PROMPT('Id. del Aplicativo:'),USE(?PRD:IDAPP:Prompt)
+! ENTRY(@s20),USE(PRD:IDAPP),MSG('Id. del Aplicativo'),TIP('Id. del Aplicativo'),REQ
+[REPORTCONTROLS]
+! STRING(@s20),USE(PRD:IDAPP)
+IDAPP                      CSTRING(21) !Id. del Aplicativo
+!!> IDENT(193),VALID(NONZERO),PROMPT('Id. del Aplicativo:'),HEADER('Id. del Aplicativo'),MESSAGE('Id. del Aplicativo'),TOOLTIP('Id. del Aplicativo'),PICTURE(@s20),DERIVEDFROM('PRG:IDAPP')
+[SCREENCONTROLS]
+! PROMPT('Nombre Procedimiento:'),USE(?PRD:NOMPRD:Prompt)
+! ENTRY(@s50),USE(PRD:NOMPRD),MSG('Nombre Procedimiento'),TIP('Nombre Procedimiento')
+[REPORTCONTROLS]
+! STRING(@s50),USE(PRD:NOMPRD)
+NOMPRD                     CSTRING(51) !Nombre Procedimiento
+!!> IDENT(196),PROMPT('Nombre Procedimiento:'),HEADER('Nombre Procedimiento'),MESSAGE('Nombre Procedimiento'),TOOLTIP('Nombre Procedimiento'),PICTURE(@s50)
+[SCREENCONTROLS]
+! PROMPT('No. Versión del Proc.:'),USE(?PRD:NOVER:Prompt)
+! ENTRY(@s20),USE(PRD:NOVER),MSG('No. Versión del Proc.'),TIP('No. Versión del Proc.')
+[REPORTCONTROLS]
+! STRING(@s20),USE(PRD:NOVER)
+NOVER                      CSTRING(21) !No. Versión del Proc.
+!!> IDENT(194),PROMPT('No. Versión del Proc.:'),HEADER('No. Versión del Proc.'),MESSAGE('No. Versión del Proc.'),TOOLTIP('No. Versión del Proc.'),PICTURE(@s20),DERIVEDFROM('VRSD:NOVER')
+[SCREENCONTROLS]
+! PROMPT('Detalle:'),USE(?PRD:DETALLE:Prompt)
+! TEXT,USE(PRD:DETALLE),BOXED,MSG('Detalle'),TIP('Detalle')
+[REPORTCONTROLS]
+! TEXT,USE(PRD:DETALLE),BOXED
+DETALLE                    CSTRING(513) !Detalle
+!!> IDENT(195),PROMPT('Detalle:'),HEADER('Detalle'),MESSAGE('Detalle'),TOOLTIP('Detalle'),PICTURE(@s255)
+                         END
+                       END
+GRU FILE,DRIVER('MSSQL',GLO:DRIVEROPTIONS),OWNER(GLO:DSN),NAME('GRU'),PRE(GRU),CREATE,THREAD  !Grupos
+!!> IDENT(6),USAGE(File)
+GRUGRUPO KEY(GRU:GRUPO),PRIMARY !Por Grupo
+!!> IDENT(9)
+GRUNOMBRE KEY(GRU:NOMBRE) !Por Nombre
+!!> IDENT(10)
+Record                   RECORD
+[SCREENCONTROLS]
+! PROMPT('Grupo de Usuario:'),USE(?GRU:GRUPO:Prompt)
+! ENTRY(@s20),USE(GRU:GRUPO),MSG('Grupo de Usuario'),TIP('Grupo de Usuario'),REQ
+[REPORTCONTROLS]
+! STRING(@s20),USE(GRU:GRUPO)
+GRUPO                      CSTRING(21) !Grupo de Usuario
+!!> IDENT(62),VALID(NONZERO),PROMPT('Grupo de Usuario:'),HEADER('Grupo de Usuario'),MESSAGE('Grupo de Usuario'),TOOLTIP('Grupo de Usuario'),PICTURE(@s20)
+[SCREENCONTROLS]
+! PROMPT('Nombre:'),USE(?GRU:NOMBRE:Prompt)
+! ENTRY(@s80),USE(GRU:NOMBRE),MSG('Nombre'),TIP('Nombre')
+[REPORTCONTROLS]
+! STRING(@s80),USE(GRU:NOMBRE)
+NOMBRE                     CSTRING(81) !Nombre
+!!> IDENT(63),PROMPT('Nombre:'),HEADER('Nombre'),MESSAGE('Nombre'),TOOLTIP('Nombre'),PICTURE(@s80)
+                         END
+                       END
+CIA FILE,DRIVER('MSSQL',GLO:DRIVEROPTIONS),OWNER(GLO:DSN),NAME('CIA'),PRE(CIA),THREAD  !Compañías
+!!> IDENT(8),USAGE(File)
+CIACOMPANIA KEY(CIA:COMPANIA),PRIMARY !Compañía
+!!> IDENT(13)
+CIARAZONSOCIAL KEY(CIA:RAZONSOCIAL,CIA:COMPANIA),DUP !Razón Social
+!!> IDENT(14)
+Record                   RECORD
+[SCREENCONTROLS]
+! PROMPT('Compañía:'),USE(?CIA:COMPANIA:Prompt)
+! ENTRY(@s4),USE(CIA:COMPANIA),MSG('Compañía'),TIP('Compañía'),REQ,UPR
+[REPORTCONTROLS]
+! STRING(@s4),USE(CIA:COMPANIA)
+COMPANIA                   CSTRING(5) !Compañía
+!!> IDENT(75),VALID(NONZERO),PROMPT('Compañía:'),HEADER('Compañía'),MESSAGE('Compañía'),TOOLTIP('Compañía'),PICTURE(@s4),CASE(UPPER)
+[SCREENCONTROLS]
+! PROMPT('Razón Social:'),USE(?CIA:RAZONSOCIAL:Prompt)
+! ENTRY(@s60),USE(CIA:RAZONSOCIAL),MSG('Razón Social'),TIP('Razón Social'),REQ
+[REPORTCONTROLS]
+! STRING(@s60),USE(CIA:RAZONSOCIAL)
+RAZONSOCIAL                CSTRING(61) !Razón Social
+!!> IDENT(76),VALID(NONZERO),PROMPT('Razón Social:'),HEADER('Razón Social'),MESSAGE('Razón Social'),TOOLTIP('Razón Social'),PICTURE(@s60)
+[SCREENCONTROLS]
+! PROMPT('DSN:'),USE(?CIA:DSN:Prompt)
+! ENTRY(@s100),USE(CIA:DSN),MSG('DSN'),TIP('DSN')
+[REPORTCONTROLS]
+! STRING(@s100),USE(CIA:DSN)
+DSN                        CSTRING(101) !DSN
+!!> IDENT(80),PROMPT('DSN:'),HEADER('DSN'),MESSAGE('DSN'),TOOLTIP('DSN'),PICTURE(@s100)
+[SCREENCONTROLS]
+! PROMPT('No. Versión:'),USE(?CIA:CNSVRS:Prompt)
+! ENTRY(@s20),USE(CIA:CNSVRS),MSG('Consecutivo:'),TIP('Consecutivo:')
+[REPORTCONTROLS]
+! STRING(@s20),USE(CIA:CNSVRS)
+CNSVRS                     CSTRING(21) !Consecutivo:
+!!> IDENT(224),PROMPT('No. Versión:'),HEADER('No. Versión'),MESSAGE('Consecutivo:'),TOOLTIP('Consecutivo:'),PICTURE(@s20)
+[SCREENCONTROLS]
+! PROMPT('ACTIVO:'),USE(?CIA:ACTIVO:Prompt)
+! ENTRY(@n-7),USE(CIA:ACTIVO),RIGHT(1),MSG('Activo'),TIP('Activo')
+[REPORTCONTROLS]
+! STRING(@n-7),USE(CIA:ACTIVO),RIGHT(1)
+ACTIVO                     SHORT !Activo
+!!> IDENT(649),PROMPT('ACTIVO:'),HEADER('ACTIVO'),MESSAGE('Activo'),TOOLTIP('Activo'),PICTURE(@n-7),JUSTIFY(RIGHT,1)
+                         END
+                       END
+PRG FILE,DRIVER('MSSQL',GLO:DRIVEROPTIONS),OWNER(GLO:DSN),NAME('PRG'),PRE(PRG),THREAD  !Programas APP
+!!> IDENT(12),USAGE(File)
+PRGSISTEMA KEY(PRG:SISTEMA,PRG:IDAPP),PRIMARY !Por Sistema
+!!> IDENT(29)
+PRGAPP KEY(PRG:IDAPP,PRG:SISTEMA) !Por Nombre
+!!> IDENT(30)
+Record                   RECORD
+[SCREENCONTROLS]
+! PROMPT('Sistema:'),USE(?PRG:SISTEMA:Prompt)
+! ENTRY(@s20),USE(PRG:SISTEMA),MSG('Sistema'),TIP('Sistema')
+[REPORTCONTROLS]
+! STRING(@s20),USE(PRG:SISTEMA)
+SISTEMA                    CSTRING(21) !Sistema
+!!> IDENT(162),PROMPT('Sistema:'),HEADER('Sistema'),MESSAGE('Sistema'),TOOLTIP('Sistema'),PICTURE(@s20),DERIVEDFROM('SIS:SISTEMA')
+[SCREENCONTROLS]
+! PROMPT('Id. del Aplicativo:'),USE(?PRG:IDAPP:Prompt)
+! ENTRY(@s20),USE(PRG:IDAPP),MSG('Id. del Aplicativo'),TIP('Id. del Aplicativo'),REQ
+[REPORTCONTROLS]
+! STRING(@s20),USE(PRG:IDAPP)
+IDAPP                      CSTRING(21) !Id. del Aplicativo
+!!> IDENT(163),VALID(NONZERO),PROMPT('Id. del Aplicativo:'),HEADER('Id. del Aplicativo'),MESSAGE('Id. del Aplicativo'),TOOLTIP('Id. del Aplicativo'),PICTURE(@s20)
+[SCREENCONTROLS]
+! PROMPT('No. Versión del Proc.:'),USE(?PRG:NOVER:Prompt)
+! ENTRY(@s20),USE(PRG:NOVER),MSG('No. Versión del Proc.'),TIP('No. Versión del Proc.')
+[REPORTCONTROLS]
+! STRING(@s20),USE(PRG:NOVER)
+NOVER                      CSTRING(21) !No. Versión del Proc.
+!!> IDENT(173),PROMPT('No. Versión del Proc.:'),HEADER('No. Versión del Proc.'),MESSAGE('No. Versión del Proc.'),TOOLTIP('No. Versión del Proc.'),PICTURE(@s20),DERIVEDFROM('VRSD:NOVER')
+[SCREENCONTROLS]
+! PROMPT('Detalle:'),USE(?PRG:DETALLE:Prompt)
+! TEXT,USE(PRG:DETALLE),BOXED,MSG('Detalle'),TIP('Detalle')
+[REPORTCONTROLS]
+! TEXT,USE(PRG:DETALLE),BOXED
+DETALLE                    CSTRING(513) !Detalle
+!!> IDENT(175),PROMPT('Detalle:'),HEADER('Detalle'),MESSAGE('Detalle'),TOOLTIP('Detalle'),PICTURE(@s255)
+                         END
+                       END
+VER FILE,DRIVER('MSSQL',GLO:DRIVEROPTIONS),OWNER(GLO:DSN),NAME('VER'),PRE(VER),BINDABLE,CREATE,THREAD  !Versiones
+!!> IDENT(31),USAGE(File)
+VERCNSVER KEY(VER:TIPODOC,VER:CNSVER),PRIMARY
+!!> IDENT(58)
+VERCNS KEY(VER:CNSVER),DUP,NOCASE,OPT
+!!> IDENT(96)
+Record                   RECORD
+[SCREENCONTROLS]
+! PROMPT('TIPODOC:'),USE(?VER:TIPODOC:Prompt)
+! ENTRY(@s20),USE(VER:TIPODOC)
+[REPORTCONTROLS]
+! STRING(@s20),USE(VER:TIPODOC)
+TIPODOC                    CSTRING(21)
+!!> IDENT(420),PROMPT('TIPODOC:'),HEADER('TIPODOC'),PICTURE(@s20)
+[SCREENCONTROLS]
+! PROMPT('CNSVER:'),USE(?VER:CNSVER:Prompt)
+! ENTRY(@s20),USE(VER:CNSVER)
+[REPORTCONTROLS]
+! STRING(@s20),USE(VER:CNSVER)
+CNSVER                     CSTRING(21)
+!!> IDENT(412),PROMPT('CNSVER:'),HEADER('CNSVER'),PICTURE(@s20)
+[SCREENCONTROLS]
+! PROMPT('NOMBRE:'),USE(?VER:NOMBRE:Prompt)
+! ENTRY(@s30),USE(VER:NOMBRE)
+[REPORTCONTROLS]
+! STRING(@s30),USE(VER:NOMBRE)
+NOMBRE                     CSTRING(31)
+!!> IDENT(413),PROMPT('NOMBRE:'),HEADER('NOMBRE'),PICTURE(@s30)
+[SCREENCONTROLS]
+! PROMPT('NELABORA:'),USE(?VER:NELABORA:Prompt)
+! ENTRY(@s21),USE(VER:NELABORA)
+[REPORTCONTROLS]
+! STRING(@s21),USE(VER:NELABORA)
+NELABORA                   STRING(21)
+!!> IDENT(422),PROMPT('NELABORA:'),HEADER('NELABORA'),PICTURE(@s21)
+[SCREENCONTROLS]
+! PROMPT('NEMITIDO:'),USE(?VER:NEMITIDO:Prompt)
+! ENTRY(@s21),USE(VER:NEMITIDO)
+[REPORTCONTROLS]
+! STRING(@s21),USE(VER:NEMITIDO)
+NEMITIDO                   STRING(21)
+!!> IDENT(423),PROMPT('NEMITIDO:'),HEADER('NEMITIDO'),PICTURE(@s21)
+[SCREENCONTROLS]
+! PROMPT('NREVISO:'),USE(?VER:NREVISO:Prompt)
+! ENTRY(@s21),USE(VER:NREVISO)
+[REPORTCONTROLS]
+! STRING(@s21),USE(VER:NREVISO)
+NREVISO                    STRING(21)
+!!> IDENT(426),PROMPT('NREVISO:'),HEADER('NREVISO'),PICTURE(@s21)
+[SCREENCONTROLS]
+! PROMPT('NAPROBO:'),USE(?VER:NAPROBO:Prompt)
+! ENTRY(@s21),USE(VER:NAPROBO)
+[REPORTCONTROLS]
+! STRING(@s21),USE(VER:NAPROBO)
+NAPROBO                    STRING(21)
+!!> IDENT(427),PROMPT('NAPROBO:'),HEADER('NAPROBO'),PICTURE(@s21)
+[SCREENCONTROLS]
+! PROMPT('FECHA:'),USE(?VER:FECHA:Prompt)
+! ENTRY(@s8),USE(VER:FECHA)
+[REPORTCONTROLS]
+! STRING(@s8),USE(VER:FECHA)
+FECHA                      STRING(8)
+!!> IDENT(414),PROMPT('FECHA:'),HEADER('FECHA'),PICTURE(@s8)
+[SCREENCONTROLS]
+! PROMPT('FECHA_GROUP:'),USE(?VER:FECHA_GROUP:Prompt)
+! ENTRY(@s8),USE(VER:FECHA_GROUP)
+[REPORTCONTROLS]
+! STRING(@s8),USE(VER:FECHA_GROUP)
+FECHA_GROUP                GROUP,OVER(FECHA)
+!!> IDENT(415),PROMPT('FECHA_GROUP:'),HEADER('FECHA_GROUP'),PICTURE(@s8)
+[SCREENCONTROLS]
+! PROMPT('FECHA_DATE:'),USE(?VER:FECHA_DATE:Prompt)
+! ENTRY(@d17),USE(VER:FECHA_DATE),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@d17),USE(VER:FECHA_DATE),RIGHT(1)
+FECHA_DATE                   DATE
+!!> IDENT(416),PROMPT('FECHA_DATE:'),HEADER('FECHA_DATE'),PICTURE(@d17),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('FECHA_TIME:'),USE(?VER:FECHA_TIME:Prompt)
+! ENTRY(@t7),USE(VER:FECHA_TIME),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@t7),USE(VER:FECHA_TIME),RIGHT(1)
+FECHA_TIME                   TIME
+!!> IDENT(417),PROMPT('FECHA_TIME:'),HEADER('FECHA_TIME'),PICTURE(@t7),JUSTIFY(RIGHT,1)
+                           END
+!!> IDENT(419)
+[SCREENCONTROLS]
+! PROMPT('ESTADO:'),USE(?VER:ESTADO:Prompt)
+! ENTRY(@n-7),USE(VER:ESTADO),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-7),USE(VER:ESTADO),RIGHT(1)
+ESTADO                     SHORT
+!!> IDENT(418),PROMPT('ESTADO:'),HEADER('ESTADO'),PICTURE(@n-7),JUSTIFY(RIGHT,1)
+                         END
+                       END
+USU FILE,DRIVER('MSSQL',GLO:DRIVEROPTIONS),OWNER(GLO:DSN),NAME('USU'),PRE(USU),THREAD  !Usuarios
+!!> IDENT(4),USAGE(File)
+IK_USUARIO KEY(USU:USUARIO),DUP,NOCASE,OPT
+!!> IDENT(123)
+USUUSUARIO KEY(USU:USUARIO,USU:COMPANIA),PRIMARY !Por Usuario
+!!> IDENT(5)
+USUGRUPO KEY(USU:GRUPO,USU:COMPANIA,USU:USUARIO) !Por Grupo
+!!> IDENT(6)
+USUCOMPANIA KEY(USU:COMPANIA,USU:USUARIO) !Por Compañia
+!!> IDENT(22)
+Record                   RECORD
+[SCREENCONTROLS]
+! PROMPT('Compañía:'),USE(?USU:COMPANIA:Prompt)
+! ENTRY(@s4),USE(USU:COMPANIA),MSG('Compañía'),TIP('Compañía'),REQ,UPR
+[REPORTCONTROLS]
+! STRING(@s4),USE(USU:COMPANIA)
+COMPANIA                   CSTRING(5) !Compañía
+!!> IDENT(96),VALID(NONZERO),PROMPT('Compañía:'),HEADER('Compañía'),MESSAGE('Compañía'),TOOLTIP('Compañía'),PICTURE(@s4),CASE(UPPER),DERIVEDFROM('CIA:COMPANIA')
+[SCREENCONTROLS]
+! PROMPT('Usuario:'),USE(?USU:USUARIO:Prompt)
+! ENTRY(@s20),USE(USU:USUARIO),MSG('Usuario'),TIP('Usuario'),REQ,UPR
+[REPORTCONTROLS]
+! STRING(@s20),USE(USU:USUARIO)
+USUARIO                    CSTRING(21) !Usuario
+!!> IDENT(48),VALID(NONZERO),PROMPT('Usuario:'),HEADER('Usuario'),MESSAGE('Usuario'),TOOLTIP('Usuario'),PICTURE(@s20),CASE(UPPER)
+[SCREENCONTROLS]
+! PROMPT('Clave:'),USE(?USU:CLAVE:Prompt)
+! ENTRY(@s10),USE(USU:CLAVE),MSG('Clave'),TIP('Clave'),REQ,UPR,PASSWORD
+[REPORTCONTROLS]
+! STRING(@s10),USE(USU:CLAVE)
+CLAVE                      CSTRING(11) !Clave
+!!> IDENT(49),VALID(NONZERO),PROMPT('Clave:'),HEADER('Clave'),MESSAGE('Clave'),TOOLTIP('Clave'),PICTURE(@s10),CASE(UPPER),PASSWORD
+[SCREENCONTROLS]
+! PROMPT('Grupo de Usuario:'),USE(?USU:GRUPO:Prompt)
+! ENTRY(@s20),USE(USU:GRUPO),MSG('Grupo de Usuario'),TIP('Grupo de Usuario'),REQ
+[REPORTCONTROLS]
+! STRING(@s20),USE(USU:GRUPO)
+GRUPO                      CSTRING(21) !Grupo de Usuario
+!!> IDENT(51),VALID(NONZERO),PROMPT('Grupo de Usuario:'),HEADER('Grupo de Usuario'),MESSAGE('Grupo de Usuario'),TOOLTIP('Grupo de Usuario'),PICTURE(@s20)
+[SCREENCONTROLS]
+! PROMPT('Código:'),USE(?USU:CODIGO:Prompt)
+! ENTRY(@s2),USE(USU:CODIGO),MSG('Código'),TIP('Código')
+[REPORTCONTROLS]
+! STRING(@s2),USE(USU:CODIGO)
+CODIGO                     CSTRING(3) !Código
+!!> IDENT(240),PROMPT('Código:'),HEADER('Código'),MESSAGE('Código'),TOOLTIP('Código'),PICTURE(@s2)
+[SCREENCONTROLS]
+! PROMPT('Nombre:'),USE(?USU:NOMBRE:Prompt)
+! ENTRY(@s80),USE(USU:NOMBRE),MSG('Nombre'),TIP('Nombre')
+[REPORTCONTROLS]
+! STRING(@s80),USE(USU:NOMBRE)
+NOMBRE                     CSTRING(81) !Nombre
+!!> IDENT(374),PROMPT('Nombre:'),HEADER('Nombre'),MESSAGE('Nombre'),TOOLTIP('Nombre'),PICTURE(@s80)
+[SCREENCONTROLS]
+! PROMPT('ACTIVO:'),USE(?USU:ACTIVO:Prompt)
+! ENTRY(@n-7),USE(USU:ACTIVO),RIGHT(1),MSG('Activo'),TIP('Activo')
+[REPORTCONTROLS]
+! STRING(@n-7),USE(USU:ACTIVO),RIGHT(1)
+ACTIVO                     SHORT !Activo
+!!> IDENT(669),PROMPT('ACTIVO:'),HEADER('ACTIVO'),MESSAGE('Activo'),TOOLTIP('Activo'),PICTURE(@n-7),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('Ratio:'),USE(?USU:Ratio:Prompt)
+! ENTRY(@n-10.2),USE(USU:Ratio),DECIMAL(12),MSG('Valor x Hora'),TIP('Valor x Hora')
+[REPORTCONTROLS]
+! STRING(@n-10.2),USE(USU:Ratio),DECIMAL(12)
+Ratio                      DECIMAL(7,2) !Valor x Hora
+!!> IDENT(860),PROMPT('Ratio:'),HEADER('Ratio'),MESSAGE('Valor x Hora'),TOOLTIP('Valor x Hora'),PICTURE(@n-10.2),JUSTIFY(DECIMAL,12)
+                         END
+                       END
+REQ FILE,DRIVER('MSSQL',GLO:DRIVEROPTIONS),OWNER(GLO:DSN),NAME('REQ'),PRE(REQ),CREATE,THREAD  !Requerimiento
+!!> IDENT(11),USAGE(File)
+fk_area KEY(REQ:COMPANIA,REQ:idArea),DUP,NOCASE,OPT
+!!> IDENT(102)
+REQCNSREQ KEY(REQ:CNSREQ),PRIMARY !Por No. Requerimiento
+!!> IDENT(28)
+REQVER KEY(REQ:TIPODOC,REQ:CNSVER),DUP,NOCASE,OPT
+!!> IDENT(62)
+REQSISTEMA KEY(REQ:SISTEMA,REQ:CNSREQ) !Por Sistema
+!!> IDENT(39)
+REQCOMPANIA KEY(REQ:COMPANIA,REQ:SISTEMA,REQ:CNSREQ),DUP,NOCASE,OPT !Por Compañia
+!!> IDENT(41)
+REQCIACNS KEY(REQ:COMPANIA,REQ:CNSREQ) !Cia/Consecutivo
+!!> IDENT(55)
+fk_operador KEY(REQ:idOperador),DUP,NOCASE,OPT
+!!> IDENT(106)
+fk_proyecto KEY(REQ:iDproyecto),DUP,NOCASE,OPT
+!!> IDENT(112)
+fk_sis KEY(REQ:SISTEMA),DUP,NOCASE,OPT
+!!> IDENT(118)
+key_alarma KEY(REQ:alarma),DUP,NOCASE,OPT
+!!> IDENT(134)
+fk_planificacion KEY(REQ:idPlanificacion),DUP,NOCASE,OPT
+!!> IDENT(135)
+key_fecha KEY(REQ:iDproyecto,REQ:FECHARECIBO_DATE),DUP,NOCASE,OPT
+!!> IDENT(136)
+Record                   RECORD
+[SCREENCONTROLS]
+! PROMPT('No. Versión:'),USE(?REQ:CNSREQ:Prompt)
+! ENTRY(@s20),USE(REQ:CNSREQ),MSG('Consecutivo:'),TIP('Consecutivo:')
+[REPORTCONTROLS]
+! STRING(@s20),USE(REQ:CNSREQ)
+CNSREQ                     CSTRING(21) !Consecutivo:
+!!> IDENT(125),PROMPT('No. Versión:'),HEADER('No. Versión'),MESSAGE('Consecutivo:'),TOOLTIP('Consecutivo:'),PICTURE(@s20)
+[SCREENCONTROLS]
+! PROMPT('Compañía:'),USE(?REQ:COMPANIA:Prompt)
+! ENTRY(@s2),USE(REQ:COMPANIA),MSG('Compañía'),TIP('Compañía'),REQ,UPR
+[REPORTCONTROLS]
+! STRING(@s2),USE(REQ:COMPANIA)
+COMPANIA                   CSTRING(3) !Compañía
+!!> IDENT(141),VALID(NONZERO),PROMPT('Compañía:'),HEADER('Compañía'),MESSAGE('Compañía'),TOOLTIP('Compañía'),PICTURE(@s2),CASE(UPPER),DERIVEDFROM('CIA:COMPANIA')
+[SCREENCONTROLS]
+! PROMPT('Sistema:'),USE(?REQ:SISTEMA:Prompt)
+! ENTRY(@s20),USE(REQ:SISTEMA),MSG('Sistema'),TIP('Sistema')
+[REPORTCONTROLS]
+! STRING(@s20),USE(REQ:SISTEMA)
+SISTEMA                    CSTRING(21) !Sistema
+!!> IDENT(138),PROMPT('Sistema:'),HEADER('Sistema'),MESSAGE('Sistema'),TOOLTIP('Sistema'),PICTURE(@s20),DERIVEDFROM('SIS:SISTEMA')
+[SCREENCONTROLS]
+! PROMPT('Id. del Aplicativo:'),USE(?REQ:IDAPP:Prompt)
+! ENTRY(@s20),USE(REQ:IDAPP),MSG('Id. del Aplicativo'),TIP('Id. del Aplicativo'),REQ
+[REPORTCONTROLS]
+! STRING(@s20),USE(REQ:IDAPP)
+IDAPP                      CSTRING(21) !Id. del Aplicativo
+!!> IDENT(187),VALID(NONZERO),PROMPT('Id. del Aplicativo:'),HEADER('Id. del Aplicativo'),MESSAGE('Id. del Aplicativo'),TOOLTIP('Id. del Aplicativo'),PICTURE(@s20),DERIVEDFROM('PRG:IDAPP')
+[SCREENCONTROLS]
+! PROMPT('Nombre Procedimiento:'),USE(?REQ:NOMPRD:Prompt)
+! ENTRY(@s50),USE(REQ:NOMPRD),MSG('Nombre Procedimiento'),TIP('Nombre Procedimiento')
+[REPORTCONTROLS]
+! STRING(@s50),USE(REQ:NOMPRD)
+NOMPRD                     CSTRING(51) !Nombre Procedimiento
+!!> IDENT(198),PROMPT('Nombre Procedimiento:'),HEADER('Nombre Procedimiento'),MESSAGE('Nombre Procedimiento'),TOOLTIP('Nombre Procedimiento'),PICTURE(@s50),DERIVEDFROM('PRD:NOMPRD')
+[SCREENCONTROLS]
+! PROMPT('Usuario:'),USE(?REQ:USUARIO:Prompt)
+! ENTRY(@s20),USE(REQ:USUARIO),MSG('Usuario'),TIP('Usuario'),REQ,UPR
+[REPORTCONTROLS]
+! STRING(@s20),USE(REQ:USUARIO)
+USUARIO                    CSTRING(21) !Usuario
+!!> IDENT(140),VALID(NONZERO),PROMPT('Usuario:'),HEADER('Usuario'),MESSAGE('Usuario'),TOOLTIP('Usuario'),PICTURE(@s20),CASE(UPPER),DERIVEDFROM('USU:USUARIO')
+[SCREENCONTROLS]
+! PROMPT('Detalle:'),USE(?REQ:DETALLE:Prompt)
+! TEXT,USE(REQ:DETALLE),BOXED,MSG('Detalle'),TIP('Detalle')
+[REPORTCONTROLS]
+! TEXT,USE(REQ:DETALLE),BOXED
+DETALLE                    CSTRING(2049) !Detalle
+!!> IDENT(134),PROMPT('Detalle:'),HEADER('Detalle'),MESSAGE('Detalle'),TOOLTIP('Detalle'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('Usuario Recibe Req:'),USE(?REQ:USUARIORECIBE:Prompt)
+! ENTRY(@s20),USE(REQ:USUARIORECIBE),MSG('Usuario Recibe Req'),TIP('Usuario Recibe Req'),REQ,UPR
+[REPORTCONTROLS]
+! STRING(@s20),USE(REQ:USUARIORECIBE)
+USUARIORECIBE              CSTRING(21) !Usuario Recibe Req
+!!> IDENT(133),VALID(NONZERO),PROMPT('Usuario Recibe Req:'),HEADER('Usuario Recibe Req'),MESSAGE('Usuario Recibe Req'),TOOLTIP('Usuario Recibe Req'),PICTURE(@s20),CASE(UPPER),DERIVEDFROM('USU:USUARIO')
+[QUICKCODE]
+!NOPOPULATE
+[SCREENCONTROLS]
+! PROMPT('FECHARECIBO:'),USE(?REQ:FECHARECIBO:Prompt)
+! ENTRY(@s8),USE(REQ:FECHARECIBO)
+[REPORTCONTROLS]
+! STRING(@s8),USE(REQ:FECHARECIBO)
+FECHARECIBO                STRING(8)
+!!> IDENT(143),PROMPT('FECHARECIBO:'),HEADER('FECHARECIBO'),PICTURE(@s8)
+[QUICKCODE]
+!NOPOPULATE
+[SCREENCONTROLS]
+! PROMPT('FECHARECIBO GROUP:'),USE(?REQ:FECHARECIBO_GROUP:Prompt)
+! ENTRY(@s8),USE(REQ:FECHARECIBO_GROUP)
+[REPORTCONTROLS]
+! STRING(@s8),USE(REQ:FECHARECIBO_GROUP)
+FECHARECIBO_GROUP          GROUP,OVER(FECHARECIBO)
+!!> IDENT(144),PROMPT('FECHARECIBO GROUP:'),HEADER('FECHARECIBO GROUP'),PICTURE(@s8),DERIVEDFROM('VRS:FECHACIERRE_GROUP')
+[SCREENCONTROLS]
+! PROMPT('Fecha Recibo:'),USE(?REQ:FECHARECIBO_DATE:Prompt)
+! SPIN(@d6.),USE(REQ:FECHARECIBO_DATE),MSG('Fecha Recibo'),TIP('Fecha Recibo')
+[REPORTCONTROLS]
+! STRING(@d6.),USE(REQ:FECHARECIBO_DATE)
+FECHARECIBO_DATE             DATE !Fecha Recibo
+!!> IDENT(146),PROMPT('Fecha Recibo:'),HEADER('Fecha Recibo'),MESSAGE('Fecha Recibo'),TOOLTIP('Fecha Recibo'),PICTURE(@d6.),DERIVEDFROM('VRS:FECHACIERRE_DATE')
+[SCREENCONTROLS]
+! PROMPT('Hora Recibo:'),USE(?REQ:FECHARECIBO_TIME:Prompt)
+! SPIN(@t4),USE(REQ:FECHARECIBO_TIME),MSG('Hora Recibo'),TIP('Hora Recibo')
+[REPORTCONTROLS]
+! STRING(@t4),USE(REQ:FECHARECIBO_TIME)
+FECHARECIBO_TIME             TIME !Hora Recibo
+!!> IDENT(147),PROMPT('Hora Recibo:'),HEADER('Hora Recibo'),MESSAGE('Hora Recibo'),TOOLTIP('Hora Recibo'),PICTURE(@t4),DERIVEDFROM('VRS:FECHACIERRE_TIME')
+                           END
+!!> IDENT(145)
+[SCREENCONTROLS]
+! CHECK('Aprobado'),USE(REQ:APROBADO),RIGHT(1),MSG('Aprobada'),TIP('Aprobada')
+[REPORTCONTROLS]
+! CHECK('Aprobado'),USE(REQ:APROBADO),RIGHT(1)
+APROBADO                   SHORT !Aprobado
+!!> IDENT(132),PROMPT('Aprobado:'),HEADER('Aprobado'),MESSAGE('Aprobada'),TOOLTIP('Aprobada'),PICTURE(@n-7),JUSTIFY(RIGHT,1),DERIVEDFROM('VRSD:APROBADO')
+[SCREENCONTROLS]
+! PROMPT('Usuario Aprueba:'),USE(?REQ:USUARIOAPRUEBA:Prompt)
+! ENTRY(@s20),USE(REQ:USUARIOAPRUEBA),MSG('Usuario'),TIP('Usuario'),REQ,UPR
+[REPORTCONTROLS]
+! STRING(@s20),USE(REQ:USUARIOAPRUEBA)
+USUARIOAPRUEBA             CSTRING(21) !Usuario Aprueba
+!!> IDENT(149),VALID(NONZERO),PROMPT('Usuario Aprueba:'),HEADER('Usuario Aprueba'),MESSAGE('Usuario'),TOOLTIP('Usuario'),PICTURE(@s20),CASE(UPPER),DERIVEDFROM('USU:USUARIO')
+[QUICKCODE]
+!NOPOPULATE
+[SCREENCONTROLS]
+! PROMPT('FECHAAPROB:'),USE(?REQ:FECHAAPROB:Prompt)
+! ENTRY(@s8),USE(REQ:FECHAAPROB)
+[REPORTCONTROLS]
+! STRING(@s8),USE(REQ:FECHAAPROB)
+FECHAAPROB                 STRING(8)
+!!> IDENT(150),PROMPT('FECHAAPROB:'),HEADER('FECHAAPROB'),PICTURE(@s8),DERIVEDFROM('VRS:FECHACIERRE')
+[QUICKCODE]
+!NOPOPULATE
+[SCREENCONTROLS]
+! PROMPT('FECHAAPROB GROUP:'),USE(?REQ:FECHAAPROB_GROUP:Prompt)
+! ENTRY(@s8),USE(REQ:FECHAAPROB_GROUP)
+[REPORTCONTROLS]
+! STRING(@s8),USE(REQ:FECHAAPROB_GROUP)
+FECHAAPROB_GROUP           GROUP,OVER(FECHAAPROB)
+!!> IDENT(151),PROMPT('FECHAAPROB GROUP:'),HEADER('FECHAAPROB GROUP'),PICTURE(@s8),DERIVEDFROM('VRS:FECHACIERRE_GROUP')
+[SCREENCONTROLS]
+! PROMPT('Fecha Aprobación:'),USE(?REQ:FECHAAPROB_DATE:Prompt)
+! SPIN(@d6.),USE(REQ:FECHAAPROB_DATE),MSG('Fecha Aprobación'),TIP('Fecha Aprobación')
+[REPORTCONTROLS]
+! STRING(@d6.),USE(REQ:FECHAAPROB_DATE)
+FECHAAPROB_DATE              DATE !Fecha Aprobación
+!!> IDENT(153),PROMPT('Fecha Aprobación:'),HEADER('Fecha Aprobación'),MESSAGE('Fecha Aprobación'),TOOLTIP('Fecha Aprobación'),PICTURE(@d6.),DERIVEDFROM('VRS:FECHACIERRE_DATE')
+[SCREENCONTROLS]
+! PROMPT('Hora Aprobación:'),USE(?REQ:FECHAAPROB_TIME:Prompt)
+! SPIN(@t4),USE(REQ:FECHAAPROB_TIME),MSG('Hora Aprobación'),TIP('Hora Aprobación')
+[REPORTCONTROLS]
+! STRING(@t4),USE(REQ:FECHAAPROB_TIME)
+FECHAAPROB_TIME              TIME !Hora Aprobación
+!!> IDENT(155),PROMPT('Hora Aprobación:'),HEADER('Hora Aprobación'),MESSAGE('Hora Aprobación'),TOOLTIP('Hora Aprobación'),PICTURE(@t4),DERIVEDFROM('VRS:FECHACIERRE_TIME')
+                           END
+!!> IDENT(152)
+[SCREENCONTROLS]
+! PROMPT('Explicación Depto. Soporte IX:'),USE(?REQ:EXPSOPORTE:Prompt)
+! TEXT,USE(REQ:EXPSOPORTE),BOXED,MSG('Explicación Depto. Soporte IX'),TIP('Explicación Depto. Soporte IX')
+[REPORTCONTROLS]
+! TEXT,USE(REQ:EXPSOPORTE),BOXED
+EXPSOPORTE                 CSTRING(2049) !Explicación Depto. Soporte IX
+!!> IDENT(157),PROMPT('Explicación Depto. Soporte IX:'),HEADER('Explicación Depto. Soporte IX'),MESSAGE('Explicación Depto. Soporte IX'),TOOLTIP('Explicación Depto. Soporte IX'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('Estado'),USE(?REQ:ESTADO:Prompt)
+! ENTRY(@s1),USE(REQ:ESTADO),MSG('Estado'),TIP('Estado')
+[REPORTCONTROLS]
+! CHECK('Estado'),USE(REQ:ESTADO)
+ESTADO                     CSTRING(2) !Estado
+!!> IDENT(126),PROMPT('Estado'),HEADER('Estado'),MESSAGE('Estado'),TOOLTIP('Estado'),PICTURE(@s1)
+[QUICKCODE]
+!NOPOPULATE
+[SCREENCONTROLS]
+! PROMPT('FECHACIERRE:'),USE(?REQ:FECHACIERRE:Prompt)
+! ENTRY(@s8),USE(REQ:FECHACIERRE)
+[REPORTCONTROLS]
+! STRING(@s8),USE(REQ:FECHACIERRE)
+FECHACIERRE                STRING(8)
+!!> IDENT(127),PROMPT('FECHACIERRE:'),HEADER('FECHACIERRE'),PICTURE(@s8)
+[QUICKCODE]
+!NOPOPULATE
+[SCREENCONTROLS]
+! PROMPT('FECHACIERRE GROUP:'),USE(?REQ:FECHACIERRE_GROUP:Prompt)
+! ENTRY(@s8),USE(REQ:FECHACIERRE_GROUP)
+[REPORTCONTROLS]
+! STRING(@s8),USE(REQ:FECHACIERRE_GROUP)
+FECHACIERRE_GROUP          GROUP,OVER(FECHACIERRE)
+!!> IDENT(128),PROMPT('FECHACIERRE GROUP:'),HEADER('FECHACIERRE GROUP'),PICTURE(@s8)
+[SCREENCONTROLS]
+! PROMPT('Fecha Cierre:'),USE(?REQ:FECHACIERRE_DATE:Prompt)
+! SPIN(@d6.),USE(REQ:FECHACIERRE_DATE),MSG('Fecha Cierre'),TIP('Fecha Cierre')
+[REPORTCONTROLS]
+! STRING(@d6.),USE(REQ:FECHACIERRE_DATE)
+FECHACIERRE_DATE             DATE !Fecha Cierre
+!!> IDENT(129),PROMPT('Fecha Cierre:'),HEADER('Fecha Cierre'),MESSAGE('Fecha Cierre'),TOOLTIP('Fecha Cierre'),PICTURE(@d6.)
+[SCREENCONTROLS]
+! PROMPT('Hora Cierre:'),USE(?REQ:FECHACIERRE_TIME:Prompt)
+! SPIN(@t4),USE(REQ:FECHACIERRE_TIME),MSG('Hora Cierre'),TIP('Hora Cierre')
+[REPORTCONTROLS]
+! STRING(@t4),USE(REQ:FECHACIERRE_TIME)
+FECHACIERRE_TIME             TIME !Hora Cierre
+!!> IDENT(130),PROMPT('Hora Cierre:'),HEADER('Hora Cierre'),MESSAGE('Hora Cierre'),TOOLTIP('Hora Cierre'),PICTURE(@t4)
+                           END
+!!> IDENT(131)
+[SCREENCONTROLS]
+! PROMPT('Procedencia:'),USE(?REQ:PROCEDENCIA:Prompt)
+! ENTRY(@s1),USE(REQ:PROCEDENCIA),MSG('Procedencia requerimiento'),TIP('Procedencia requerimiento')
+[REPORTCONTROLS]
+! STRING(@s1),USE(REQ:PROCEDENCIA)
+PROCEDENCIA                CSTRING(2) !Procedencia requerimiento
+!!> IDENT(234),VALID(NOCHECKS('Prueba Piloto|Cliente|Desarrollo|IX Advo|Comercial')),PROMPT('Procedencia:'),HEADER('Procedencia'),MESSAGE('Procedencia requerimiento'),TOOLTIP('Procedencia requerimiento'),PICTURE(@s1),VALUES('P|C|D|A|M')
+[SCREENCONTROLS]
+! PROMPT('Tipo:'),USE(?REQ:TIPO:Prompt)
+! ENTRY(@s1),USE(REQ:TIPO),MSG('Tipo de requerimiento'),TIP('Tipo de requerimiento')
+[REPORTCONTROLS]
+! CHECK('Tipo'),USE(REQ:TIPO)
+TIPO                       CSTRING(2) !Tipo de requerimiento
+!!> IDENT(238),VALID(NOCHECKS('Requerimiento|Error|Cambio|Sugerencia|Acompañamiento')),PROMPT('Tipo:'),HEADER('Tipo'),MESSAGE('Tipo de requerimiento'),TOOLTIP('Tipo de requerimiento'),PICTURE(@s1),VALUES('R|E|C|S|A')
+[SCREENCONTROLS]
+! PROMPT('No. Versión:'),USE(?REQ:CNSVRS:Prompt)
+! ENTRY(@s20),USE(REQ:CNSVRS),MSG('Consecutivo:'),TIP('Consecutivo:')
+[REPORTCONTROLS]
+! STRING(@s20),USE(REQ:CNSVRS)
+CNSVRS                     CSTRING(21) !Consecutivo:
+!!> IDENT(170),PROMPT('No. Versión:'),HEADER('No. Versión'),MESSAGE('Consecutivo:'),TOOLTIP('Consecutivo:'),PICTURE(@s20),DERIVEDFROM('VRS:CNSVRS')
+[QUICKCODE]
+!NOPOPULATE
+[SCREENCONTROLS]
+! PROMPT('FECHAADESA:'),USE(?REQ:FECHAADESA:Prompt)
+! ENTRY(@s8),USE(REQ:FECHAADESA)
+[REPORTCONTROLS]
+! STRING(@s8),USE(REQ:FECHAADESA)
+FECHAADESA                 STRING(8)
+!!> IDENT(346),PROMPT('FECHAADESA:'),HEADER('FECHAADESA'),PICTURE(@s8)
+[QUICKCODE]
+!NOPOPULATE
+[SCREENCONTROLS]
+! PROMPT('FECHAADESA GROUP:'),USE(?REQ:FECHAADESA_GROUP:Prompt)
+! ENTRY(@s8),USE(REQ:FECHAADESA_GROUP)
+[REPORTCONTROLS]
+! STRING(@s8),USE(REQ:FECHAADESA_GROUP)
+FECHAADESA_GROUP           GROUP,OVER(FECHAADESA)
+!!> IDENT(347),PROMPT('FECHAADESA GROUP:'),HEADER('FECHAADESA GROUP'),PICTURE(@s8)
+[SCREENCONTROLS]
+! PROMPT('Fecha:'),USE(?REQ:FECHAADESA_DATE:Prompt)
+! ENTRY(@d6.),USE(REQ:FECHAADESA_DATE)
+[REPORTCONTROLS]
+! STRING(@d6.),USE(REQ:FECHAADESA_DATE)
+FECHAADESA_DATE              DATE
+!!> IDENT(349),PROMPT('Fecha:'),HEADER('Fecha'),PICTURE(@d6.)
+[SCREENCONTROLS]
+! PROMPT('Hora:'),USE(?REQ:FECHAADESA_TIME:Prompt)
+! ENTRY(@t1),USE(REQ:FECHAADESA_TIME)
+[REPORTCONTROLS]
+! STRING(@t1),USE(REQ:FECHAADESA_TIME)
+FECHAADESA_TIME              TIME
+!!> IDENT(350),PROMPT('Hora:'),HEADER('Hora'),PICTURE(@t1)
+                           END
+!!> IDENT(348)
+[SCREENCONTROLS]
+! PROMPT('Usuario:'),USE(?REQ:USUARIOENVDESA:Prompt)
+! ENTRY(@s20),USE(REQ:USUARIOENVDESA),MSG('Usuario'),TIP('Usuario'),REQ,UPR
+[REPORTCONTROLS]
+! STRING(@s20),USE(REQ:USUARIOENVDESA)
+USUARIOENVDESA             CSTRING(21) !Usuario
+!!> IDENT(352),VALID(NONZERO),PROMPT('Usuario:'),HEADER('Usuario'),MESSAGE('Usuario'),TOOLTIP('Usuario'),PICTURE(@s20),CASE(UPPER),DERIVEDFROM('USU:USUARIO')
+[SCREENCONTROLS]
+! PROMPT('Explicación de la Configuración:'),USE(?REQ:EXPCONF:Prompt)
+! TEXT,USE(REQ:EXPCONF),MSG('Explicación de la Configuración'),TIP('Explicación de la Configuración')
+[REPORTCONTROLS]
+! TEXT,USE(REQ:EXPCONF)
+EXPCONF                    CSTRING(1025) !Explicación de la Configuración
+!!> IDENT(354),PROMPT('Explicación de la Configuración:'),HEADER('Explicación de la Configuración'),MESSAGE('Explicación de la Configuración'),TOOLTIP('Explicación de la Configuración'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('FECHATER:'),USE(?REQ:FECHATER:Prompt)
+! ENTRY(@s8),USE(REQ:FECHATER)
+[REPORTCONTROLS]
+! STRING(@s8),USE(REQ:FECHATER)
+FECHATER                   STRING(8)
+!!> IDENT(355),PROMPT('FECHATER:'),HEADER('FECHATER'),PICTURE(@s8)
+[QUICKCODE]
+!NOPOPULATE
+[SCREENCONTROLS]
+! PROMPT('FECHATER GROUP:'),USE(?REQ:FECHATER_GROUP:Prompt)
+! ENTRY(@s8),USE(REQ:FECHATER_GROUP)
+[REPORTCONTROLS]
+! STRING(@s8),USE(REQ:FECHATER_GROUP)
+FECHATER_GROUP             GROUP,OVER(FECHATER)
+!!> IDENT(356),PROMPT('FECHATER GROUP:'),HEADER('FECHATER GROUP'),PICTURE(@s8)
+[SCREENCONTROLS]
+! PROMPT('Fecha Terminación:'),USE(?REQ:FECHATER_DATE:Prompt)
+! ENTRY(@d17),USE(REQ:FECHATER_DATE),MSG('Fecha Terminación'),TIP('Fecha Terminación')
+[REPORTCONTROLS]
+! STRING(@d17),USE(REQ:FECHATER_DATE)
+FECHATER_DATE                DATE !Fecha Terminación
+!!> IDENT(358),PROMPT('Fecha Terminación:'),HEADER('Fecha Terminación'),MESSAGE('Fecha Terminación'),TOOLTIP('Fecha Terminación'),PICTURE(@d17)
+[SCREENCONTROLS]
+! PROMPT('FECHATER TIME:'),USE(?REQ:FECHATER_TIME:Prompt)
+! ENTRY(@t7),USE(REQ:FECHATER_TIME)
+[REPORTCONTROLS]
+! STRING(@t7),USE(REQ:FECHATER_TIME)
+FECHATER_TIME                TIME
+!!> IDENT(359),PROMPT('FECHATER TIME:'),HEADER('FECHATER TIME'),PICTURE(@t7)
+                           END
+!!> IDENT(357)
+[QUICKCODE]
+!NOPOPULATE
+[SCREENCONTROLS]
+! PROMPT('FECHACRONO:'),USE(?REQ:FECHACRONO:Prompt)
+! ENTRY(@s8),USE(REQ:FECHACRONO)
+[REPORTCONTROLS]
+! STRING(@s8),USE(REQ:FECHACRONO)
+FECHACRONO                 STRING(8)
+!!> IDENT(361),PROMPT('FECHACRONO:'),HEADER('FECHACRONO'),PICTURE(@s8)
+[QUICKCODE]
+!NOPOPULATE
+[SCREENCONTROLS]
+! PROMPT('FECHACRONO GROUP:'),USE(?REQ:FECHACRONO_GROUP:Prompt)
+! ENTRY(@s8),USE(REQ:FECHACRONO_GROUP)
+[REPORTCONTROLS]
+! STRING(@s8),USE(REQ:FECHACRONO_GROUP)
+FECHACRONO_GROUP           GROUP,OVER(FECHACRONO)
+!!> IDENT(363),PROMPT('FECHACRONO GROUP:'),HEADER('FECHACRONO GROUP'),PICTURE(@s8)
+[SCREENCONTROLS]
+! PROMPT('Fecha Cronograma:'),USE(?REQ:FECHACRONO_DATE:Prompt)
+! ENTRY(@d17),USE(REQ:FECHACRONO_DATE),MSG('Fecha Cronograma'),TIP('Fecha Cronograma')
+[REPORTCONTROLS]
+! STRING(@d17),USE(REQ:FECHACRONO_DATE)
+FECHACRONO_DATE              DATE !Fecha Cronograma
+!!> IDENT(365),PROMPT('Fecha Cronograma:'),HEADER('Fecha Cronograma'),MESSAGE('Fecha Cronograma'),TOOLTIP('Fecha Cronograma'),PICTURE(@d17)
+[SCREENCONTROLS]
+! PROMPT('FECHACRONO TIME:'),USE(?REQ:FECHACRONO_TIME:Prompt)
+! ENTRY(@t7),USE(REQ:FECHACRONO_TIME)
+[REPORTCONTROLS]
+! STRING(@t7),USE(REQ:FECHACRONO_TIME)
+FECHACRONO_TIME              TIME
+!!> IDENT(366),PROMPT('FECHACRONO TIME:'),HEADER('FECHACRONO TIME'),PICTURE(@t7)
+                           END
+!!> IDENT(364)
+[SCREENCONTROLS]
+! PROMPT('Consecutivo IX:'),USE(?REQ:CONSECIX:Prompt)
+! ENTRY(@s20),USE(REQ:CONSECIX),MSG('Consecutivo IX'),TIP('Consecutivo IX')
+[REPORTCONTROLS]
+! STRING(@s20),USE(REQ:CONSECIX)
+CONSECIX                   CSTRING(21) !Consecutivo IX
+!!> IDENT(369),PROMPT('Consecutivo IX:'),HEADER('Consecutivo IX'),MESSAGE('Consecutivo IX'),TOOLTIP('Consecutivo IX'),PICTURE(@s20)
+[SCREENCONTROLS]
+! PROMPT('Explicación Desarrollo:'),USE(?REQ:EXPDESARROLLO:Prompt)
+! TEXT,USE(REQ:EXPDESARROLLO),MSG('Explicación Desarrollo'),TIP('Explicación Desarrollo')
+[REPORTCONTROLS]
+! TEXT,USE(REQ:EXPDESARROLLO)
+EXPDESARROLLO              CSTRING(2049) !Explicación Desarrollo
+!!> IDENT(371),PROMPT('Explicación Desarrollo:'),HEADER('Explicación Desarrollo'),MESSAGE('Explicación Desarrollo'),TOOLTIP('Explicación Desarrollo'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('Depto Terminó:'),USE(?REQ:DEPTER:Prompt)
+! ENTRY(@s20),USE(REQ:DEPTER),MSG('Depto Terminó'),TIP('Depto Terminó')
+[REPORTCONTROLS]
+! STRING(@s20),USE(REQ:DEPTER)
+DEPTER                     CSTRING(21) !Depto Terminó
+!!> IDENT(372),PROMPT('Depto Terminó:'),HEADER('Depto Terminó'),MESSAGE('Depto Terminó'),TOOLTIP('Depto Terminó'),PICTURE(@s20)
+[SCREENCONTROLS]
+! PROMPT('USUDESARROLLO:'),USE(?REQ:USUDESARROLLO:Prompt)
+! ENTRY(@s20),USE(REQ:USUDESARROLLO),MSG('Usuario asignado al desarrollo'),TIP('Usuario asignado al desarrollo')
+[REPORTCONTROLS]
+! STRING(@s20),USE(REQ:USUDESARROLLO)
+USUDESARROLLO              CSTRING(21) !Usuario asignado al desarrollo
+!!> IDENT(400),PROMPT('USUDESARROLLO:'),HEADER('USUDESARROLLO'),MESSAGE('Usuario asignado al desarrollo'),TOOLTIP('Usuario asignado al desarrollo'),PICTURE(@s20)
+[SCREENCONTROLS]
+! PROMPT('TIPODOC:'),USE(?REQ:TIPODOC:Prompt)
+! ENTRY(@s20),USE(REQ:TIPODOC)
+[REPORTCONTROLS]
+! STRING(@s20),USE(REQ:TIPODOC)
+TIPODOC                    CSTRING(21)
+!!> IDENT(429),PROMPT('TIPODOC:'),HEADER('TIPODOC'),PICTURE(@s20)
+[SCREENCONTROLS]
+! PROMPT('CNSVER:'),USE(?REQ:CNSVER:Prompt)
+! ENTRY(@s20),USE(REQ:CNSVER)
+[REPORTCONTROLS]
+! STRING(@s20),USE(REQ:CNSVER)
+CNSVER                     CSTRING(21)
+!!> IDENT(402),PROMPT('CNSVER:'),HEADER('CNSVER'),PICTURE(@s20)
+[SCREENCONTROLS]
+! PROMPT('ESTADOREAL:'),USE(?REQ:ESTADOREAL:Prompt)
+! ENTRY(@s2),USE(REQ:ESTADOREAL)
+[REPORTCONTROLS]
+! STRING(@s2),USE(REQ:ESTADOREAL)
+ESTADOREAL                 CSTRING(3)
+!!> IDENT(524),PROMPT('ESTADOREAL:'),HEADER('ESTADOREAL'),PICTURE(@s2)
+[SCREENCONTROLS]
+! PROMPT('IMPRESION:'),USE(?REQ:IMPRESION:Prompt)
+! ENTRY(@n-7),USE(REQ:IMPRESION),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-7),USE(REQ:IMPRESION),RIGHT(1)
+IMPRESION                  SHORT
+!!> IDENT(645),PROMPT('IMPRESION:'),HEADER('IMPRESION'),PICTURE(@n-7),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('id Area:'),USE(?REQ:idArea:Prompt)
+! ENTRY(@n-14),USE(REQ:idArea),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(REQ:idArea),RIGHT(1)
+idArea                     LONG
+!!> IDENT(746),PROMPT('id Area:'),HEADER('id Area'),PICTURE(@n-14),JUSTIFY(RIGHT,1),DERIVEDFROM('ARE:iDArea')
+[SCREENCONTROLS]
+! PROMPT('i DO perador:'),USE(?REQ:idOperador:Prompt)
+! ENTRY(@n-14),USE(REQ:idOperador),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(REQ:idOperador),RIGHT(1)
+idOperador                 LONG
+!!> IDENT(754),PROMPT('i DO perador:'),HEADER('i DO perador'),PICTURE(@n-14),JUSTIFY(RIGHT,1),DERIVEDFROM('OPE:iDOperador')
+[SCREENCONTROLS]
+! PROMPT('i Dproyecto:'),USE(?REQ:iDproyecto:Prompt)
+! ENTRY(@n-14),USE(REQ:iDproyecto),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(REQ:iDproyecto),RIGHT(1)
+iDproyecto                 LONG
+!!> IDENT(800),PROMPT('i Dproyecto:'),HEADER('i Dproyecto'),PICTURE(@n-14),JUSTIFY(RIGHT,1),DERIVEDFROM('PRY:iDproyecto')
+[SCREENCONTROLS]
+! PROMPT('alarma:'),USE(?REQ:alarma:Prompt)
+! ENTRY(@n3),USE(REQ:alarma)
+[REPORTCONTROLS]
+! STRING(@n3),USE(REQ:alarma)
+alarma                     BYTE
+!!> IDENT(851),PROMPT('alarma:'),HEADER('alarma'),PICTURE(@n3)
+[SCREENCONTROLS]
+! PROMPT('idplan:'),USE(?REQ:idPlanificacion:Prompt)
+! ENTRY(@n-14),USE(REQ:idPlanificacion),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(REQ:idPlanificacion),RIGHT(1)
+idPlanificacion            LONG
+!!> IDENT(853),PROMPT('idplan:'),HEADER('idplan'),PICTURE(@n-14),JUSTIFY(RIGHT,1),DERIVEDFROM('PLA:idplan')
+[SCREENCONTROLS]
+! PROMPT('Tiempo 1:'),USE(?REQ:Tiempo1:Prompt)
+! ENTRY(@n-10.2),USE(REQ:Tiempo1),DECIMAL(12)
+[REPORTCONTROLS]
+! STRING(@n-10.2),USE(REQ:Tiempo1),DECIMAL(12)
+Tiempo1                    DECIMAL(7,2)
+!!> IDENT(857),PROMPT('Tiempo 1:'),HEADER('Tiempo 1'),PICTURE(@n-10.2),JUSTIFY(DECIMAL,12)
+[SCREENCONTROLS]
+! PROMPT('Tiempo 2:'),USE(?REQ:Tiempo2:Prompt)
+! ENTRY(@n-10.2),USE(REQ:Tiempo2),DECIMAL(12)
+[REPORTCONTROLS]
+! STRING(@n-10.2),USE(REQ:Tiempo2),DECIMAL(12)
+Tiempo2                    DECIMAL(7,2)
+!!> IDENT(858),PROMPT('Tiempo 2:'),HEADER('Tiempo 2'),PICTURE(@n-10.2),JUSTIFY(DECIMAL,12)
+                         END
+                       END
+Archivos FILE,DRIVER('MSSQL'),OWNER(GLO:DSN),NAME('Archivos'),PRE(Arc),THREAD
+!!> IDENT(38),USAGE(File)
+PK_Archivos KEY(Arc:id),PRIMARY
+!!> IDENT(74)
+[SCREENCONTROLS]
+! IMAGE,USE(?Arc:DICOM)
+[REPORTCONTROLS]
+! IMAGE,USE(?Arc:DICOM)
+DICOM                      BLOB,BINARY
+!!> IDENT(518)
+Record                   RECORD
+[SCREENCONTROLS]
+! PROMPT('id:'),USE(?Arc:id:Prompt)
+! ENTRY(@n-14),USE(Arc:id),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(Arc:id),RIGHT(1)
+id                         LONG
+!!> IDENT(521),PROMPT('id:'),HEADER('id'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('nombre:'),USE(?Arc:nombre:Prompt)
+! ENTRY(@s100),USE(Arc:nombre)
+[REPORTCONTROLS]
+! STRING(@s100),USE(Arc:nombre)
+nombre                     CSTRING(101)
+!!> IDENT(520),PROMPT('nombre:'),HEADER('nombre'),PICTURE(@s100)
+                         END
+                       END
+Operador FILE,DRIVER('MSSQL',GLO:DRIVEROPTIONS),OWNER(GLO:DSN),NAME('Operador'),PRE(OPE),CREATE,THREAD
+!!> IDENT(60),USAGE(File)
+Pk_Operador KEY(OPE:iDOperador),NOCASE,OPT,PRIMARY
+!!> IDENT(103),AUTO
+key_nombre KEY(OPE:Nombre),DUP,NOCASE,OPT
+!!> IDENT(104)
+Record                   RECORD
+[SCREENCONTROLS]
+! PROMPT('i DO perador:'),USE(?OPE:iDOperador:Prompt)
+! ENTRY(@n-14),USE(OPE:iDOperador),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(OPE:iDOperador),RIGHT(1)
+iDOperador                 LONG
+!!> IDENT(748),PROMPT('i DO perador:'),HEADER('i DO perador'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('Nombre:'),USE(?OPE:Nombre:Prompt)
+! ENTRY(@s254),USE(OPE:Nombre)
+[REPORTCONTROLS]
+! STRING(@s254),USE(OPE:Nombre)
+Nombre                     CSTRING(255)
+!!> IDENT(749),PROMPT('Nombre:'),HEADER('Nombre'),PICTURE(@s254)
+[SCREENCONTROLS]
+! PROMPT('email:'),USE(?OPE:email:Prompt)
+! ENTRY(@s254),USE(OPE:email)
+[REPORTCONTROLS]
+! STRING(@s254),USE(OPE:email)
+email                      CSTRING(255)
+!!> IDENT(751),PROMPT('email:'),HEADER('email'),PICTURE(@s254)
+[SCREENCONTROLS]
+! PROMPT('telefonos:'),USE(?OPE:telefonos:Prompt)
+! ENTRY(@s254),USE(OPE:telefonos)
+[REPORTCONTROLS]
+! STRING(@s254),USE(OPE:telefonos)
+telefonos                  CSTRING(255)
+!!> IDENT(752),PROMPT('telefonos:'),HEADER('telefonos'),PICTURE(@s254)
+                         END
+                       END
+A_ESTADO2              ALIAS(ESTADO),PRE(A_EST2)
+!!> IDENT(46)
+A_ESTADO               ALIAS(ESTADO),PRE(A_EST)
+!!> IDENT(42)
+A_REQ                  ALIAS(REQ),PRE(A_REQ)  !Alias de REQ
+!!> IDENT(29)
+A_EVENTO               ALIAS(EVENTO),PRE(A_EVE)
+!!> IDENT(44)

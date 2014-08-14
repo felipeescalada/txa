@@ -1,0 +1,2004 @@
+[PROCEDURE]
+NAME rpt_req
+PROTOTYPE '(string)'
+[COMMON]
+DESCRIPTION 'Listado de Requerimientos'
+FROM ABC Report
+CATEGORY '** ok'
+MODIFIED '2014/08/14' '14:49:02'
+[DATA]
+[SCREENCONTROLS]
+! PROMPT('Progress : Thermometer:'),USE(?Progress:Thermometer:Prompt)
+! ENTRY(@n3),USE(Progress:Thermometer)
+[REPORTCONTROLS]
+! STRING(@n3),USE(Progress:Thermometer)
+Progress:Thermometer     BYTE
+!!> IDENT(4294966092),PROMPT('Progress : Thermometer:'),HEADER('Progress : Thermometer'),PICTURE(@n3)
+[SCREENCONTROLS]
+! PROMPT('Loc : Dias Totales:'),USE(?Loc:DiasTotales:Prompt)
+! ENTRY(@n-10.2),USE(Loc:DiasTotales),DECIMAL(12)
+[REPORTCONTROLS]
+! STRING(@n-10.2),USE(Loc:DiasTotales),DECIMAL(12)
+Loc:DiasTotales          DECIMAL(7,2)
+!!> IDENT(4294965938),PROMPT('Loc : Dias Totales:'),HEADER('Loc : Dias Totales'),PICTURE(@n-10.2),JUSTIFY(DECIMAL,12)
+[SCREENCONTROLS]
+! PROMPT('Loc : Tiempo Total:'),USE(?Loc:TiempoTotal:Prompt)
+! ENTRY(@n-10.2),USE(Loc:TiempoTotal),DECIMAL(12)
+[REPORTCONTROLS]
+! STRING(@n-10.2),USE(Loc:TiempoTotal),DECIMAL(12)
+Loc:TiempoTotal          DECIMAL(7,2)
+!!> IDENT(4294965940),PROMPT('Loc : Tiempo Total:'),HEADER('Loc : Tiempo Total'),PICTURE(@n-10.2),JUSTIFY(DECIMAL,12)
+[SCREENCONTROLS]
+! PROMPT('loc : habilitacion 2:'),USE(?loc:habilitacion2:Prompt)
+! ENTRY(@s20),USE(loc:habilitacion2)
+[REPORTCONTROLS]
+! STRING(@s20),USE(loc:habilitacion2)
+loc:habilitacion2        CSTRING(21)
+!!> IDENT(4294966091),PROMPT('loc : habilitacion 2:'),HEADER('loc : habilitacion 2'),PICTURE(@s20)
+[SCREENCONTROLS]
+! PROMPT('LOC : IPS:'),USE(?LOC:IPS:Prompt)
+! ENTRY(@s1),USE(LOC:IPS)
+[REPORTCONTROLS]
+! STRING(@s1),USE(LOC:IPS)
+LOC:IPS                  CSTRING(2)
+!!> IDENT(4294966090),PROMPT('LOC : IPS:'),HEADER('LOC : IPS'),PICTURE(@s1)
+[SCREENCONTROLS]
+! PROMPT('LOC : ARS:'),USE(?LOC:ARS:Prompt)
+! ENTRY(@s1),USE(LOC:ARS)
+[REPORTCONTROLS]
+! STRING(@s1),USE(LOC:ARS)
+LOC:ARS                  CSTRING(2)
+!!> IDENT(4294966089),PROMPT('LOC : ARS:'),HEADER('LOC : ARS'),PICTURE(@s1)
+[SCREENCONTROLS]
+! PROMPT('LOC : DIA 2:'),USE(?LOC:DIA2:Prompt)
+! ENTRY(@s20),USE(LOC:DIA2)
+[REPORTCONTROLS]
+! STRING(@s20),USE(LOC:DIA2)
+LOC:DIA2                 CSTRING(21)
+!!> IDENT(4294966088),PROMPT('LOC : DIA 2:'),HEADER('LOC : DIA 2'),PICTURE(@s20)
+[SCREENCONTROLS]
+! PROMPT('LOC : MES 2:'),USE(?LOC:MES2:Prompt)
+! ENTRY(@s20),USE(LOC:MES2)
+[REPORTCONTROLS]
+! STRING(@s20),USE(LOC:MES2)
+LOC:MES2                 CSTRING(21)
+!!> IDENT(4294966087),PROMPT('LOC : MES 2:'),HEADER('LOC : MES 2'),PICTURE(@s20)
+[SCREENCONTROLS]
+! PROMPT('LOC : ANNO 3:'),USE(?LOC:ANNO3:Prompt)
+! ENTRY(@s20),USE(LOC:ANNO3)
+[REPORTCONTROLS]
+! STRING(@s20),USE(LOC:ANNO3)
+LOC:ANNO3                CSTRING(21)
+!!> IDENT(4294966086),PROMPT('LOC : ANNO 3:'),HEADER('LOC : ANNO 3'),PICTURE(@s20)
+[SCREENCONTROLS]
+! PROMPT('loc : seleccion:'),USE(?loc:seleccion:Prompt)
+! ENTRY(@n3),USE(loc:seleccion)
+[REPORTCONTROLS]
+! STRING(@n3),USE(loc:seleccion)
+loc:seleccion            BYTE
+!!> IDENT(4294966085),PROMPT('loc : seleccion:'),HEADER('loc : seleccion'),PICTURE(@n3)
+[SCREENCONTROLS]
+! PROMPT('LOC : ITEM:'),USE(?LOC:ITEM:Prompt)
+! ENTRY(@n-6.0),USE(LOC:ITEM),DECIMAL(12)
+[REPORTCONTROLS]
+! STRING(@n-6.0),USE(LOC:ITEM),DECIMAL(12)
+LOC:ITEM                 DECIMAL(4)
+!!> IDENT(4294966084),PROMPT('LOC : ITEM:'),HEADER('LOC : ITEM'),PICTURE(@n-6.0),JUSTIFY(DECIMAL,12)
+[SCREENCONTROLS]
+! PROMPT('loc : tipodoc:'),USE(?loc:tipodoc:Prompt)
+! ENTRY(@s20),USE(loc:tipodoc)
+[REPORTCONTROLS]
+! STRING(@s20),USE(loc:tipodoc)
+loc:tipodoc              CSTRING(21)
+!!> IDENT(4294966083),PROMPT('loc : tipodoc:'),HEADER('loc : tipodoc'),PICTURE(@s20)
+[SCREENCONTROLS]
+! PROMPT('loc : nversion:'),USE(?loc:nversion:Prompt)
+! ENTRY(@s20),USE(loc:nversion)
+[REPORTCONTROLS]
+! STRING(@s20),USE(loc:nversion)
+loc:nversion             CSTRING(21)
+!!> IDENT(4294966082),PROMPT('loc : nversion:'),HEADER('loc : nversion'),PICTURE(@s20)
+[SCREENCONTROLS]
+! PROMPT('loc : compania:'),USE(?loc:compania:Prompt)
+! ENTRY(@s2),USE(loc:compania)
+[REPORTCONTROLS]
+! STRING(@s2),USE(loc:compania)
+loc:compania             CSTRING(3)
+!!> IDENT(4294966081),PROMPT('loc : compania:'),HEADER('loc : compania'),PICTURE(@s2)
+[SCREENCONTROLS]
+! PROMPT('loc : razonsocial:'),USE(?loc:razonsocial:Prompt)
+! ENTRY(@s60),USE(loc:razonsocial)
+[REPORTCONTROLS]
+! STRING(@s60),USE(loc:razonsocial)
+loc:razonsocial          CSTRING(61)
+!!> IDENT(4294966080),PROMPT('loc : razonsocial:'),HEADER('loc : razonsocial'),PICTURE(@s60)
+[SCREENCONTROLS]
+! PROMPT('loc : req:'),USE(?loc:req:Prompt)
+! ENTRY(@s20),USE(loc:req)
+[REPORTCONTROLS]
+! STRING(@s20),USE(loc:req)
+loc:req                  CSTRING(21)
+!!> IDENT(4294966079),PROMPT('loc : req:'),HEADER('loc : req'),PICTURE(@s20)
+[SCREENCONTROLS]
+! PROMPT('loc : report:'),USE(?loc:report:Prompt)
+! TEXT,USE(loc:report)
+[REPORTCONTROLS]
+! TEXT,USE(loc:report)
+loc:report               CSTRING(500)
+!!> IDENT(4294966078),PROMPT('loc : report:'),HEADER('loc : report'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('Display String:'),USE(?DisplayString:Prompt)
+! ENTRY(@s255),USE(DisplayString)
+[REPORTCONTROLS]
+! STRING(@s255),USE(DisplayString)
+DisplayString            STRING(255)
+!!> IDENT(4294966077),PROMPT('Display String:'),HEADER('Display String'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('loc : fichatecnica:'),USE(?loc:fichatecnica:Prompt)
+! ENTRY(@n3),USE(loc:fichatecnica)
+[REPORTCONTROLS]
+! STRING(@n3),USE(loc:fichatecnica)
+loc:fichatecnica         BYTE
+!!> IDENT(4294966076),PROMPT('loc : fichatecnica:'),HEADER('loc : fichatecnica'),PICTURE(@n3)
+[SCREENCONTROLS]
+! PROMPT('loc : report 1:'),USE(?loc:report1:Prompt)
+! TEXT,USE(loc:report1)
+[REPORTCONTROLS]
+! TEXT,USE(loc:report1)
+loc:report1              CSTRING(2459)
+!!> IDENT(4294966075),PROMPT('loc : report 1:'),HEADER('loc : report 1'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('loc : Usu Dllo:'),USE(?loc:UsuDllo:Prompt)
+! ENTRY(@s20),USE(loc:UsuDllo)
+[REPORTCONTROLS]
+! STRING(@s20),USE(loc:UsuDllo)
+loc:UsuDllo              CSTRING(21)
+!!> IDENT(4294966074),PROMPT('loc : Usu Dllo:'),HEADER('loc : Usu Dllo'),PICTURE(@s20)
+[SCREENCONTROLS]
+! PROMPT('Loc : Ap Dav:'),USE(?Loc:ApDav:Prompt)
+! ENTRY(@n3),USE(Loc:ApDav)
+[REPORTCONTROLS]
+! STRING(@n3),USE(Loc:ApDav)
+Loc:ApDav                BYTE(1)
+!!> IDENT(4294966073),INITIAL('1'),PROMPT('Loc : Ap Dav:'),HEADER('Loc : Ap Dav'),PICTURE(@n3)
+[SCREENCONTROLS]
+! PROMPT('LOC : X:'),USE(?LOC:X:Prompt)
+! ENTRY(@s1),USE(LOC:X)
+[REPORTCONTROLS]
+! STRING(@s1),USE(LOC:X)
+LOC:X                    CSTRING(2)
+!!> IDENT(4294966072),PROMPT('LOC : X:'),HEADER('LOC : X'),PICTURE(@s1)
+[SCREENCONTROLS]
+! PROMPT('loc : fechaentrega:'),USE(?loc:fechaentrega:Prompt)
+! ENTRY(@s10),USE(loc:fechaentrega)
+[REPORTCONTROLS]
+! STRING(@s10),USE(loc:fechaentrega)
+loc:fechaentrega         CSTRING(11)
+!!> IDENT(4294966071),PROMPT('loc : fechaentrega:'),HEADER('loc : fechaentrega'),PICTURE(@s10)
+[SCREENCONTROLS]
+! PROMPT('loc : titulo:'),USE(?loc:titulo:Prompt)
+! ENTRY(@s255),USE(loc:titulo)
+[REPORTCONTROLS]
+! STRING(@s255),USE(loc:titulo)
+loc:titulo               STRING(255)
+!!> IDENT(4294966070),PROMPT('loc : titulo:'),HEADER('loc : titulo'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('loc : imprimir Imagenes:'),USE(?loc:imprimirImagenes:Prompt)
+! ENTRY(@n3),USE(loc:imprimirImagenes)
+[REPORTCONTROLS]
+! STRING(@n3),USE(loc:imprimirImagenes)
+loc:imprimirImagenes     BYTE
+!!> IDENT(4294966069),PROMPT('loc : imprimir Imagenes:'),HEADER('loc : imprimir Imagenes'),PICTURE(@n3)
+[SCREENCONTROLS]
+! PROMPT('loc : imprimirresumenxcliente:'),USE(?loc:imprimirresumenxcliente:Prompt)
+! ENTRY(@n3),USE(loc:imprimirresumenxcliente)
+[REPORTCONTROLS]
+! STRING(@n3),USE(loc:imprimirresumenxcliente)
+loc:imprimirresumenxcliente BYTE
+!!> IDENT(4294966068),PROMPT('loc : imprimirresumenxcliente:'),HEADER('loc : imprimirresumenxcliente'),PICTURE(@n3)
+[SCREENCONTROLS]
+! PROMPT('Loc : hoy:'),USE(?Loc:hoy:Prompt)
+! ENTRY(@d17),USE(Loc:hoy)
+[REPORTCONTROLS]
+! STRING(@d17),USE(Loc:hoy)
+Loc:hoy                  DATE
+!!> IDENT(4294966067),PROMPT('Loc : hoy:'),HEADER('Loc : hoy'),PICTURE(@d17)
+[FILES]
+[PRIMARY]
+REQ
+[INSTANCE]
+0
+[KEY]
+REQ:REQCNSREQ
+[SECONDARY]
+Planificacion REQ
+Proyectos REQ
+SIS REQ
+Areas REQ
+Operador REQ
+CIA REQ
+[PRIMARY]
+TIPODOC
+[INSTANCE]
+3
+[KEY]
+TDOC:pk_tipodoc
+[OTHERS]
+VER
+REQ
+WDUM
+Operador
+REQ_DES
+Archivos
+Areas
+ESTADO
+[PROMPTS]
+%EnablePrintPreview LONG  (1)
+%MaximizePreviewWindow LONG  (1)
+%InitialZoom DEFAULT  ('100%')
+%ButtonAction DEPEND %Control DEFAULT TIMES 6
+WHEN  ('?Pause') ('No Special Action')
+WHEN  ('?Progress:Cancel') ('No Special Action')
+WHEN  ('?Progress:PctText') ('No Special Action')
+WHEN  ('?Progress:Thermometer') ('No Special Action')
+WHEN  ('?Progress:UserString') ('No Special Action')
+WHEN  ('?loc:imprimirImagenes') ('No Special Action')
+
+%ButtonRunName DEPEND %Control DEFAULT TIMES 1
+WHEN  ('?Pause') ('')
+
+%ButtonRunParameters DEPEND %Control DEFAULT TIMES 1
+WHEN  ('?Pause') ('')
+
+%ButtonProcedure DEPEND %Control PROCEDURE TIMES 1
+WHEN  ('?Pause') ()
+
+%ButtonThread DEPEND %Control LONG TIMES 1
+WHEN  ('?Pause') (0)
+
+%ButtonThreadStack DEPEND %Control DEFAULT TIMES 6
+WHEN  ('?Pause') ('25000')
+WHEN  ('?Progress:Cancel') ('25000')
+WHEN  ('?Progress:PctText') ('25000')
+WHEN  ('?Progress:Thermometer') ('25000')
+WHEN  ('?Progress:UserString') ('25000')
+WHEN  ('?loc:imprimirImagenes') ('25000')
+
+%ButtonParameters DEPEND %Control DEFAULT TIMES 1
+WHEN  ('?Pause') ('')
+
+%ButtonRequest DEPEND %Control DEFAULT TIMES 6
+WHEN  ('?Pause') ('None')
+WHEN  ('?Progress:Cancel') ('None')
+WHEN  ('?Progress:PctText') ('None')
+WHEN  ('?Progress:Thermometer') ('None')
+WHEN  ('?Progress:UserString') ('None')
+WHEN  ('?loc:imprimirImagenes') ('None')
+
+%PreLookupKey DEPEND %Control KEY TIMES 0
+
+%PreLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PreLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PostLookupKey DEPEND %Control KEY TIMES 0
+
+%PostLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PostLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ForceWindowRefresh DEPEND %Control LONG TIMES 0
+
+%ClassItem UNIQUE DEFAULT  ('BreakMgr', |
+  'Default', |
+  'Previewer', |
+  'Process', |
+  'ProgressMgr', |
+  'TargetSelector', |
+  'WindowToolbar')
+%DefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 6
+WHEN  ('BreakMgr') ('BreakManagerClass')
+WHEN  ('Default') ('ReportManager')
+WHEN  ('Previewer') ('PrintPreviewClass')
+WHEN  ('Process') ('ProcessClass')
+WHEN  ('ProgressMgr') ('StepClass')
+WHEN  ('TargetSelector') ('ReportTargetSelectorClass')
+
+%ActualDefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 6
+WHEN  ('BreakMgr') ('')
+WHEN  ('Default') ('')
+WHEN  ('Previewer') ('')
+WHEN  ('Process') ('')
+WHEN  ('ProgressMgr') ('StepStringClass')
+WHEN  ('TargetSelector') ('')
+
+%ClassLines DEPEND %ClassItem MULTI DEFAULT TIMES 2
+WHEN  ('Default') ('AskPreview {13}PROCEDURE(),DERIVED {17}! Method added to host embed code', |
+  'Init {19}PROCEDURE(),BYTE,PROC,DERIVED       ! Method added to host embed code', |
+  'Kill {19}PROCEDURE(),BYTE,PROC,DERIVED       ! Method added to host embed code', |
+  'OpenReport {13}PROCEDURE(),BYTE,PROC,DERIVED       ! Method added to host embed code', |
+  'SetStaticControlsAttributes PROCEDURE(),DERIVED {12}! Method added to host embed code', |
+  'Paused {17}BYTE', |
+  'Timer {18}LONG', |
+  'TakeAccepted {11}PROCEDURE(),BYTE,PROC,DERIVED       ! Method added to host embed code', |
+  'Cancelled {14}BYTE', |
+  'TakeWindowEvent        PROCEDURE(),BYTE,PROC,DERIVED       ! Method added to host embed code')
+WHEN  ('Process') ('ApplyFilter {12}PROCEDURE(),DERIVED {17}! Method added to host embed code', |
+  'TakeRecord {13}PROCEDURE(),BYTE,PROC,DERIVED       ! Method added to host embed code')
+
+%ProcedureParameters MULTI LONG  (1)
+%ProcedureParameterName DEPEND %ProcedureParameters DEFAULT TIMES 1
+WHEN  (1) ('pfiltro')
+
+%ProcedureParameterType DEPEND %ProcedureParameters DEFAULT TIMES 1
+WHEN  (1) ('string')
+
+%ProcedureParameterDefault DEPEND %ProcedureParameters DEFAULT TIMES 1
+WHEN  (1) ('')
+
+%ProcedureParameterOmitted DEPEND %ProcedureParameters LONG TIMES 1
+WHEN  (1) (0)
+
+%ProcedureParameterByReference DEPEND %ProcedureParameters LONG TIMES 1
+WHEN  (1) (0)
+
+%Parameters DEFAULT  ('(pfiltro)')
+%ReturnValue FIELD  ()
+%WindowOperationMode DEFAULT  ('Use WINDOW setting')
+%INISaveWindow LONG  (1)
+%ProcedureDisableEnhanceFocus LONG  (0)
+%ProcedureUseEnterInsteadTabOverride LONG  (0)
+%WindowUseEnterInsteadTab LONG  (1)
+%ProcedureUseEnterInsteadTabExcludeListCombo LONG  (0)
+%ProcedureUseEnterInsteadTabEnableNextTabStop LONG  (0)
+%ProcedureUseEnterInsteadTabExcludeG LONG  (1)
+%WindowUseEnterInsteadTabExclude MULTI DEFAULT  ()
+%GlobalObject DEPEND %ClassItem DEFAULT TIMES 7
+WHEN  ('BreakMgr') ('NO')
+WHEN  ('Default') ('NO')
+WHEN  ('Previewer') ('NO')
+WHEN  ('Process') ('NO')
+WHEN  ('ProgressMgr') ('NO')
+WHEN  ('TargetSelector') ('NO')
+WHEN  ('WindowToolbar') ('NO')
+
+%ThisObjectName DEPEND %ClassItem DEFAULT TIMES 6
+WHEN  ('BreakMgr') ('BreakMgr')
+WHEN  ('Default') ('ThisWindow')
+WHEN  ('Previewer') ('Previewer')
+WHEN  ('Process') ('ThisReport')
+WHEN  ('ProgressMgr') ('ProgressMgr')
+WHEN  ('TargetSelector') ('TargetSelector')
+
+%UseDefaultABCBaseClass DEPEND %ClassItem LONG TIMES 7
+WHEN  ('BreakMgr') (1)
+WHEN  ('Default') (1)
+WHEN  ('Previewer') (1)
+WHEN  ('Process') (1)
+WHEN  ('ProgressMgr') (1)
+WHEN  ('TargetSelector') (1)
+WHEN  ('WindowToolbar') (1)
+
+%UseABCBaseClass DEPEND %ClassItem LONG TIMES 7
+WHEN  ('BreakMgr') (1)
+WHEN  ('Default') (1)
+WHEN  ('Previewer') (1)
+WHEN  ('Process') (1)
+WHEN  ('ProgressMgr') (1)
+WHEN  ('TargetSelector') (1)
+WHEN  ('WindowToolbar') (1)
+
+%ABCBaseClass DEPEND %ClassItem DEFAULT TIMES 7
+WHEN  ('BreakMgr') ('ADOBlob')
+WHEN  ('Default') ('ADOBlob')
+WHEN  ('Previewer') ('ADOBlob')
+WHEN  ('Process') ('ADOBlob')
+WHEN  ('ProgressMgr') ('ADOBlob')
+WHEN  ('TargetSelector') ('ADOBlob')
+WHEN  ('WindowToolbar') ('ADOBlob')
+
+%ExtBaseClass DEPEND %ClassItem DEFAULT TIMES 0
+
+%BaseClassIncludeFile DEPEND %ClassItem DEFAULT TIMES 0
+
+%DeriveFromBaseClass DEPEND %ClassItem LONG TIMES 7
+WHEN  ('BreakMgr') (0)
+WHEN  ('Default') (0)
+WHEN  ('Previewer') (0)
+WHEN  ('Process') (0)
+WHEN  ('ProgressMgr') (0)
+WHEN  ('TargetSelector') (0)
+WHEN  ('WindowToolbar') (0)
+
+%NewMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewMethodName DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewMethodPrototype DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewClassProperty DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataType DEPEND %NewClassPropertyItems DEFAULT TIMES 3
+WHEN  ('BreakMgr')TIMES 0
+WHEN  ('Previewer')TIMES 0
+WHEN  ('TargetSelector')TIMES 0
+
+%NewClassOtherType DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataIsRef DEPEND %NewClassPropertyItems LONG TIMES 0
+
+%NewClassDataSize DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim1 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim2 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim3 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim4 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%ClassMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassMethodName DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassMethodPrototype DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassProperty DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataType DEPEND %ClassPropertyItems DEFAULT TIMES 3
+WHEN  ('BreakMgr')TIMES 0
+WHEN  ('Previewer')TIMES 0
+WHEN  ('TargetSelector')TIMES 0
+
+%ClassOtherType DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataIsRef DEPEND %ClassPropertyItems LONG TIMES 0
+
+%ClassDataSize DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim1 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim2 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim3 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim4 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%WindowStyles MULTI LONG  ()
+%WindowStyleFontName DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontNameVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontNameIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleFontSize DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontSizeVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontSizeIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleFontStyle DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontStyleVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontStyleIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleFontColor DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontCharSet DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleForegroundNormal DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleForegroundNormalVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleForegroundNormalIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleBackgroundNormal DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleBackgroundNormalVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleBackgroundNormalIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleForegroundSelected DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleForegroundSelectedVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleForegroundSelectedIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleBackgroundSelected DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleBackgroundSelectedVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleBackgroundSelectedIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStylePicture DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStylePictureVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStylePictureIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleOtherListboxes MULTI DEFAULT  ()
+%ProcedureAutoBindFields MULTI LONG  ()
+%ProcedureAutoBindField DEPEND %ProcedureAutoBindFields DEFAULT TIMES 0
+
+%ProcedureAutoBindFieldTPL DEPEND %ProcedureAutoBindFields DEFAULT TIMES 0
+
+%ProcedureAutoBindProcedures MULTI LONG  ()
+%ProcedureAutoBindProcedure DEPEND %ProcedureAutoBindProcedures DEFAULT TIMES 0
+
+%ProcedureAutoBindProcedureTPL DEPEND %ProcedureAutoBindProcedures DEFAULT TIMES 0
+
+%ProcedureAutoBindFieldsIgnored MULTI LONG  ()
+%ProcedureAutoBindFieldIgnored DEPEND %ProcedureAutoBindFieldsIgnored DEFAULT TIMES 0
+
+%ProcedureAutoBindProceduresIgnored MULTI LONG  ()
+%ProcedureAutoBindProcedureIgnored DEPEND %ProcedureAutoBindProceduresIgnored DEFAULT TIMES 0
+
+%ProcedureAutoBindValidToAddField LONG  (0)
+%ProcedureUserBindFields MULTI LONG  ()
+%ProcedureUserBindField DEPEND %ProcedureUserBindFields FIELD TIMES 0
+
+%ProcedureAutoBindFieldIgnore DEPEND %ProcedureAutoBindFields LONG TIMES 0
+
+%ProcedureUserBindProcedures MULTI LONG  ()
+%ProcedureUserBindProcedure DEPEND %ProcedureUserBindProcedures PROCEDURE TIMES 0
+
+%ProcedureAutoBindProcedureIgnore DEPEND %ProcedureAutoBindProcedures LONG TIMES 0
+
+%ProcedureUserBindExpressions MULTI LONG  ()
+%ProcedureUserBindExpressionName DEPEND %ProcedureUserBindExpressions DEFAULT TIMES 0
+
+%ProcedureUserBindExpression DEPEND %ProcedureUserBindExpressions DEFAULT TIMES 0
+
+%WindowMessage DEFAULT  ('')
+%ReportTargetList MULTI LONG  (1)
+%ReportTargetListName DEPEND %ReportTargetList DEFAULT TIMES 1
+WHEN  (1) ('TRptData')
+
+%ReportTargetListClass DEPEND %ReportTargetList DEFAULT TIMES 1
+WHEN  (1) ('TRptDataReportGenerator')
+
+%ReportTargetListObject DEPEND %ReportTargetList DEFAULT TIMES 1
+WHEN  (1) ('TRptDataReporter')
+
+%ReportTargetListCondition DEPEND %ReportTargetList DEFAULT TIMES 1
+WHEN  (1) ('')
+
+%ReportTargetHiddenControls MULTI LONG  ()
+%ReportTargetHiddenControl DEPEND %ReportTargetHiddenControls DEFAULT TIMES 0
+
+%ReportTargetHiddenControlTemplate DEPEND %ReportTargetHiddenControls DEFAULT TIMES 0
+
+%ReportDataSource DEFAULT  ('File')
+%MDIProgressWindow LONG  (0)
+%ProgressInterval DEFAULT  ('10')
+%EnableQuickScan LONG  (1)
+%RecordFilter DEFAULT  ('')
+%AdditionalSortType DEFAULT  ('Manual')
+%AddSortFields DEFAULT  ('')
+%AddSortFieldsAssisted MULTI LONG  ()
+%AddSortFieldAssisted DEPEND %AddSortFieldsAssisted FIELD TIMES 0
+
+%AddSortFieldAssistedOrder DEPEND %AddSortFieldsAssisted DEFAULT TIMES 0
+
+%AddConditionalSort MULTI LONG  ()
+%AddConditionalSortCondition DEPEND %AddConditionalSort DEFAULT TIMES 0
+
+%AddConditionalSortFieldsAssisted DEPEND %AddConditionalSort MULTI LONG TIMES 0
+
+%AddConditionalSortFieldAssisted DEPEND %AddConditionalSortFieldsAssisted FIELD TIMES 0
+
+%AddConditionalSortFieldAssistedOrder DEPEND %AddConditionalSortFieldsAssisted DEFAULT TIMES 0
+
+%AddSortDynamicNamed MULTI LONG  ()
+%AddSortFieldDinNameDescription DEPEND %AddSortDynamicNamed DEFAULT TIMES 0
+
+%AddSortFieldsDinName DEPEND %AddSortDynamicNamed MULTI LONG TIMES 0
+
+%AddSortFieldDinName DEPEND %AddSortFieldsDinName FIELD TIMES 0
+
+%AddSortFieldDinNameOrder DEPEND %AddSortFieldsDinName DEFAULT TIMES 0
+
+%AddSortFieldsDinSort MULTI LONG  ()
+%AddSortFieldDinSortDescription DEPEND %AddSortFieldsDinSort DEFAULT TIMES 0
+
+%AddSortFieldDinSort DEPEND %AddSortFieldsDinSort FIELD TIMES 0
+
+%AddSortFieldDinSortOrder DEPEND %AddSortFieldsDinSort DEFAULT TIMES 0
+
+%AdditionalSortWindowTitle DEFAULT  ('Select the Order')
+%AdditionalSortWindowMessage DEFAULT  ('Select the order to process the data.')
+%AdditionalSortWindowOkButtonText DEFAULT  ('&OK')
+%AdditionalSortWindowOkButtonIcon DEFAULT  ('SOK.ICO')
+%AdditionalSortWindowOkButtonCursor DEFAULT  ('')
+%AdditionalSortWindowOkButtonKeyCode DEFAULT  ('')
+%AdditionalSortWindowOkButtonMsg DEFAULT  ('Accept data and close the window')
+%AdditionalSortWindowOkButtonTip DEFAULT  ('Accept data and close the window')
+%AdditionalSortWindowOkButtonFlat LONG  (1)
+%AdditionalSortWindowOkButtonSkip LONG  (0)
+%AdditionalSortWindowOkButtonJustification DEFAULT  ('Left')
+%AdditionalSortWindowCancelButtonText DEFAULT  ('&Cancel')
+%AdditionalSortWindowCancelButtonIcon DEFAULT  ('SCANCEL.ICO')
+%AdditionalSortWindowCancelButtonCursor DEFAULT  ('')
+%AdditionalSortWindowCancelButtonKeyCode DEFAULT  ('')
+%AdditionalSortWindowCancelButtonMsg DEFAULT  ('Cancel operation')
+%AdditionalSortWindowCancelButtonTip DEFAULT  ('Cancel operation')
+%AdditionalSortWindowCancelButtonFlat LONG  (1)
+%AdditionalSortWindowCancelButtonSkip LONG  (0)
+%AdditionalSortWindowCancelButtonJustification DEFAULT  ('Left')
+%AdditionalSortWindowUpButtonText DEFAULT  ('')
+%AdditionalSortWindowUpButtonIcon DEFAULT  ('SUP.ICO')
+%AdditionalSortWindowUpButtonCursor DEFAULT  ('')
+%AdditionalSortWindowUpButtonKeyCode DEFAULT  ('')
+%AdditionalSortWindowUpButtonMsg DEFAULT  ('Move field up')
+%AdditionalSortWindowUpButtonTip DEFAULT  ('Move field up')
+%AdditionalSortWindowUpButtonFlat LONG  (1)
+%AdditionalSortWindowUpButtonSkip LONG  (0)
+%AdditionalSortWindowUpButtonJustification DEFAULT  ('Left')
+%AdditionalSortWindowDownButtonText DEFAULT  ('')
+%AdditionalSortWindowDownButtonIcon DEFAULT  ('SDOWN.ICO')
+%AdditionalSortWindowDownButtonCursor DEFAULT  ('')
+%AdditionalSortWindowDownButtonKeyCode DEFAULT  ('')
+%AdditionalSortWindowDownButtonMsg DEFAULT  ('Move field down')
+%AdditionalSortWindowDownButtonTip DEFAULT  ('Move field down')
+%AdditionalSortWindowDownButtonFlat LONG  (1)
+%AdditionalSortWindowDownButtonSkip LONG  (0)
+%AdditionalSortWindowDownButtonJustification DEFAULT  ('Left')
+%AdditionalSortWindowChOrdButtonText DEFAULT  ('')
+%AdditionalSortWindowChOrdButtonIcon DEFAULT  ('SCH-ORD.ICO')
+%AdditionalSortWindowChOrdButtonCursor DEFAULT  ('')
+%AdditionalSortWindowChOrdButtonKeyCode DEFAULT  ('')
+%AdditionalSortWindowChOrdButtonMsg DEFAULT  ('Change Order')
+%AdditionalSortWindowChOrdButtonTip DEFAULT  ('Change Order')
+%AdditionalSortWindowChOrdButtonFlat LONG  (1)
+%AdditionalSortWindowChOrdButtonSkip LONG  (0)
+%AdditionalSortWindowChOrdButtonJustification DEFAULT  ('Left')
+%ApproxRecordCount DEFAULT  ('')
+%ManuallySetProgressLimits LONG  (0)
+%LowLimit DEFAULT  ('')
+%HighLimit DEFAULT  ('')
+%ReportDataSourceQueueName DEFAULT  ('')
+%UseMRP LONG  (1)
+%ReportTargetOutput DEFAULT  ('Printer')
+%ReportTargetAskWithPrint LONG  (1)
+%ReportTargetOtherOutput DEFAULT  ('')
+%RangeField COMPONENT  ()
+%RangeLimitType DEFAULT  ('Current Value')
+%HigherKeys MULTI LONG  ()
+%HigherKey DEPEND %HigherKeys COMPONENT TIMES 0
+
+%HigherKeyField DEPEND %HigherKeys FIELD TIMES 0
+
+%HigherKeyValueType DEPEND %HigherKeys DEFAULT TIMES 0
+
+%HigherKeyValueVariable DEPEND %HigherKeys FIELD TIMES 0
+
+%HigherKeyValueFixed DEPEND %HigherKeys DEFAULT TIMES 0
+
+%RangeLimit FIELD  ()
+%RangeLow FIELD  ()
+%RangeHigh FIELD  ()
+%RangeFile FILE  ()
+%RuntimeSkipPreview DEFAULT  ('False')
+%AllowUserZooms LONG  (1)
+%InitWindowPosition LONG  (0)
+%WinXPos DEFAULT  ('')
+%WinYPos DEFAULT  ('')
+%WinWidth DEFAULT  ('315')
+%WinHeight DEFAULT  ('200')
+%MDIPreviewer LONG  (0)
+%ProcessBreaks MULTI LONG  ()
+%BreakName DEPEND %ProcessBreaks DEFAULT TIMES 0
+
+%BreakLevelCero DEPEND %ProcessBreaks LONG TIMES 0
+
+%BreakLevelBreakNumber DEPEND %ProcessBreaks LONG TIMES 0
+
+%BreakLevel DEPEND %ProcessBreaks LONG TIMES 0
+
+%BreakFields DEPEND %ProcessBreaks MULTI LONG TIMES 0
+
+%BreakField DEPEND %BreakFields FIELD TIMES 0
+
+%BreakTotals DEPEND %ProcessBreaks MULTI LONG TIMES 0
+
+%BreakTotalTarget DEPEND %BreakTotals FIELD TIMES 0
+
+%BreakTotalType DEPEND %BreakTotals DEFAULT TIMES 0
+
+%BreakTotalField DEPEND %BreakTotals FIELD TIMES 0
+
+%BreakTotalFieldWeight DEPEND %BreakTotals FIELD TIMES 0
+
+%BreakTotalBasedOn DEPEND %BreakTotals DEFAULT TIMES 0
+
+%BreakTotalCondition DEPEND %BreakTotals DEFAULT TIMES 0
+
+%BreakTotalReset DEPEND %BreakTotals LONG TIMES 0
+
+%BreakReportHeaderYes DEPEND %ProcessBreaks LONG TIMES 0
+
+%BreakReportHeader DEPEND %ProcessBreaks DEFAULT TIMES 0
+
+%BreakReportFooterYes DEPEND %ProcessBreaks LONG TIMES 0
+
+%BreakReportFooter DEPEND %ProcessBreaks DEFAULT TIMES 0
+
+%HotFields MULTI LONG  ()
+%HotField DEPEND %HotFields FIELD TIMES 0
+
+%HotFieldBound DEPEND %HotFields LONG TIMES 0
+
+%HotFieldRestoreOnBreak DEPEND %HotFields LONG TIMES 0
+
+%DetailFilter DEPEND %ReportControl DEFAULT TIMES 6
+WHEN  ('?Detail') ('false')
+WHEN  ('?Tiempos') ('false')
+WHEN  ('?TiemposTotales') ('false')
+WHEN  ('?descripcion') ('true')
+WHEN  ('?imagen') ('false')
+WHEN  ('?titulo') ('false')
+
+%DetailFilterExclusive DEPEND %ReportControl LONG TIMES 0
+
+%DetailFilterExternal DEPEND %ReportControl DEFAULT TIMES 93
+WHEN  ('?ARE:Nombre') ('')
+WHEN  ('?Box16') ('')
+WHEN  ('?Box16:10') ('')
+WHEN  ('?Box16:11') ('')
+WHEN  ('?Box16:12') ('')
+WHEN  ('?Box16:2') ('')
+WHEN  ('?Box16:3') ('')
+WHEN  ('?Box16:4') ('')
+WHEN  ('?Box16:5') ('')
+WHEN  ('?Box16:6') ('')
+WHEN  ('?Box16:7') ('')
+WHEN  ('?Box16:8') ('')
+WHEN  ('?Box16:9') ('')
+WHEN  ('?Box4') ('')
+WHEN  ('?Box4:2') ('')
+WHEN  ('?Box6') ('')
+WHEN  ('?Box6:10') ('')
+WHEN  ('?Box6:11') ('')
+WHEN  ('?Box6:2') ('')
+WHEN  ('?Box6:3') ('')
+WHEN  ('?Box6:4') ('')
+WHEN  ('?Box6:5') ('')
+WHEN  ('?Box6:6') ('')
+WHEN  ('?Box6:7') ('')
+WHEN  ('?Box6:8') ('')
+WHEN  ('?Box6:9') ('')
+WHEN  ('?CIA:COMPANIA') ('')
+WHEN  ('?CIA:RAZONSOCIAL') ('')
+WHEN  ('?Detail') ('')
+WHEN  ('?EST:DESCRIPCION') ('')
+WHEN  ('?Footer') ('')
+WHEN  ('?Form') ('')
+WHEN  ('?FormImage') ('')
+WHEN  ('?Header') ('')
+WHEN  ('?HeaderBox') ('')
+WHEN  ('?Image1') ('')
+WHEN  ('?Image2') ('')
+WHEN  ('?LOC:ITEM') ('')
+WHEN  ('?Line6') ('')
+WHEN  ('?Loc:DiasTotales') ('')
+WHEN  ('?Loc:TiempoTotal') ('')
+WHEN  ('?Loc:hoy') ('')
+WHEN  ('?OPE:Nombre') ('')
+WHEN  ('?PLA:USUARIO') ('')
+WHEN  ('?PRY:Nombre') ('')
+WHEN  ('?PageCount:2') ('')
+WHEN  ('?PageCount:3') ('')
+WHEN  ('?REQ:CNSREQ') ('')
+WHEN  ('?REQ:DETALLE') ('')
+WHEN  ('?REQ:ESTADOREAL') ('')
+WHEN  ('?REQ:FECHARECIBO_DATE') ('')
+WHEN  ('?REQ:Tiempo1') ('')
+WHEN  ('?REQ:USUARIORECIBE') ('')
+WHEN  ('?ReportDatePrompt:2') ('')
+WHEN  ('?ReportDateStamp:2') ('')
+WHEN  ('?ReportTimePrompt:2') ('')
+WHEN  ('?ReportTimeStamp:2') ('')
+WHEN  ('?SIS:NOMBRE') ('')
+WHEN  ('?String10') ('')
+WHEN  ('?String10:10') ('')
+WHEN  ('?String10:11') ('')
+WHEN  ('?String10:2') ('')
+WHEN  ('?String10:3') ('')
+WHEN  ('?String10:4') ('')
+WHEN  ('?String10:5') ('')
+WHEN  ('?String10:6') ('')
+WHEN  ('?String10:7') ('')
+WHEN  ('?String10:8') ('')
+WHEN  ('?String10:9') ('')
+WHEN  ('?String20') ('')
+WHEN  ('?String20:10') ('')
+WHEN  ('?String20:11') ('')
+WHEN  ('?String20:12') ('')
+WHEN  ('?String20:13') ('')
+WHEN  ('?String20:2') ('')
+WHEN  ('?String20:3') ('')
+WHEN  ('?String20:4') ('')
+WHEN  ('?String20:5') ('')
+WHEN  ('?String20:6') ('')
+WHEN  ('?String20:7') ('')
+WHEN  ('?String20:8') ('')
+WHEN  ('?String20:9') ('')
+WHEN  ('?Tiempos') ('')
+WHEN  ('?TiemposTotales') ('')
+WHEN  ('?VER:NAPROBO') ('')
+WHEN  ('?VER:NELABORA') ('')
+WHEN  ('?VER:NREVISO') ('')
+WHEN  ('?descripcion') ('')
+WHEN  ('?imagen') ('')
+WHEN  ('?loc:razonsocial') ('')
+WHEN  ('?loc:req') ('')
+WHEN  ('?loc:titulo') ('')
+WHEN  ('?titulo') ('')
+
+%ExtUITabIcon DEPEND %Control DEFAULT TIMES 0
+
+%ExtUITabStyleOverrideGlobal DEPEND %Control LONG TIMES 0
+
+%ExtUITabStyle DEPEND %Control DEFAULT TIMES 6
+WHEN  ('?Pause') ('Default')
+WHEN  ('?Progress:Cancel') ('Default')
+WHEN  ('?Progress:PctText') ('Default')
+WHEN  ('?Progress:Thermometer') ('Default')
+WHEN  ('?Progress:UserString') ('Default')
+WHEN  ('?loc:imprimirImagenes') ('Default')
+
+%ButtonReturnValueAssignment DEPEND %Control FIELD TIMES 1
+WHEN  ('?Pause') ()
+
+%ButtonReturnValueReferenceAssign DEPEND %Control LONG TIMES 1
+WHEN  ('?Pause') (0)
+
+%ButtonThreadParameters DEPEND %Control DEFAULT TIMES 1
+WHEN  ('?Pause') ('')
+
+%ButtonThreadReturnValueAssignment DEPEND %Control FIELD TIMES 1
+WHEN  ('?Pause') ()
+
+%PreLookupProcedureParameters DEPEND %Control DEFAULT TIMES 0
+
+%PostLookupProcedureParameters DEPEND %Control DEFAULT TIMES 0
+
+%PostLookupDuringValidate DEPEND %Control LONG TIMES 6
+WHEN  ('?Pause') (1)
+WHEN  ('?Progress:Cancel') (1)
+WHEN  ('?Progress:PctText') (1)
+WHEN  ('?Progress:Thermometer') (1)
+WHEN  ('?Progress:UserString') (1)
+WHEN  ('?loc:imprimirImagenes') (1)
+
+%LookupAssign DEPEND %Control MULTI LONG TIMES 0
+
+%MoreTarget DEPEND %LookupAssign FIELD TIMES 0
+
+%MoreField DEPEND %LookupAssign DEFAULT TIMES 0
+
+%CheckedAssigns DEPEND %Control MULTI LONG TIMES 0
+
+%CheckedAssignVariable DEPEND %CheckedAssigns FIELD TIMES 0
+
+%CheckedAssignValue DEPEND %CheckedAssigns DEFAULT TIMES 0
+
+%CheckedHides DEPEND %Control MULTI LONG TIMES 0
+
+%CheckedControl DEPEND %CheckedHides DEFAULT TIMES 0
+
+%CheckedControlAction DEPEND %CheckedHides DEFAULT TIMES 6
+WHEN  ('?Pause')TIMES 0
+WHEN  ('?Progress:Cancel')TIMES 0
+WHEN  ('?Progress:PctText')TIMES 0
+WHEN  ('?Progress:Thermometer')TIMES 0
+WHEN  ('?Progress:UserString')TIMES 0
+WHEN  ('?loc:imprimirImagenes')TIMES 0
+
+%CheckedEnables DEPEND %Control MULTI LONG TIMES 0
+
+%CheckedControl1 DEPEND %CheckedEnables DEFAULT TIMES 0
+
+%CheckedControl1Action DEPEND %CheckedEnables DEFAULT TIMES 6
+WHEN  ('?Pause')TIMES 0
+WHEN  ('?Progress:Cancel')TIMES 0
+WHEN  ('?Progress:PctText')TIMES 0
+WHEN  ('?Progress:Thermometer')TIMES 0
+WHEN  ('?Progress:UserString')TIMES 0
+WHEN  ('?loc:imprimirImagenes')TIMES 0
+
+%UncheckedAssigns DEPEND %Control MULTI LONG TIMES 0
+
+%UncheckedAssignVariable DEPEND %UncheckedAssigns FIELD TIMES 0
+
+%UncheckedAssignValue DEPEND %UncheckedAssigns DEFAULT TIMES 0
+
+%UnCheckedHides DEPEND %Control MULTI LONG TIMES 0
+
+%UnCheckedControl DEPEND %UnCheckedHides DEFAULT TIMES 0
+
+%UnCheckedControlAction DEPEND %UnCheckedHides DEFAULT TIMES 6
+WHEN  ('?Pause')TIMES 0
+WHEN  ('?Progress:Cancel')TIMES 0
+WHEN  ('?Progress:PctText')TIMES 0
+WHEN  ('?Progress:Thermometer')TIMES 0
+WHEN  ('?Progress:UserString')TIMES 0
+WHEN  ('?loc:imprimirImagenes')TIMES 0
+
+%UnCheckedEnables DEPEND %Control MULTI LONG TIMES 0
+
+%UnCheckedControl1 DEPEND %UnCheckedEnables DEFAULT TIMES 0
+
+%UnCheckedControl1Action DEPEND %UnCheckedEnables DEFAULT TIMES 6
+WHEN  ('?Pause')TIMES 0
+WHEN  ('?Progress:Cancel')TIMES 0
+WHEN  ('?Progress:PctText')TIMES 0
+WHEN  ('?Progress:Thermometer')TIMES 0
+WHEN  ('?Progress:UserString')TIMES 0
+WHEN  ('?loc:imprimirImagenes')TIMES 0
+
+%CheckedDisables DEPEND %Control MULTI LONG TIMES 0
+
+%CheckedDisableControl DEPEND %CheckedDisables DEFAULT TIMES 0
+
+%CheckedDisableControlAction DEPEND %CheckedDisables DEFAULT TIMES 6
+WHEN  ('?Pause')TIMES 0
+WHEN  ('?Progress:Cancel')TIMES 0
+WHEN  ('?Progress:PctText')TIMES 0
+WHEN  ('?Progress:Thermometer')TIMES 0
+WHEN  ('?Progress:UserString')TIMES 0
+WHEN  ('?loc:imprimirImagenes')TIMES 0
+
+%UnCheckedDisables DEPEND %Control MULTI LONG TIMES 0
+
+%UnCheckedDisableControl DEPEND %UnCheckedDisables DEFAULT TIMES 0
+
+%UnCheckedDisableControlAction DEPEND %UnCheckedDisables DEFAULT TIMES 6
+WHEN  ('?Pause')TIMES 0
+WHEN  ('?Progress:Cancel')TIMES 0
+WHEN  ('?Progress:PctText')TIMES 0
+WHEN  ('?Progress:Thermometer')TIMES 0
+WHEN  ('?Progress:UserString')TIMES 0
+WHEN  ('?loc:imprimirImagenes')TIMES 0
+
+%SynOnAccept DEPEND %Control LONG TIMES 0
+
+%SynOnSelect DEPEND %Control LONG TIMES 0
+
+[EMBED]
+EMBED %WindowManagerMethodCodeSection
+[INSTANCES]
+WHEN 'OpenReport'
+[INSTANCES]
+WHEN '(),BYTE'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 5001
+PROPERTY:END
+IF GLO:FECHAINI = 0 AND GLO:FECHAFIN = 0
+    
+
+    SETTARGET
+END
+[END]
+[END]
+WHEN 'Init'
+[INSTANCES]
+WHEN '(),BYTE'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 450
+PROPERTY:END
+loc:DIA2 =Day(TODAY())
+loc:MES2=MONTH(TODAY())
+loc:ANNO3 =year(TODAY())
+
+GLO:FECHAINI = ''
+GLO:FECHAFIN = ''
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 7501
+PROPERTY:END
+Loc:hoy=today()
+[END]
+[END]
+WHEN 'AskPreview'
+[INSTANCES]
+WHEN '()'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4500
+PROPERTY:END
+Loc:DiasTotales = Loc:TiempoTotal / 8
+print(rpt:Tiempos)
+[END]
+[END]
+[END]
+EMBED %ProcessManagerMethodCodeSection
+[INSTANCES]
+WHEN 'ApplyFilter'
+[INSTANCES]
+WHEN '()'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4500
+PROPERTY:END
+Process:View{prop:sqlfilter} = pfiltro
+[END]
+[END]
+WHEN 'TakeRecord'
+[INSTANCES]
+WHEN '(),BYTE'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4500
+PROPERTY:END
+
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4500
+PROPERTY:END
+EST:TABLA ='REQ'
+EST:IDESTADO = REQ:ESTADOREAL
+ACCESS:ESTADO.FETCH(EST:PK_ESTADO)
+!Esto es una pruba de git.
+
+Loc:TiempoTotal += REQ:Tiempo1
+
+
+[END]
+[END]
+[END]
+EMBED %AfterPrint
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 5000
+PROPERTY:END
+   if loc:imprimirImagenes
+     REQ_DES:CNSREQ    =  REQ:CNSREQ
+     REQ_DES:TIPO      = 'IMAGEN'
+     SET(REQ_DES:key_portipo,REQ_DES:key_portipo)
+     LOOP  UNTIL ACCESS:REQ_DES.NEXT()  OR  REQ_DES:CNSREQ <>  REQ:CNSREQ OR REQ_DES:TIPO <> 'IMAGEN'
+            Report$?Image1{PROP:NoWidth} = TRUE
+            Report$?Image1{PROP:NoHeight} = TRUE
+            Report$?Image1{PROP:ImageBlob} = REQ_DES:DICOM{PROP:Handle}
+            IF Report$?Image1{PROP:Height} > 5000
+                AspectRatio$ = Report$?Image1{PROP:Width}/Report$?Image1{PROP:Height}
+                Report$?Image1{PROP:Height} = 5000
+                Report$?Image1{PROP:Width}  = 5000 * AspectRatio$
+            END
+            IF Report$?Image1{PROP:Width} > 5000
+                AspectRatio$ = Report$?Image1{PROP:Height}/Report$?Image1{PROP:Width}
+                Report$?Image1{PROP:Width}  = 5000
+                Report$?Image1{PROP:Height} = 5000 * AspectRatio$
+            END
+            print(rpt:imagen)
+
+     END
+  end
+[END]
+[END]
+[ADDITION]
+NAME TABReportDataExportSupport TABReportDataExport
+[INSTANCE]
+INSTANCE 3
+OWNER 2
+[PROMPTS]
+%ClassItem UNIQUE DEFAULT  ('TRptDataReporter')
+%DefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('TRptDataReporter') ('TRptDataReportGenerator')
+
+%ActualDefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('TRptDataReporter') ('')
+
+%ClassLines DEPEND %ClassItem MULTI DEFAULT TIMES 1
+WHEN  ('TRptDataReporter') ('Setup {18}PROCEDURE(),DERIVED {17}! Method added to host embed code')
+
+%pOutputField MULTI DEFAULT  ('?REQ:CNSREQ', |
+  '?CIA:COMPANIA', |
+  '?EST:DESCRIPCION', |
+  '?CIA:RAZONSOCIAL', |
+  '?REQ:ESTADOREAL', |
+  '?REQ:USUARIORECIBE', |
+  '?PLA:USUARIO', |
+  '?REQ:Tiempo1', |
+  '?OPE:Nombre', |
+  '?REQ:FECHARECIBO_DATE', |
+  '?ARE:Nombre', |
+  '?SIS:NOMBRE', |
+  '?PRY:Nombre', |
+  '?REQ:DETALLE')
+%pExporterMode DEFAULT  ('0')
+%Populate DEFAULT  ('Always')
+%PopulateCondition DEFAULT  ('')
+%OutputNameType DEFAULT  ('Runtime')
+%OutputNameFixed DEFAULT  ('')
+%OutputNameVariable DEFAULT  ('')
+%pExportTargetM MULTI LONG  (1, 2, 3)
+%pExportTarget DEPEND %pExportTargetM DEFAULT TIMES 3
+WHEN  (1) ('EXCEL')
+WHEN  (2) ('BASIC')
+WHEN  (3) ('XML')
+
+%pExportTargetName DEPEND %pExportTargetM DEFAULT TIMES 3
+WHEN  (1) ('EXCEL')
+WHEN  (2) ('CSV')
+WHEN  (3) ('XML')
+
+%pExportTargetExtension DEPEND %pExportTargetM DEFAULT TIMES 3
+WHEN  (1) ('XLS')
+WHEN  (2) ('CSV')
+WHEN  (3) ('XML')
+
+%pEnableTarget DEPEND %pExportTargetM LONG TIMES 3
+WHEN  (1) (1)
+WHEN  (2) (1)
+WHEN  (3) (1)
+
+%pXLSPrintTitles DEPEND %pExportTargetM LONG TIMES 3
+WHEN  (1) (1)
+WHEN  (2) (1)
+WHEN  (3) (1)
+
+%pXLSTitle DEPEND %pExportTargetM DEFAULT TIMES 3
+WHEN  (1) ('Listado de Requerimientos')
+WHEN  (2) ('Report the CIA File')
+WHEN  (3) ('Report the CIA File')
+
+%pXLSSubTitle DEPEND %pExportTargetM DEFAULT TIMES 0
+
+%pXLSPrintHeaders DEPEND %pExportTargetM LONG TIMES 3
+WHEN  (1) (1)
+WHEN  (2) (1)
+WHEN  (3) (1)
+
+%pFontM DEPEND %pExportTargetM MULTI DEFAULT TIMES 1
+WHEN  (1) ('1', |
+  '2', |
+  '3', |
+  '4')
+
+%pFontName DEPEND %pExportTargetM DEPEND %pFontM DEFAULT TIMES 2
+WHEN  (1)TIMES 4
+WHEN  ('1') ('Arial')
+WHEN  ('2') ('Times New Roman')
+WHEN  ('3') ('Arial')
+WHEN  ('4') ('Arial')
+WHEN  (3)TIMES 0
+
+%pFontSize DEPEND %pExportTargetM DEPEND %pFontM DEFAULT TIMES 2
+WHEN  (1)TIMES 4
+WHEN  ('1') ('10')
+WHEN  ('2') ('12')
+WHEN  ('3') ('12')
+WHEN  ('4') ('16')
+WHEN  (3)TIMES 0
+
+%pFontStyle DEPEND %pExportTargetM DEPEND %pFontM DEFAULT TIMES 2
+WHEN  (1)TIMES 4
+WHEN  ('1') ('400')
+WHEN  ('2') ('700')
+WHEN  ('3') ('700')
+WHEN  ('4') ('4796')
+WHEN  (3)TIMES 0
+
+%pFontColor DEPEND %pExportTargetM DEPEND %pFontM DEFAULT TIMES 2
+WHEN  (1)TIMES 4
+WHEN  ('1') ('0')
+WHEN  ('2') ('0')
+WHEN  ('3') ('0')
+WHEN  ('4') ('0')
+WHEN  (3)TIMES 0
+
+%pFontDescription DEPEND %pExportTargetM DEPEND %pFontM DEFAULT TIMES 1
+WHEN  (1)TIMES 4
+WHEN  ('1') ('Report Data')
+WHEN  ('2') ('Column Headers')
+WHEN  ('3') ('Sub-title')
+WHEN  ('4') ('Main Title')
+
+%pForegroundColor DEPEND %pExportTargetM DEPEND %pFontM LONG TIMES 2
+WHEN  (1)TIMES 4
+WHEN  ('1') (-1)
+WHEN  ('2') (-1)
+WHEN  ('3') (-1)
+WHEN  ('4') (-1)
+WHEN  (3)TIMES 0
+
+%pBackgroundColor DEPEND %pExportTargetM DEPEND %pFontM LONG TIMES 2
+WHEN  (1)TIMES 4
+WHEN  ('1') (-1)
+WHEN  ('2') (-1)
+WHEN  ('3') (-1)
+WHEN  ('4') (-1)
+WHEN  (3)TIMES 0
+
+%pDataColumn DEPEND %pExportTargetM DEPEND %pFontM DEFAULT TIMES 2
+WHEN  (1)TIMES 4
+WHEN  ('1') ('1')
+WHEN  ('2') ('1')
+WHEN  ('3') ('1')
+WHEN  ('4') ('1')
+WHEN  (3)TIMES 0
+
+%pDataRow DEPEND %pExportTargetM DEPEND %pFontM DEFAULT TIMES 2
+WHEN  (1)TIMES 4
+WHEN  ('1') ('5')
+WHEN  ('2') ('5')
+WHEN  ('3') ('5')
+WHEN  ('4') ('5')
+WHEN  (3)TIMES 0
+
+%pHeadersColumn DEPEND %pExportTargetM DEPEND %pFontM DEFAULT TIMES 2
+WHEN  (1)TIMES 4
+WHEN  ('1') ('1')
+WHEN  ('2') ('1')
+WHEN  ('3') ('1')
+WHEN  ('4') ('1')
+WHEN  (3)TIMES 0
+
+%pHeadersRow DEPEND %pExportTargetM DEPEND %pFontM DEFAULT TIMES 2
+WHEN  (1)TIMES 4
+WHEN  ('1') ('4')
+WHEN  ('2') ('4')
+WHEN  ('3') ('4')
+WHEN  ('4') ('4')
+WHEN  (3)TIMES 0
+
+%pSubTitleColumn DEPEND %pExportTargetM DEPEND %pFontM DEFAULT TIMES 2
+WHEN  (1)TIMES 4
+WHEN  ('1') ('1')
+WHEN  ('2') ('1')
+WHEN  ('3') ('1')
+WHEN  ('4') ('1')
+WHEN  (3)TIMES 0
+
+%pSubTitleRow DEPEND %pExportTargetM DEPEND %pFontM DEFAULT TIMES 2
+WHEN  (1)TIMES 4
+WHEN  ('1') ('2')
+WHEN  ('2') ('2')
+WHEN  ('3') ('2')
+WHEN  ('4') ('2')
+WHEN  (3)TIMES 0
+
+%pTitleColumn DEPEND %pExportTargetM DEPEND %pFontM DEFAULT TIMES 2
+WHEN  (1)TIMES 4
+WHEN  ('1') ('1')
+WHEN  ('2') ('1')
+WHEN  ('3') ('1')
+WHEN  ('4') ('1')
+WHEN  (3)TIMES 0
+
+%pTitleRow DEPEND %pExportTargetM DEPEND %pFontM DEFAULT TIMES 2
+WHEN  (1)TIMES 4
+WHEN  ('1') ('1')
+WHEN  ('2') ('1')
+WHEN  ('3') ('1')
+WHEN  ('4') ('1')
+WHEN  (3)TIMES 0
+
+%pBASICPrintHeaders DEPEND %pExportTargetM LONG TIMES 3
+WHEN  (1) (1)
+WHEN  (2) (1)
+WHEN  (3) (1)
+
+%pBASICAllwaysQuote DEPEND %pExportTargetM LONG TIMES 3
+WHEN  (1) (1)
+WHEN  (2) (1)
+WHEN  (3) (1)
+
+%pBASICFieldDelimiter DEPEND %pExportTargetM DEFAULT TIMES 3
+WHEN  (1) (',')
+WHEN  (2) (',')
+WHEN  (3) (',')
+
+%pBASICEndOfRecord DEPEND %pExportTargetM DEFAULT TIMES 3
+WHEN  (1) ('<13,10>')
+WHEN  (2) ('<13,10>')
+WHEN  (3) ('<13,10>')
+
+%pBASICQuote DEPEND %pExportTargetM DEFAULT TIMES 3
+WHEN  (1) ('"')
+WHEN  (2) ('"')
+WHEN  (3) ('"')
+
+%pXMLRootTag DEPEND %pExportTargetM DEFAULT TIMES 3
+WHEN  (1) ('rpt:req')
+WHEN  (2) ('rpt:req')
+WHEN  (3) ('rpt:req')
+
+%pXMLRecordTag DEPEND %pExportTargetM DEFAULT TIMES 3
+WHEN  (1) ('DataRecord')
+WHEN  (2) ('DataRecord')
+WHEN  (3) ('DataRecord')
+
+%pXMLIncrementalIndent DEPEND %pExportTargetM DEFAULT TIMES 3
+WHEN  (1) ('1')
+WHEN  (2) ('1')
+WHEN  (3) ('1')
+
+%pXMLTagAndDataTogether DEPEND %pExportTargetM LONG TIMES 3
+WHEN  (1) (1)
+WHEN  (2) (1)
+WHEN  (3) (1)
+
+%pAutoAdded DEPEND %pExportTargetM LONG TIMES 3
+WHEN  (1) (1)
+WHEN  (2) (1)
+WHEN  (3) (1)
+
+%pDetailBand2UseM MULTI LONG  (1)
+%pDetailBand2Use DEPEND %pDetailBand2UseM DEFAULT TIMES 1
+WHEN  (1) ('?descripcion')
+
+%pOutputFieldExport DEPEND %pOutputField LONG TIMES 14
+WHEN  ('?ARE:Nombre') (1)
+WHEN  ('?CIA:COMPANIA') (1)
+WHEN  ('?CIA:RAZONSOCIAL') (1)
+WHEN  ('?EST:DESCRIPCION') (1)
+WHEN  ('?OPE:Nombre') (1)
+WHEN  ('?PLA:USUARIO') (1)
+WHEN  ('?PRY:Nombre') (1)
+WHEN  ('?REQ:CNSREQ') (1)
+WHEN  ('?REQ:DETALLE') (1)
+WHEN  ('?REQ:ESTADOREAL') (0)
+WHEN  ('?REQ:FECHARECIBO_DATE') (1)
+WHEN  ('?REQ:Tiempo1') (1)
+WHEN  ('?REQ:USUARIORECIBE') (1)
+WHEN  ('?SIS:NOMBRE') (1)
+
+%pOutputFieldDescription DEPEND %pOutputField DEFAULT TIMES 14
+WHEN  ('?ARE:Nombre') ('Nombre')
+WHEN  ('?CIA:COMPANIA') ('Compañía')
+WHEN  ('?CIA:RAZONSOCIAL') ('Razón Social')
+WHEN  ('?EST:DESCRIPCION') ('DESCRIPCION')
+WHEN  ('?OPE:Nombre') ('Nombre')
+WHEN  ('?PLA:USUARIO') ('Usuario')
+WHEN  ('?PRY:Nombre') ('Nombre')
+WHEN  ('?REQ:CNSREQ') ('No.Req')
+WHEN  ('?REQ:DETALLE') ('Detalle')
+WHEN  ('?REQ:ESTADOREAL') ('ESTADOREAL')
+WHEN  ('?REQ:FECHARECIBO_DATE') ('Fecha Recibo')
+WHEN  ('?REQ:Tiempo1') ('Tiempo 1')
+WHEN  ('?REQ:USUARIORECIBE') ('Usuario Recibe Req')
+WHEN  ('?SIS:NOMBRE') ('Nombre')
+
+%pOutputFieldHeader DEPEND %pOutputField DEFAULT TIMES 14
+WHEN  ('?ARE:Nombre') ('Nombre')
+WHEN  ('?CIA:COMPANIA') ('Compañía')
+WHEN  ('?CIA:RAZONSOCIAL') ('Razón Social')
+WHEN  ('?EST:DESCRIPCION') ('DESCRIPCION')
+WHEN  ('?OPE:Nombre') ('Nombre')
+WHEN  ('?PLA:USUARIO') ('Usuario')
+WHEN  ('?PRY:Nombre') ('Nombre')
+WHEN  ('?REQ:CNSREQ') ('No. Versión')
+WHEN  ('?REQ:DETALLE') ('Detalle')
+WHEN  ('?REQ:ESTADOREAL') ('ESTADOREAL')
+WHEN  ('?REQ:FECHARECIBO_DATE') ('Fecha Recibo')
+WHEN  ('?REQ:Tiempo1') ('Tiempo 1')
+WHEN  ('?REQ:USUARIORECIBE') ('Usuario Recibe Req')
+WHEN  ('?SIS:NOMBRE') ('Nombre')
+
+%pOutputFieldHeaderOver DEPEND %pOutputField LONG TIMES 14
+WHEN  ('?ARE:Nombre') (1)
+WHEN  ('?CIA:COMPANIA') (1)
+WHEN  ('?CIA:RAZONSOCIAL') (1)
+WHEN  ('?EST:DESCRIPCION') (1)
+WHEN  ('?OPE:Nombre') (1)
+WHEN  ('?PLA:USUARIO') (0)
+WHEN  ('?PRY:Nombre') (1)
+WHEN  ('?REQ:CNSREQ') (1)
+WHEN  ('?REQ:DETALLE') (0)
+WHEN  ('?REQ:ESTADOREAL') (0)
+WHEN  ('?REQ:FECHARECIBO_DATE') (1)
+WHEN  ('?REQ:Tiempo1') (0)
+WHEN  ('?REQ:USUARIORECIBE') (1)
+WHEN  ('?SIS:NOMBRE') (1)
+
+%pOutputFieldHeaderOverValue DEPEND %pOutputField DEFAULT TIMES 14
+WHEN  ('?ARE:Nombre') ('Area')
+WHEN  ('?CIA:COMPANIA') ('Cliente')
+WHEN  ('?CIA:RAZONSOCIAL') ('Nombre Cliente')
+WHEN  ('?EST:DESCRIPCION') ('Estado')
+WHEN  ('?OPE:Nombre') ('Reportado Por')
+WHEN  ('?PLA:USUARIO') ('Usuario')
+WHEN  ('?PRY:Nombre') ('Proyecto')
+WHEN  ('?REQ:CNSREQ') ('No.Req')
+WHEN  ('?REQ:DETALLE') ('Detalle')
+WHEN  ('?REQ:ESTADOREAL') ('ESTADOREAL')
+WHEN  ('?REQ:FECHARECIBO_DATE') ('Fecha Recibo')
+WHEN  ('?REQ:Tiempo1') ('Tiempo 1')
+WHEN  ('?REQ:USUARIORECIBE') ('Asignacion Inicial')
+WHEN  ('?SIS:NOMBRE') ('Sistema')
+
+%pOutputFieldPicture DEPEND %pOutputField DEFAULT TIMES 14
+WHEN  ('?ARE:Nombre') ('@s254')
+WHEN  ('?CIA:COMPANIA') ('@s2')
+WHEN  ('?CIA:RAZONSOCIAL') ('@s25')
+WHEN  ('?EST:DESCRIPCION') ('@s20')
+WHEN  ('?OPE:Nombre') ('@s254')
+WHEN  ('?PLA:USUARIO') ('@s20')
+WHEN  ('?PRY:Nombre') ('@s100')
+WHEN  ('?REQ:CNSREQ') ('@s10')
+WHEN  ('?REQ:DETALLE') ('@s255')
+WHEN  ('?REQ:ESTADOREAL') ('@N02')
+WHEN  ('?REQ:FECHARECIBO_DATE') ('@d6.')
+WHEN  ('?REQ:Tiempo1') ('@n-10.2')
+WHEN  ('?REQ:USUARIORECIBE') ('@s20')
+WHEN  ('?SIS:NOMBRE') ('@s60')
+
+%pOutputFieldPictureOver DEPEND %pOutputField LONG TIMES 14
+WHEN  ('?ARE:Nombre') (1)
+WHEN  ('?CIA:COMPANIA') (0)
+WHEN  ('?CIA:RAZONSOCIAL') (1)
+WHEN  ('?EST:DESCRIPCION') (0)
+WHEN  ('?OPE:Nombre') (1)
+WHEN  ('?PLA:USUARIO') (0)
+WHEN  ('?PRY:Nombre') (0)
+WHEN  ('?REQ:CNSREQ') (1)
+WHEN  ('?REQ:DETALLE') (1)
+WHEN  ('?REQ:ESTADOREAL') (0)
+WHEN  ('?REQ:FECHARECIBO_DATE') (0)
+WHEN  ('?REQ:Tiempo1') (0)
+WHEN  ('?REQ:USUARIORECIBE') (0)
+WHEN  ('?SIS:NOMBRE') (1)
+
+%pOutputFieldPictureOverValue DEPEND %pOutputField DEFAULT TIMES 14
+WHEN  ('?ARE:Nombre') ('@s25')
+WHEN  ('?CIA:COMPANIA') ('@s4')
+WHEN  ('?CIA:RAZONSOCIAL') ('@s20')
+WHEN  ('?EST:DESCRIPCION') ('@s20')
+WHEN  ('?OPE:Nombre') ('@s25')
+WHEN  ('?PLA:USUARIO') ('@s20')
+WHEN  ('?PRY:Nombre') ('@s100')
+WHEN  ('?REQ:CNSREQ') ('@s12')
+WHEN  ('?REQ:DETALLE') ('@s2000')
+WHEN  ('?REQ:ESTADOREAL') ('@s2')
+WHEN  ('?REQ:FECHARECIBO_DATE') ('@d6.')
+WHEN  ('?REQ:Tiempo1') ('@n-14')
+WHEN  ('?REQ:USUARIORECIBE') ('@s20')
+WHEN  ('?SIS:NOMBRE') ('@s15')
+
+%pOutputFieldAlignment DEPEND %pOutputField DEFAULT TIMES 14
+WHEN  ('?ARE:Nombre') ('L')
+WHEN  ('?CIA:COMPANIA') ('L')
+WHEN  ('?CIA:RAZONSOCIAL') ('L')
+WHEN  ('?EST:DESCRIPCION') ('L')
+WHEN  ('?OPE:Nombre') ('L')
+WHEN  ('?PLA:USUARIO') ('L')
+WHEN  ('?PRY:Nombre') ('L')
+WHEN  ('?REQ:CNSREQ') ('L')
+WHEN  ('?REQ:DETALLE') ('L')
+WHEN  ('?REQ:ESTADOREAL') ('L')
+WHEN  ('?REQ:FECHARECIBO_DATE') ('R')
+WHEN  ('?REQ:Tiempo1') ('L')
+WHEN  ('?REQ:USUARIORECIBE') ('L')
+WHEN  ('?SIS:NOMBRE') ('L')
+
+%pOutputFieldAlignmentOver DEPEND %pOutputField LONG TIMES 14
+WHEN  ('?ARE:Nombre') (0)
+WHEN  ('?CIA:COMPANIA') (0)
+WHEN  ('?CIA:RAZONSOCIAL') (0)
+WHEN  ('?EST:DESCRIPCION') (0)
+WHEN  ('?OPE:Nombre') (0)
+WHEN  ('?PLA:USUARIO') (0)
+WHEN  ('?PRY:Nombre') (0)
+WHEN  ('?REQ:CNSREQ') (0)
+WHEN  ('?REQ:DETALLE') (1)
+WHEN  ('?REQ:ESTADOREAL') (0)
+WHEN  ('?REQ:FECHARECIBO_DATE') (0)
+WHEN  ('?REQ:Tiempo1') (0)
+WHEN  ('?REQ:USUARIORECIBE') (0)
+WHEN  ('?SIS:NOMBRE') (1)
+
+%pOutputFieldAlignmentOverValue DEPEND %pOutputField DEFAULT TIMES 14
+WHEN  ('?ARE:Nombre') ('L')
+WHEN  ('?CIA:COMPANIA') ('L')
+WHEN  ('?CIA:RAZONSOCIAL') ('L')
+WHEN  ('?EST:DESCRIPCION') ('L')
+WHEN  ('?OPE:Nombre') ('L')
+WHEN  ('?PLA:USUARIO') ('L')
+WHEN  ('?PRY:Nombre') ('L')
+WHEN  ('?REQ:CNSREQ') ('L')
+WHEN  ('?REQ:DETALLE') ('L')
+WHEN  ('?REQ:ESTADOREAL') ('L')
+WHEN  ('?REQ:FECHARECIBO_DATE') ('R')
+WHEN  ('?REQ:Tiempo1') ('L')
+WHEN  ('?REQ:USUARIORECIBE') ('L')
+WHEN  ('?SIS:NOMBRE') ('L')
+
+%pOutputFieldAllowOrderBy DEPEND %pOutputField LONG TIMES 14
+WHEN  ('?ARE:Nombre') (1)
+WHEN  ('?CIA:COMPANIA') (1)
+WHEN  ('?CIA:RAZONSOCIAL') (1)
+WHEN  ('?EST:DESCRIPCION') (1)
+WHEN  ('?OPE:Nombre') (1)
+WHEN  ('?PLA:USUARIO') (1)
+WHEN  ('?PRY:Nombre') (1)
+WHEN  ('?REQ:CNSREQ') (1)
+WHEN  ('?REQ:DETALLE') (1)
+WHEN  ('?REQ:ESTADOREAL') (1)
+WHEN  ('?REQ:FECHARECIBO_DATE') (1)
+WHEN  ('?REQ:Tiempo1') (1)
+WHEN  ('?REQ:USUARIORECIBE') (1)
+WHEN  ('?SIS:NOMBRE') (1)
+
+%pOutputFieldWidthOver DEPEND %pOutputField LONG TIMES 14
+WHEN  ('?ARE:Nombre') (0)
+WHEN  ('?CIA:COMPANIA') (0)
+WHEN  ('?CIA:RAZONSOCIAL') (0)
+WHEN  ('?EST:DESCRIPCION') (0)
+WHEN  ('?OPE:Nombre') (0)
+WHEN  ('?PLA:USUARIO') (0)
+WHEN  ('?PRY:Nombre') (0)
+WHEN  ('?REQ:CNSREQ') (0)
+WHEN  ('?REQ:DETALLE') (1)
+WHEN  ('?REQ:ESTADOREAL') (0)
+WHEN  ('?REQ:FECHARECIBO_DATE') (0)
+WHEN  ('?REQ:Tiempo1') (0)
+WHEN  ('?REQ:USUARIORECIBE') (0)
+WHEN  ('?SIS:NOMBRE') (1)
+
+%pOutputFieldWidthOverValue DEPEND %pOutputField DEFAULT TIMES 14
+WHEN  ('?ARE:Nombre') ('254')
+WHEN  ('?CIA:COMPANIA') ('7')
+WHEN  ('?CIA:RAZONSOCIAL') ('25')
+WHEN  ('?EST:DESCRIPCION') ('20')
+WHEN  ('?OPE:Nombre') ('254')
+WHEN  ('?PLA:USUARIO') ('20')
+WHEN  ('?PRY:Nombre') ('100')
+WHEN  ('?REQ:CNSREQ') ('10')
+WHEN  ('?REQ:DETALLE') ('100')
+WHEN  ('?REQ:ESTADOREAL') ('10')
+WHEN  ('?REQ:FECHARECIBO_DATE') ('12')
+WHEN  ('?REQ:Tiempo1') ('10')
+WHEN  ('?REQ:USUARIORECIBE') ('20')
+WHEN  ('?SIS:NOMBRE') ('60')
+
+%pOutputFieldSUM DEPEND %pOutputField LONG TIMES 14
+WHEN  ('?ARE:Nombre') (0)
+WHEN  ('?CIA:COMPANIA') (0)
+WHEN  ('?CIA:RAZONSOCIAL') (0)
+WHEN  ('?EST:DESCRIPCION') (0)
+WHEN  ('?OPE:Nombre') (0)
+WHEN  ('?PLA:USUARIO') (0)
+WHEN  ('?PRY:Nombre') (0)
+WHEN  ('?REQ:CNSREQ') (0)
+WHEN  ('?REQ:DETALLE') (0)
+WHEN  ('?REQ:ESTADOREAL') (0)
+WHEN  ('?REQ:FECHARECIBO_DATE') (0)
+WHEN  ('?REQ:Tiempo1') (1)
+WHEN  ('?REQ:USUARIORECIBE') (0)
+WHEN  ('?SIS:NOMBRE') (0)
+
+%pOutputFieldCNT DEPEND %pOutputField LONG TIMES 14
+WHEN  ('?ARE:Nombre') (1)
+WHEN  ('?CIA:COMPANIA') (1)
+WHEN  ('?CIA:RAZONSOCIAL') (1)
+WHEN  ('?EST:DESCRIPCION') (1)
+WHEN  ('?OPE:Nombre') (1)
+WHEN  ('?PLA:USUARIO') (1)
+WHEN  ('?PRY:Nombre') (1)
+WHEN  ('?REQ:CNSREQ') (1)
+WHEN  ('?REQ:DETALLE') (1)
+WHEN  ('?REQ:ESTADOREAL') (1)
+WHEN  ('?REQ:FECHARECIBO_DATE') (1)
+WHEN  ('?REQ:Tiempo1') (1)
+WHEN  ('?REQ:USUARIORECIBE') (1)
+WHEN  ('?SIS:NOMBRE') (1)
+
+%pOutputFieldAVE DEPEND %pOutputField LONG TIMES 14
+WHEN  ('?ARE:Nombre') (0)
+WHEN  ('?CIA:COMPANIA') (0)
+WHEN  ('?CIA:RAZONSOCIAL') (0)
+WHEN  ('?EST:DESCRIPCION') (0)
+WHEN  ('?OPE:Nombre') (0)
+WHEN  ('?PLA:USUARIO') (0)
+WHEN  ('?PRY:Nombre') (0)
+WHEN  ('?REQ:CNSREQ') (0)
+WHEN  ('?REQ:DETALLE') (0)
+WHEN  ('?REQ:ESTADOREAL') (0)
+WHEN  ('?REQ:FECHARECIBO_DATE') (0)
+WHEN  ('?REQ:Tiempo1') (1)
+WHEN  ('?REQ:USUARIORECIBE') (0)
+WHEN  ('?SIS:NOMBRE') (0)
+
+%pOutputFieldMIN DEPEND %pOutputField LONG TIMES 14
+WHEN  ('?ARE:Nombre') (0)
+WHEN  ('?CIA:COMPANIA') (0)
+WHEN  ('?CIA:RAZONSOCIAL') (0)
+WHEN  ('?EST:DESCRIPCION') (0)
+WHEN  ('?OPE:Nombre') (0)
+WHEN  ('?PLA:USUARIO') (0)
+WHEN  ('?PRY:Nombre') (0)
+WHEN  ('?REQ:CNSREQ') (0)
+WHEN  ('?REQ:DETALLE') (0)
+WHEN  ('?REQ:ESTADOREAL') (0)
+WHEN  ('?REQ:FECHARECIBO_DATE') (0)
+WHEN  ('?REQ:Tiempo1') (1)
+WHEN  ('?REQ:USUARIORECIBE') (0)
+WHEN  ('?SIS:NOMBRE') (0)
+
+%pOutputFieldMAX DEPEND %pOutputField LONG TIMES 14
+WHEN  ('?ARE:Nombre') (0)
+WHEN  ('?CIA:COMPANIA') (0)
+WHEN  ('?CIA:RAZONSOCIAL') (0)
+WHEN  ('?EST:DESCRIPCION') (0)
+WHEN  ('?OPE:Nombre') (0)
+WHEN  ('?PLA:USUARIO') (0)
+WHEN  ('?PRY:Nombre') (0)
+WHEN  ('?REQ:CNSREQ') (0)
+WHEN  ('?REQ:DETALLE') (0)
+WHEN  ('?REQ:ESTADOREAL') (0)
+WHEN  ('?REQ:FECHARECIBO_DATE') (0)
+WHEN  ('?REQ:Tiempo1') (1)
+WHEN  ('?REQ:USUARIORECIBE') (0)
+WHEN  ('?SIS:NOMBRE') (0)
+
+%pOutputFieldSTD DEPEND %pOutputField LONG TIMES 14
+WHEN  ('?ARE:Nombre') (0)
+WHEN  ('?CIA:COMPANIA') (0)
+WHEN  ('?CIA:RAZONSOCIAL') (0)
+WHEN  ('?EST:DESCRIPCION') (0)
+WHEN  ('?OPE:Nombre') (0)
+WHEN  ('?PLA:USUARIO') (0)
+WHEN  ('?PRY:Nombre') (0)
+WHEN  ('?REQ:CNSREQ') (0)
+WHEN  ('?REQ:DETALLE') (0)
+WHEN  ('?REQ:ESTADOREAL') (0)
+WHEN  ('?REQ:FECHARECIBO_DATE') (0)
+WHEN  ('?REQ:Tiempo1') (1)
+WHEN  ('?REQ:USUARIORECIBE') (0)
+WHEN  ('?SIS:NOMBRE') (0)
+
+%pOutputFieldAssignment DEPEND %pOutputField DEFAULT TIMES 14
+WHEN  ('?ARE:Nombre') ('ARE:Nombre')
+WHEN  ('?CIA:COMPANIA') ('CIA:COMPANIA')
+WHEN  ('?CIA:RAZONSOCIAL') ('CIA:RAZONSOCIAL')
+WHEN  ('?EST:DESCRIPCION') ('EST:DESCRIPCION')
+WHEN  ('?OPE:Nombre') ('OPE:Nombre')
+WHEN  ('?PLA:USUARIO') ('PLA:USUARIO')
+WHEN  ('?PRY:Nombre') ('PRY:Nombre')
+WHEN  ('?REQ:CNSREQ') ('REQ:CNSREQ')
+WHEN  ('?REQ:DETALLE') ('REQ:DETALLE')
+WHEN  ('?REQ:ESTADOREAL') ('REQ:ESTADOREAL')
+WHEN  ('?REQ:FECHARECIBO_DATE') ('REQ:FECHARECIBO_DATE')
+WHEN  ('?REQ:Tiempo1') ('REQ:Tiempo1')
+WHEN  ('?REQ:USUARIORECIBE') ('REQ:USUARIORECIBE')
+WHEN  ('?SIS:NOMBRE') ('SIS:NOMBRE')
+
+%pOutputFieldType DEPEND %pOutputField DEFAULT TIMES 14
+WHEN  ('?ARE:Nombre') ('CSTRING')
+WHEN  ('?CIA:COMPANIA') ('CSTRING')
+WHEN  ('?CIA:RAZONSOCIAL') ('CSTRING')
+WHEN  ('?EST:DESCRIPCION') ('STRING')
+WHEN  ('?OPE:Nombre') ('CSTRING')
+WHEN  ('?PLA:USUARIO') ('CSTRING')
+WHEN  ('?PRY:Nombre') ('CSTRING')
+WHEN  ('?REQ:CNSREQ') ('CSTRING')
+WHEN  ('?REQ:DETALLE') ('CSTRING')
+WHEN  ('?REQ:ESTADOREAL') ('CSTRING')
+WHEN  ('?REQ:FECHARECIBO_DATE') ('DATE')
+WHEN  ('?REQ:Tiempo1') ('DECIMAL')
+WHEN  ('?REQ:USUARIORECIBE') ('CSTRING')
+WHEN  ('?SIS:NOMBRE') ('CSTRING')
+
+%pGeneratorName DEFAULT  ('DATA')
+%pGeneratorIcon DEFAULT  ('EXP_DATA.ICO')
+%pUseVisualOrder LONG  (1)
+%pCollectionName DEFAULT  ('rpt:req')
+%pOrderFieldM MULTI LONG  ()
+%pOrderField DEPEND %pOrderFieldM DEFAULT TIMES 0
+
+%pOrder DEPEND %pOrderFieldM DEFAULT TIMES 0
+
+%pAlterSequenceOrder LONG  (1)
+%pFieldSequenceM MULTI LONG  (1, |
+  2, |
+  3, |
+  4, |
+  5, |
+  6, |
+  7, |
+  8, |
+  9, |
+  10, |
+  11, |
+  12, |
+  13)
+%pSequenceField DEPEND %pFieldSequenceM DEFAULT TIMES 13
+WHEN  (1) ('?REQ:CNSREQ')
+WHEN  (2) ('?SIS:NOMBRE')
+WHEN  (3) ('?CIA:COMPANIA')
+WHEN  (4) ('?CIA:RAZONSOCIAL')
+WHEN  (5) ('?EST:DESCRIPCION')
+WHEN  (6) ('?OPE:Nombre')
+WHEN  (7) ('?REQ:FECHARECIBO_DATE')
+WHEN  (8) ('?ARE:Nombre')
+WHEN  (9) ('?REQ:USUARIORECIBE')
+WHEN  (10) ('?REQ:DETALLE')
+WHEN  (11) ('?PRY:Nombre')
+WHEN  (12) ('?PLA:USUARIO')
+WHEN  (13) ('?REQ:Tiempo1')
+
+%GlobalObject DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('TRptDataReporter') ('NO')
+
+%ThisObjectName DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('TRptDataReporter') ('TRptDataReporter')
+
+%UseDefaultABCBaseClass DEPEND %ClassItem LONG TIMES 1
+WHEN  ('TRptDataReporter') (1)
+
+%UseABCBaseClass DEPEND %ClassItem LONG TIMES 1
+WHEN  ('TRptDataReporter') (1)
+
+%ABCBaseClass DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('TRptDataReporter') ('ADOBlob')
+
+%ExtBaseClass DEPEND %ClassItem DEFAULT TIMES 0
+
+%BaseClassIncludeFile DEPEND %ClassItem DEFAULT TIMES 0
+
+%DeriveFromBaseClass DEPEND %ClassItem LONG TIMES 1
+WHEN  ('TRptDataReporter') (0)
+
+%NewMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewMethodName DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewMethodPrototype DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewClassProperty DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataType DEPEND %NewClassPropertyItems DEFAULT TIMES 1
+WHEN  ('TRptDataReporter')TIMES 0
+
+%NewClassOtherType DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataIsRef DEPEND %NewClassPropertyItems LONG TIMES 0
+
+%NewClassDataSize DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim1 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim2 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim3 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim4 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%ClassMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassMethodName DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassMethodPrototype DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassProperty DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataType DEPEND %ClassPropertyItems DEFAULT TIMES 1
+WHEN  ('TRptDataReporter')TIMES 0
+
+%ClassOtherType DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataIsRef DEPEND %ClassPropertyItems LONG TIMES 0
+
+%ClassDataSize DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim1 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim2 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim3 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim4 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+[ADDITION]
+NAME ABC ReportDateStamp
+[INSTANCE]
+INSTANCE 1
+[PROMPTS]
+%TimeStampFormat DEFAULT  ('@D17')
+%UseSystemTime DEFAULT  ('1')
+%DateStampFormat DEFAULT  ('@D17')
+%UseSystemDate LONG  (1)
+%DateValueToUse FIELD  ()
+[ADDITION]
+NAME ABC ReportTimeStamp
+[INSTANCE]
+INSTANCE 2
+[PROMPTS]
+%DateStampFormat DEFAULT  ('@T7')
+%UseSystemDate DEFAULT  ('1')
+%TimeStampFormat DEFAULT  ('@T7')
+%UseSystemTime LONG  (1)
+%TimeValueToUse FIELD  ()
+[ADDITION]
+NAME ABC PauseButton
+[INSTANCE]
+INSTANCE 4
+[PROMPTS]
+%PauseText DEFAULT  ('Pause')
+%RestartText DEFAULT  ('Restart')
+%DeferOpen LONG  (1)
+%StartText DEFAULT  ('Imprimir')
+%MultiStart LONG  (1)
+[WINDOW]
+ProgressWindow WINDOW('Documento de Avance'),AT(,,159,67),FONT('@Arial Unicode MS',8,,FONT:regular),CENTER, |
+         TIMER(1),GRAY,DOUBLE
+       PROGRESS,USE(Progress:Thermometer),TRN,AT(8,20,132,9),RANGE(0,100),#ORIG(Progress:Thermometer)
+       STRING(''),AT(8,28,141,10),USE(?Progress:UserString),TRN,CENTER,#ORIG(?Progress:UserString)
+       STRING(''),AT(8,32,141,10),USE(?Progress:PctText),TRN,CENTER,#ORIG(?Progress:PctText)
+       CHECK('Imprimir Imagenes'),AT(8,32),USE(loc:imprimirImagenes),VALUE('1','0'),#ORIG(loc:imprimirImagenes)
+       BUTTON('Cancelar'),AT(96,48,53,15),USE(?Progress:Cancel),FLAT,LEFT,MSG('Cancelar Reporte'),TIP('Cancelar Reporte'), |
+           ICON('WACancel.ico'),#ORIG(?Progress:Cancel)
+       BUTTON('Imprimir'),AT(8,48,53,15),USE(?Pause),FLAT,LEFT,ICON('WIZPRN.ICO'),#SEQ(4),#ORIG(?Pause)
+     END
+
+[REPORT]
+Report REPORT('CIA Report'),AT(260,1354,7917,8615),PAPER(PAPER:LETTER),PRE(RPT),FONT('MS Sans Serif',7,COLOR:Black,FONT:regular), |
+         THOUS
+       HEADER,AT(250,250,7927,1104),USE(?Header),FONT('MS Sans Serif',8,,FONT:regular)
+         IMAGE,AT(21,1063,8000,10198),USE(?FormImage),TILED
+         BOX,AT(219,125,1427,938),USE(?Box4),COLOR(COLOR:Black),#ORIG(?Box4)
+         BOX,AT(4469,125,1656,229),USE(?Box6),COLOR(COLOR:Black),#ORIG(?Box6)
+         STRING('LISTADO DE'),AT(1792,365,2583,146),USE(?String10),TRN,CENTER,FONT('Arial',10,,FONT:bold,CHARSET:ANSI), |
+             #ORIG(?String10)
+         STRING('REQUERIMIENTOS'),AT(1740,583,2583,177),USE(?String10:2),TRN,CENTER,FONT('Arial',10,,FONT:bold,CHARSET:ANSI), |
+             #ORIG(?String10)
+         BOX,AT(4469,344,1656,250),USE(?Box6:2),COLOR(COLOR:Black),#ORIG(?Box6)
+         BOX,AT(4469,583,1656,219),USE(?Box6:3),COLOR(COLOR:Black),#ORIG(?Box6:2)
+         BOX,AT(6115,583,1656,479),USE(?Box6:6),COLOR(COLOR:Black),#ORIG(?Box6:3)
+         STRING('Vigencia'),AT(4740,365,990,167),USE(?String10:5),TRN,CENTER,FONT('Arial',10,,FONT:regular,CHARSET:ANSI), |
+             #ORIG(?String10:4)
+         STRING('16/Marzo/2009'),AT(6406,375,990,167),USE(?String10:11),TRN,CENTER,FONT('Arial',9,,FONT:regular,CHARSET:ANSI), |
+             #ORIG(?String10:5)
+         BOX,AT(6115,125,1656,229),USE(?Box6:4),COLOR(COLOR:Black),#ORIG(?Box6:5)
+         BOX,AT(6115,344,1656,250),USE(?Box6:5),COLOR(COLOR:Black),#ORIG(?Box6:2)
+         BOX,AT(4469,792,1656,271),USE(?Box6:7),COLOR(COLOR:Black),#ORIG(?Box6:2)
+         BOX,AT(6115,792,1656,271),USE(?Box6:11),COLOR(COLOR:Black),#ORIG(?Box6:7)
+         STRING('Fecha de Impresion'),AT(4583,604,1292,156),USE(?String10:6),TRN,CENTER,FONT('Arial',10,,FONT:regular,CHARSET:ANSI), |
+             #ORIG(?String10:5)
+         STRING(@d17),AT(6458,625,990,167),USE(Loc:hoy),TRN,CENTER,FONT('Arial',9,,FONT:regular,CHARSET:ANSI), |
+             #ORIG(?String10:11)
+         STRING('Pagina'),AT(4865,823,698,208),USE(?String10:7),TRN,CENTER,FONT('Arial',10,,FONT:regular,CHARSET:ANSI), |
+             #ORIG(?String10:6)
+         STRING(@p<<#p),AT(6698,833,698,135),PAGENO,USE(?PageCount:3),TRN,CENTER,FONT('Arial',9,,FONT:bold), |
+             #ORIG(?PageCount)
+         STRING('Codificación'),AT(4823,135,1042,177),USE(?String10:4),TRN,FONT('Arial',10,,FONT:regular,CHARSET:ANSI), |
+             #ORIG(?String10:3)
+         IMAGE('Logo_TI.jpg'),AT(271,156,1344,833),USE(?Image2),#ORIG(?Image2)
+         BOX,AT(1635,125,2844,938),USE(?Box4:2),COLOR(COLOR:Black),#ORIG(?Box4)
+         STRING('RSDIT - REG - 002'),AT(6250,146,1354,208),USE(?String10:3),TRN,CENTER,FONT('Arial',10,,FONT:bold,CHARSET:ANSI), |
+             #ORIG(?String10:4)
+       END
+Detail DETAIL,AT(-10,10,7927,240),USE(?Detail)
+         BOX,AT(240,10,7510,208),USE(?HeaderBox),COLOR(COLOR:Black)
+         STRING(@s60),AT(729,21,4479,208),USE(loc:razonsocial),TRN,FONT('Arial',10,,FONT:regular,CHARSET:ANSI), |
+             #ORIG(loc:razonsocial)
+         STRING(@s20),AT(6115,21),USE(loc:req),TRN,FONT('Arial',10,,FONT:regular,CHARSET:ANSI),#ORIG(loc:req)
+         STRING(@n3),AT(260,21),USE(LOC:ITEM),TRN,DECIMAL(12),FONT('@Arial Unicode MS',8,,FONT:bold,CHARSET:ANSI), |
+             #ORIG(LOC:ITEM)
+       END
+descripcion DETAIL,AT(,,,1281),USE(?descripcion)
+         STRING(@s2),AT(3292,0),USE(CIA:COMPANIA),TRN,LEFT(12),FONT('Arial',11,,FONT:bold),#ORIG(LOC:ITEM)
+         STRING('Nro. Requerimiento:'),AT(240,0,1458,208),USE(?String20),TRN,FONT('Arial',10,,FONT:regular,CHARSET:ANSI), |
+             #ORIG(?String20)
+         STRING(@s10),AT(1865,21,833,208),USE(REQ:CNSREQ),TRN,LEFT,FONT('Arial',10,,FONT:bold,CHARSET:ANSI), |
+             #ORIG(REQ:CNSREQ)
+         BOX,AT(2708,625,5104,208),USE(?Box16:9),ROUND,COLOR(COLOR:Black),#ORIG(?Box16:8)
+         STRING(@s100),AT(3333,625,4479,208),USE(PRY:Nombre),TRN,LEFT,FONT('Arial',9,,FONT:bold,CHARSET:ANSI), |
+             #ORIG(REQ:USUARIORECIBE)
+         STRING('Proyecto'),AT(2813,625),USE(?String20:4),TRN,FONT('Arial',8,,FONT:regular,CHARSET:ANSI), |
+             #ORIG(?String20:9)
+         BOX,AT(2708,0,2708,208),USE(?Box16),ROUND,COLOR(COLOR:Black),#ORIG(?Box16)
+         STRING('Cliente:'),AT(2781,0),USE(?String20:3),TRN,FONT('Arial',10,,FONT:regular,CHARSET:ANSI), |
+             #ORIG(?String20)
+         TEXT,AT(208,833,7604,417),USE(REQ:DETALLE),BOXED,LEFT,FONT('Arial Narrow',10,,FONT:regular,CHARSET:ANSI), |
+             RESIZE,#ORIG(REQ:DETALLE)
+         STRING('Fecha de Reporte:'),AT(229,417),USE(?String20:5),TRN,FONT('Arial',8,,FONT:regular,CHARSET:ANSI), |
+             #ORIG(?String20:2)
+         STRING(@d6.),AT(1271,417,833,208),USE(REQ:FECHARECIBO_DATE),TRN,FONT('Arial',10,,FONT:bold), |
+             #ORIG(OPE:Nombre)
+         BOX,AT(208,615,2500,208),USE(?Box16:5),ROUND,COLOR(COLOR:Black),#ORIG(?Box16:4)
+         BOX,AT(208,417,2500,208),USE(?Box16:4),ROUND,COLOR(COLOR:Black),#ORIG(?Box16:3)
+         STRING(@N02),AT(4938,229),USE(REQ:ESTADOREAL),TRN,FONT(,,,FONT:bold,CHARSET:ANSI),#ORIG(REQ:ESTADOREAL)
+         STRING('Responsable:'),AT(5458,240),USE(?String20:10),TRN,FONT('Arial',8,,FONT:regular,CHARSET:ANSI), |
+             #ORIG(?String20:9)
+         STRING(@s20),AT(6333,240,1458,208),USE(PLA:USUARIO),TRN,LEFT,FONT('Arial',9,,FONT:bold,CHARSET:ANSI), |
+             #ORIG(REQ:USUARIORECIBE)
+         BOX,AT(2708,208,2708,208),USE(?Box16:6),ROUND,COLOR(COLOR:Black),#ORIG(?Box16:4)
+         STRING(@s20),AT(3354,219,1563,208),USE(EST:DESCRIPCION),TRN,LEFT,FONT('Arial',9,,FONT:bold,CHARSET:ANSI), |
+             #ORIG(ARE:Nombre)
+         STRING('Estado:'),AT(2938,229),USE(?String20:7),TRN,FONT('Arial',8,,FONT:regular,CHARSET:ANSI), |
+             #ORIG(?String20:6)
+         STRING('Reportado Por:'),AT(240,208),USE(?String20:2),TRN,FONT('Arial',8,,FONT:regular,CHARSET:ANSI), |
+             #ORIG(?String20:4)
+         STRING('Area:'),AT(3031,417),USE(?String20:6),TRN,FONT('Arial',8,,FONT:regular,CHARSET:ANSI), |
+             #ORIG(?String20:3)
+         STRING(@s254),AT(3333,417,1875,208),USE(ARE:Nombre),TRN,LEFT,FONT('Arial',9,,FONT:bold,CHARSET:ANSI), |
+             #ORIG(CIA:RAZONSOCIAL)
+         BOX,AT(5406,417,2396,208),USE(?Box16:11),ROUND,COLOR(COLOR:Black),#ORIG(?Box16:10)
+         STRING('Tiempo Estimado (Horas):'),AT(5458,438),USE(?String20:11),TRN,FONT('Arial',8,,FONT:regular,CHARSET:ANSI), |
+             #ORIG(?String20:10)
+         STRING(@n-10.2),AT(6760,438,1458,208),USE(REQ:Tiempo1),TRN,LEFT,FONT('Arial',9,,FONT:bold,CHARSET:ANSI), |
+             #ORIG(PLA:USUARIO)
+         BOX,AT(5417,208,2396,208),USE(?Box16:10),ROUND,COLOR(COLOR:Black),#ORIG(?Box16:9)
+         BOX,AT(208,208,2500,208),USE(?Box16:3),ROUND,COLOR(COLOR:Black),#ORIG(?Box16:2)
+         STRING(@s25),AT(3542,0,1875,208),USE(CIA:RAZONSOCIAL),TRN,LEFT,FONT('Arial',9,,FONT:bold,CHARSET:ANSI), |
+             #ORIG(ARE:Nombre)
+         STRING(@s254),AT(1042,208,1667,208),USE(OPE:Nombre),TRN,FONT('Arial',10,,FONT:bold),#ORIG(REQ:USUDESARROLLO)
+         STRING('Asignacion Inicial:'),AT(5417,10),USE(?String20:9),TRN,FONT('Arial',8,,FONT:regular,CHARSET:ANSI), |
+             #ORIG(?String20:8)
+         STRING(@s20),AT(6302,21,1458,208),USE(REQ:USUARIORECIBE),TRN,LEFT,FONT('Arial',9,,FONT:bold,CHARSET:ANSI), |
+             #ORIG(SIS:NOMBRE)
+         BOX,AT(5406,0,2396,208),USE(?Box16:8),ROUND,COLOR(COLOR:Black),#ORIG(?Box16:7)
+         BOX,AT(2708,417,2708,208),USE(?Box16:7),ROUND,COLOR(COLOR:Black),#ORIG(?Box16:6)
+         STRING(@s60),AT(667,625,1979,208),USE(SIS:NOMBRE),TRN,LEFT,FONT('Arial',9,,FONT:bold,CHARSET:ANSI), |
+             #ORIG(EST:DESCRIPCION)
+         STRING('Sistema:'),AT(219,625),USE(?String20:8),TRN,FONT('Arial',8,,FONT:regular,CHARSET:ANSI), |
+             #ORIG(?String20:7)
+         BOX,AT(208,0,2500,208),USE(?Box16:2),ROUND,COLOR(COLOR:Black),#ORIG(?Box16)
+         LINE,AT(208,1250,7604,0),USE(?Line6),COLOR(COLOR:Black),#ORIG(?Line6)
+       END
+Tiempos DETAIL,AT(,,,531),USE(?Tiempos)
+         STRING('Tiempo Estimado (Horas):'),AT(4698,10),USE(?String20:12),TRN,FONT('Arial',9,,FONT:bold,CHARSET:ANSI), |
+             #ORIG(?String20:11)
+         STRING(@n-10.2),AT(6302,10,1458,208),USE(Loc:TiempoTotal),TRN,LEFT,FONT('Arial',9,,FONT:bold,CHARSET:ANSI), |
+             #ORIG(REQ:Tiempo1)
+         BOX,AT(229,21,7573,469),USE(?Box16:12),ROUND,COLOR(COLOR:Black),#ORIG(?Box16:2)
+         STRING('Dias Estimados (Base 8 horas x Dia):'),AT(4052,198),USE(?String20:13),TRN,FONT('Arial',9,,FONT:bold,CHARSET:ANSI), |
+             #ORIG(?String20:12)
+         STRING(@n-10.2),AT(6302,198,1458,208),SUM,USE(Loc:DiasTotales),TRN,LEFT,FONT('Arial',9,,FONT:bold,CHARSET:ANSI), |
+             #ORIG(Loc:TiempoTotal)
+       END
+titulo DETAIL,AT(,,,208),USE(?titulo)
+         STRING(@s255),AT(260,21,5115,167),USE(loc:titulo),TRN,FONT(,,,FONT:bold),#ORIG(?String55)
+       END
+imagen DETAIL,USE(?imagen)
+         IMAGE,AT(208,0),USE(?Image1),#ORIG(?Image3)
+       END
+TiemposTotales DETAIL,AT(,,,396),USE(?TiemposTotales)
+       END
+       FOOTER,AT(250,10500,7927,521),USE(?Footer)
+         STRING('Date:'),AT(115,594,344,135),USE(?ReportDatePrompt,,?ReportDatePrompt:2),TRN,FONT('Arial',8,,FONT:regular), |
+             #SEQ(1),#ORIG(?ReportDatePrompt)
+         STRING('<<-- Date Stamp -->'),AT(500,583,927,135),USE(?ReportDateStamp,,?ReportDateStamp:2), |
+             TRN,FONT('Arial',8,,FONT:regular),#SEQ(1),#ORIG(?ReportDateStamp)
+         STRING('Time:'),AT(1635,583,271,135),USE(?ReportTimePrompt,,?ReportTimePrompt:2),TRN,FONT('Arial',8,,FONT:regular), |
+             #SEQ(2),#ORIG(?ReportTimePrompt)
+         STRING('<<-- Time Stamp -->'),AT(1927,583,927,135),USE(?ReportTimeStamp,,?ReportTimeStamp:2), |
+             TRN,FONT('Arial',8,,FONT:regular),#SEQ(2),#ORIG(?ReportTimeStamp)
+         STRING(@pPage <<#p),AT(7000,344,698,135),PAGENO,USE(?PageCount,,?PageCount:2),FONT('Arial',9,,FONT:bold)
+         BOX,AT(229,83,2490,260),USE(?Box6:8),COLOR(COLOR:Black),#ORIG(?Box6:2)
+         STRING('Elaboró:'),AT(260,94,521,146),USE(?String10:8),TRN,FONT('Arial',9,,FONT:bold,CHARSET:ANSI), |
+             #ORIG(?String10:4)
+         BOX,AT(2708,83,2490,260),USE(?Box6:9),COLOR(COLOR:Black),#ORIG(?Box6:8)
+         STRING('Revisó:'),AT(2729,104,521,146),USE(?String10:9),TRN,FONT('Arial',9,,FONT:bold,CHARSET:ANSI), |
+             #ORIG(?String10:8)
+         STRING(@s21),AT(3438,104),USE(VER:NREVISO),#ORIG(VER:NREVISO)
+         STRING(@s21),AT(5833,104),USE(VER:NAPROBO),#ORIG(VER:NAPROBO)
+         STRING('Aprobó:'),AT(5188,94,521,146),USE(?String10:10),TRN,FONT('Arial',9,,FONT:bold,CHARSET:ANSI), |
+             #ORIG(?String10:9)
+         STRING(@s21),AT(938,104),USE(VER:NELABORA),#ORIG(VER:NELABORA)
+         BOX,AT(5188,83,2573,260),USE(?Box6:10),COLOR(COLOR:Black),#ORIG(?Box6:9)
+       END
+       FORM,AT(250,250,7927,10500),USE(?Form),FONT('Arial',8,,)
+       END
+     END
+

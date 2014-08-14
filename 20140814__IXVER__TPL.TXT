@@ -1,0 +1,692 @@
+----------------------------------------------------------------------------------------------------
+GLOBAL
+----------------------------------------------------------------------------------------------------
+TABReportDataExportGlobal(TABReportDataExportSupport)
+GLOCreacionTXAtXD(CJ_Funcionalidades)             
+
+----------------------------------------------------------------------------------------------------
+PROCEDIMIENTOS                     TIPO                 TEMPLATE
+----------------------------------------------------------------------------------------------------
+MenuPpal                           Frame
+                                     			EXTENSION      	DateTimeDisplay(ABC)          
+    
+Bienvenido                         Splash
+    
+Brw:Compañias                      Window
+                                     			CONTROL        	BrowseBox(ABC)                
+                                     			CONTROL        	BrowseUpdateButtons(ABC)      
+                                     			CONTROL        	CloseButton(ABC)              
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+FxCargarRuta                       External
+    
+Win:Ingreso                        External
+    
+FormaCIA                           Window
+                                     			EXTENSION      	RecordValidation(ABC)         
+                                     			CONTROL        	SaveButton(ABC)               
+                                     			CONTROL        	CancelButton(ABC)             
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+Brw:Aplicativos                    Window
+                                     			CONTROL        	BrowseBox(ABC)                
+                                     			CONTROL        	BrowseUpdateButtons(ABC)      
+                                     			CONTROL        	CloseButton(ABC)              
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+FormaSXC                           Window
+                                     			EXTENSION      	RecordValidation(ABC)         
+                                     			CONTROL        	SaveButton(ABC)               
+                                     			CONTROL        	CancelButton(ABC)             
+                                     			EXTENSION      	WindowResize(ABC)             
+                                     			CONTROL        	FieldLookupButton(ABC)        
+    
+SIS:Elegir                         Window
+                                     			CONTROL        	BrowseBox(ABC)                
+                                     			CONTROL        	BrowseSelectButton(ABC)       
+                                     			CONTROL        	CloseButton(ABC)              
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+FormaSIS                           Window
+                                     			EXTENSION      	RecordValidation(ABC)         
+                                     			CONTROL        	SaveButton(ABC)               
+                                     			CONTROL        	CancelButton(ABC)             
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+Forma:Aplicativos                  Window
+                                     			EXTENSION      	RecordValidation(ABC)         
+                                     			CONTROL        	SaveButton(ABC)               
+                                     			CONTROL        	CancelButton(ABC)             
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+FormaPRD                           Window
+                                     			EXTENSION      	RecordValidation(ABC)         
+                                     			CONTROL        	SaveButton(ABC)               
+                                     			CONTROL        	CancelButton(ABC)             
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+Brw:Versiones                      Window
+                                     			CONTROL        	BrowseBox(ABC)                
+                                     			CONTROL        	BrowseSelectButton(ABC)       
+                                     			CONTROL        	BrowseUpdateButtons(ABC)      
+                                     			CONTROL        	CloseButton(ABC)              
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+CIA:Elegir                         Window
+                                     			CONTROL        	BrowseBox(ABC)                
+                                     			CONTROL        	BrowseSelectButton(ABC)       
+                                     			CONTROL        	CloseButton(ABC)              
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+SelectSXC                          Window
+                                     			CONTROL        	BrowseBox(ABC)                
+                                     			CONTROL        	BrowseSelectButton(ABC)       
+                                     			CONTROL        	CloseButton(ABC)              
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+FnValorVariable                    External
+    
+FnGeneraConsecutivo                External
+    
+PRG:Elegir                         Window
+                                     			CONTROL        	BrowseBox(ABC)                
+                                     			CONTROL        	BrowseSelectButton(ABC)       
+                                     			CONTROL        	CloseButton(ABC)              
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+PRD:Elegir                         Window
+                                     			CONTROL        	BrowseBox(ABC)                
+                                     			CONTROL        	BrowseSelectButton(ABC)       
+                                     			CONTROL        	CloseButton(ABC)              
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+Brw:TGEN                           Window
+                                     			CONTROL        	BrowseBox(ABC)                
+                                     			CONTROL        	BrowseUpdateButtons(ABC)      
+                                     			CONTROL        	BrowseSelectButton(ABC)       
+                                     			CONTROL        	CloseButton(ABC)              
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+TGEN:Elegir                        Window
+                                     			CONTROL        	BrowseBox(ABC)                
+                                     			CONTROL        	BrowseSelectButton(ABC)       
+                                     			CONTROL        	CloseButton(ABC)              
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+FnSQLFmt                           External
+    
+USU:ELEGIR                         Window
+                                     			CONTROL        	BrowseBox(ABC)                
+                                     			CONTROL        	BrowseSelectButton(ABC)       
+                                     			CONTROL        	CloseButton(ABC)              
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+Brw:Grupos                         Window
+                                     			CONTROL        	BrowseBox(ABC)                
+                                     			CONTROL        	BrowseUpdateButtons(ABC)      
+                                     			CONTROL        	CloseButton(ABC)              
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+Forma:Grupos                       Window
+                                     			EXTENSION      	RecordValidation(ABC)         
+                                     			CONTROL        	SaveButton(ABC)               
+                                     			CONTROL        	CancelButton(ABC)             
+                                     			EXTENSION      	ViewFormActions(ABC)          
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+Brw:Usuarios                       Window
+                                     			CONTROL        	BrowseSelectButton(ABC)       
+                                     			CONTROL        	BrowseBox(ABC)                
+                                     			CONTROL        	BrowseUpdateButtons(ABC)      
+                                     			CONTROL        	CloseButton(ABC)              
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+Brw:Procedimientos                 Window
+                                     			CONTROL        	BrowseBox(ABC)                
+                                     			CONTROL        	BrowseUpdateButtons(ABC)      
+                                     			CONTROL        	CloseButton(ABC)              
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+FormaUSU                           Window
+                                     			EXTENSION      	RecordValidation(ABC)         
+                                     			CONTROL        	SaveButton(ABC)               
+                                     			CONTROL        	CancelButton(ABC)             
+                                     			EXTENSION      	ViewFormActions(ABC)          
+                                     			EXTENSION      	WindowResize(ABC)             
+                                     			CONTROL        	FieldLookupButton(ABC)        
+    
+Brw:Sel_Grupos                     Window
+                                     			CONTROL        	BrowseSelectButton(ABC)       
+                                     			CONTROL        	BrowseBox(ABC)                
+                                     			CONTROL        	CloseButton(ABC)              
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+FormaUSPRO                         Window
+                                     			EXTENSION      	RecordValidation(ABC)         
+                                     			CONTROL        	SaveButton(ABC)               
+                                     			CONTROL        	CancelButton(ABC)             
+                                     			EXTENSION      	ViewFormActions(ABC)          
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+FormaUSPROH                        Window
+                                     			EXTENSION      	RecordValidation(ABC)         
+                                     			CONTROL        	SaveButton(ABC)               
+                                     			CONTROL        	CancelButton(ABC)             
+                                     			EXTENSION      	ViewFormActions(ABC)          
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+Brw:Permisos                       Window
+                                     			CONTROL        	BrowseBox(ABC)                
+                                     			CONTROL        	BrowseUpdateButtons(ABC)      
+                                     			CONTROL        	CloseButton(ABC)              
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+FormaUSGRUH                        Window
+                                     			EXTENSION      	RecordValidation(ABC)         
+                                     			CONTROL        	SaveButton(ABC)               
+                                     			CONTROL        	CancelButton(ABC)             
+                                     			EXTENSION      	ViewFormActions(ABC)          
+                                     			EXTENSION      	WindowResize(ABC)             
+                                     			CONTROL        	FieldLookupButton(ABC)        
+    
+Brw:Sel_Procedimientos             Window
+                                     			CONTROL        	BrowseSelectButton(ABC)       
+                                     			CONTROL        	BrowseBox(ABC)                
+                                     			CONTROL        	CloseButton(ABC)              
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+Brw:Sel_ControlesProc              Window
+                                     			CONTROL        	BrowseBox(ABC)                
+                                     			CONTROL        	BrowseSelectButton(ABC)       
+                                     			CONTROL        	CloseButton(ABC)              
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+Forma:CIAP                         Window
+                                     			EXTENSION      	RecordValidation(ABC)         
+                                     			CONTROL        	SaveButton(ABC)               
+                                     			CONTROL        	CancelButton(ABC)             
+                                     			EXTENSION      	ViewFormActions(ABC)          
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+ciap:elegir                        Window
+                                     			CONTROL        	BrowseBox(ABC)                
+                                     			CONTROL        	BrowseUpdateButtons(ABC)      
+                                     			CONTROL        	BrowseSelectButton(ABC)       
+                                     			CONTROL        	CloseButton(ABC)              
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+Forma:Version                      Window
+                                     			EXTENSION      	RecordValidation(ABC)         
+                                     			CONTROL        	SaveButton(ABC)               
+                                     			CONTROL        	CancelButton(ABC)             
+                                     			EXTENSION      	FormVCRControls(ABC)          
+                                     			EXTENSION      	ViewFormActions(ABC)          
+                                     			EXTENSION      	WindowResize(ABC)             
+                                     			CONTROL        	CalendarButton(ABC)           
+                                     			CONTROL        	FileDropCombo(ABC)            
+    
+Brw:SolicitudCorreccion            ToDo
+    
+USU:ELEGIR_2                       Window
+                                     			CONTROL        	BrowseBox(ABC)                
+                                     			CONTROL        	BrowseSelectButton(ABC)       
+                                     			CONTROL        	CloseButton(ABC)              
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+Brw:Req                            Window
+                                     			CONTROL        	BrowseBox(ABC)                
+                                     			CONTROL        	BrowseUpdateButtons(ABC)      
+                                     			EXTENSION      	WindowResize(ABC)             
+                                     			CONTROL        	DOSFileLookup(ABC)            
+                                     			CONTROL        	RelationTree(ABC)             
+                                     			CONTROL        	FieldLookupButton(ABC)        
+    
+AsignarProgramacion                Window
+                                     			EXTENSION      	WindowResize(ABC)             
+                                     			CONTROL        	CalendarButton(ABC)           
+                                     			CONTROL        	FieldLookupButton(ABC)        
+    
+Forma:reqev                        Window
+                                     			EXTENSION      	RecordValidation(ABC)         
+                                     			CONTROL        	SaveButton(ABC)               
+                                     			CONTROL        	CancelButton(ABC)             
+                                     			EXTENSION      	FormVCRControls(ABC)          
+                                     			EXTENSION      	ViewFormActions(ABC)          
+                                     			EXTENSION      	WindowResize(ABC)             
+                                     			CONTROL        	FileDropCombo(ABC)            
+    
+BrowseArchivos                     Window
+                                     			CONTROL        	BrowseBox(ABC)                
+                                     			CONTROL        	BrowseViewButton(ABC)         
+                                     			CONTROL        	BrowseUpdateButtons(ABC)      
+                                     			CONTROL        	CloseButton(ABC)              
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+UpdateArchivos                     Window
+                                     			EXTENSION      	RecordValidation(ABC)         
+                                     			CONTROL        	SaveButton(ABC)               
+                                     			CONTROL        	CancelButton(ABC)             
+                                     			EXTENSION      	ViewFormActions(ABC)          
+                                     			EXTENSION      	WindowResize(ABC)             
+                                     			CONTROL        	DOSFileLookup(ABC)            
+                                     			CODE           	CloseCurrentWindow(ABC)       
+    
+forma:req_des                      Window
+                                     			EXTENSION      	RecordValidation(ABC)         
+                                     			CONTROL        	SaveButton(ABC)               
+                                     			CONTROL        	CancelButton(ABC)             
+                                     			EXTENSION      	FormVCRControls(ABC)          
+                                     			EXTENSION      	ViewFormActions(ABC)          
+                                     			EXTENSION      	WindowResize(ABC)             
+                                     			CONTROL        	DOSFileLookup(ABC)            
+    
+Forma:Req                          Window
+                                     			EXTENSION      	RecordValidation(ABC)         
+                                     			CONTROL        	SaveButton(ABC)               
+                                     			CONTROL        	CancelButton(ABC)             
+                                     			EXTENSION      	WindowResize(ABC)             
+                                     			CONTROL        	FieldLookupButton(ABC)        
+                                     			CONTROL        	FileDropCombo(ABC)            
+    
+Sel:Compania                       Window
+                                     			CONTROL        	BrowseBox(ABC)                
+                                     			CONTROL        	BrowseSelectButton(ABC)       
+                                     			CONTROL        	CloseButton(ABC)              
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+rpt:docavance1                     ToDo
+    
+REQ:Elegir                         Window
+                                     			CONTROL        	BrowseBox(ABC)                
+                                     			CONTROL        	BrowseSelectButton(ABC)       
+                                     			CONTROL        	CloseButton(ABC)              
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+rpt:docavance                      Report
+                                     			EXTENSION      	TABReportDataExport(TABReportDataExportSupport)
+                                     			CONTROL        	ReportDateStamp(ABC)          
+                                     			CONTROL        	ReportTimeStamp(ABC)          
+                                     			CONTROL        	PauseButton(ABC)              
+                                     			CONTROL        	FieldLookupButton(ABC)        
+                                     			CONTROL        	CalendarButton(ABC)           
+    
+rpt:Correcciones                   Report
+                                     			CONTROL        	ReportDateStamp(ABC)          
+                                     			CONTROL        	ReportTimeStamp(ABC)          
+                                     			CONTROL        	PauseButton(ABC)              
+                                     			CONTROL        	FieldLookupButton(ABC)        
+    
+Config:EstadoyEventos              Window
+                                     			CONTROL        	BrowseBox(ABC)                
+                                     			CONTROL        	BrowseUpdateButtons(ABC)      
+                                     			CODE           	LookupNonRelatedRecord(ABC)   
+    
+ficha:estados                      Window
+                                     			EXTENSION      	RecordValidation(ABC)         
+                                     			CONTROL        	SaveButton(ABC)               
+                                     			CONTROL        	CancelButton(ABC)             
+                                     			EXTENSION      	FormVCRControls(ABC)          
+                                     			EXTENSION      	ViewFormActions(ABC)          
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+ficha:eventos                      Window
+                                     			EXTENSION      	RecordValidation(ABC)         
+                                     			CONTROL        	SaveButton(ABC)               
+                                     			CONTROL        	CancelButton(ABC)             
+                                     			EXTENSION      	FormVCRControls(ABC)          
+                                     			EXTENSION      	ViewFormActions(ABC)          
+                                     			EXTENSION      	WindowResize(ABC)             
+                                     			CONTROL        	FieldLookupButton(ABC)        
+    
+brw_sel:evento                     Window
+                                     			CONTROL        	BrowseBox(ABC)                
+                                     			CONTROL        	BrowseSelectButton(ABC)       
+                                     			CONTROL        	CloseButton(ABC)              
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+ficha:eventos_estados              Window
+                                     			EXTENSION      	RecordValidation(ABC)         
+                                     			CONTROL        	SaveButton(ABC)               
+                                     			CONTROL        	CancelButton(ABC)             
+                                     			EXTENSION      	FormVCRControls(ABC)          
+                                     			EXTENSION      	ViewFormActions(ABC)          
+                                     			EXTENSION      	WindowResize(ABC)             
+                                     			CONTROL        	FieldLookupButton(ABC)        
+    
+Brw:Estado                         Window
+                                     			CONTROL        	BrowseBox(ABC)                
+                                     			CONTROL        	BrowseUpdateButtons(ABC)      
+                                     			CONTROL        	BrowseSelectButton(ABC)       
+                                     			CONTROL        	CloseButton(ABC)              
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+Rpt:req_eventos                    Report
+                                     			EXTENSION      	TABReportDataExport(TABReportDataExportSupport)
+                                     			CONTROL        	ReportPageNumber(ABC)         
+    
+rpt:Correc_individual              Report
+                                     			CONTROL        	ReportDateStamp(ABC)          
+                                     			CONTROL        	ReportTimeStamp(ABC)          
+    
+Frm:TGEN                           Window
+                                     			EXTENSION      	RecordValidation(ABC)         
+                                     			CONTROL        	SaveButton(ABC)               
+                                     			CONTROL        	CancelButton(ABC)             
+                                     			EXTENSION      	FormVCRControls(ABC)          
+                                     			EXTENSION      	ViewFormActions(ABC)          
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+Brw:Variables                      Window
+                                     			CONTROL        	BrowseBox(ABC)                
+                                     			CONTROL        	BrowseUpdateButtons(ABC)      
+                                     			CONTROL        	CloseButton(ABC)              
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+UpdateVariables                    Window
+                                     			EXTENSION      	RecordValidation(ABC)         
+                                     			CONTROL        	SaveButton(ABC)               
+                                     			CONTROL        	CancelButton(ABC)             
+                                     			CONTROL        	HelpButton(ABC)               
+                                     			EXTENSION      	ViewFormActions(ABC)          
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+Brw:TipoDoc                        Window
+                                     			CONTROL        	BrowseBox(ABC)                
+                                     			CONTROL        	BrowseUpdateButtons(ABC)      
+                                     			CONTROL        	CloseButton(ABC)              
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+UpdateTIPODOC                      Window
+                                     			EXTENSION      	RecordValidation(ABC)         
+                                     			CONTROL        	SaveButton(ABC)               
+                                     			CONTROL        	CancelButton(ABC)             
+                                     			CONTROL        	HelpButton(ABC)               
+                                     			EXTENSION      	ViewFormActions(ABC)          
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+win:usuarios                       Window
+                                     			CONTROL        	RelationTree(ABC)             
+                                     			CONTROL        	RelTreeExpandContractButtons(ABC)
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+ficha:A_Eve_Est                    Window
+                                     			EXTENSION      	RecordValidation(ABC)         
+                                     			CONTROL        	SaveButton(ABC)               
+                                     			CONTROL        	CancelButton(ABC)             
+                                     			CONTROL        	HelpButton(ABC)               
+                                     			EXTENSION      	ViewFormActions(ABC)          
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+Brw:Eventos                        Window
+                                     			CONTROL        	BrowseBox(ABC)                
+                                     			CONTROL        	BrowseUpdateButtons(ABC)      
+                                     			CONTROL        	CloseButton(ABC)              
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+Forma:Evento                       Window
+                                     			EXTENSION      	RecordValidation(ABC)         
+                                     			CONTROL        	SaveButton(ABC)               
+                                     			CONTROL        	CancelButton(ABC)             
+                                     			EXTENSION      	ViewFormActions(ABC)          
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+Forma:estado                       Window
+                                     			EXTENSION      	RecordValidation(ABC)         
+                                     			CONTROL        	SaveButton(ABC)               
+                                     			CONTROL        	CancelButton(ABC)             
+                                     			EXTENSION      	ViewFormActions(ABC)          
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+Forma:Area                         Window
+                                     			EXTENSION      	RecordValidation(ABC)         
+                                     			CONTROL        	SaveButton(ABC)               
+                                     			CONTROL        	CancelButton(ABC)             
+                                     			EXTENSION      	ViewFormActions(ABC)          
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+Forma:Operador                     Window
+                                     			EXTENSION      	RecordValidation(ABC)         
+                                     			CONTROL        	SaveButton(ABC)               
+                                     			CONTROL        	CancelButton(ABC)             
+                                     			EXTENSION      	ViewFormActions(ABC)          
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+Brw:Operarios                      Window
+                                     			CONTROL        	BrowseSelectButton(ABC)       
+                                     			CONTROL        	BrowseBox(ABC)                
+                                     			CONTROL        	BrowseUpdateButtons(ABC)      
+                                     			CONTROL        	CloseButton(ABC)              
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+rpt_req                            Report
+                                     			EXTENSION      	TABReportDataExport(TABReportDataExportSupport)
+                                     			CONTROL        	ReportDateStamp(ABC)          
+                                     			CONTROL        	ReportTimeStamp(ABC)          
+                                     			CONTROL        	PauseButton(ABC)              
+    
+Rpt:req_eventos_fecha              Report
+                                     			CONTROL        	ReportPageNumber(ABC)         
+                                     			CONTROL        	PauseButton(ABC)              
+    
+Brw:proy                           Window
+                                     			CONTROL        	BrowseQBEButton(ABC)          
+                                     			CONTROL        	BrowseBox(ABC)                
+                                     			CONTROL        	BrowseUpdateButtons(ABC)      
+                                     			CONTROL        	CloseButton(ABC)              
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+UpdateProyectos                    Window
+                                     			EXTENSION      	RecordValidation(ABC)         
+                                     			CONTROL        	SaveButton(ABC)               
+                                     			CONTROL        	CancelButton(ABC)             
+                                     			EXTENSION      	ViewFormActions(ABC)          
+                                     			EXTENSION      	WindowResize(ABC)             
+                                     			CONTROL        	FieldLookupButton(ABC)        
+                                     			CONTROL        	FileDropCombo(ABC)            
+    
+Brw:TiposProyectos                 Window
+                                     			CONTROL        	BrowseBox(ABC)                
+                                     			CONTROL        	BrowseSelectButton(ABC)       
+                                     			CONTROL        	BrowseUpdateButtons(ABC)      
+                                     			CONTROL        	CloseButton(ABC)              
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+UpdateTipoProyecto                 Window
+                                     			EXTENSION      	RecordValidation(ABC)         
+                                     			CONTROL        	SaveButton(ABC)               
+                                     			CONTROL        	CancelButton(ABC)             
+                                     			CONTROL        	HelpButton(ABC)               
+                                     			EXTENSION      	ViewFormActions(ABC)          
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+rpt:Proyectos                      Report
+                                     			CONTROL        	ReportDateStamp(ABC)          
+                                     			CONTROL        	ReportTimeStamp(ABC)          
+    
+rpt:Proyectos_rq                   Report
+                                     			EXTENSION      	TABReportDataExport(TABReportDataExportSupport)
+                                     			CONTROL        	ReportDateStamp(ABC)          
+                                     			CONTROL        	ReportTimeStamp(ABC)          
+                                     			CONTROL        	PauseButton(ABC)              
+                                     			CONTROL        	FileDropCombo(ABC)            
+    
+Forma:reqevento                    Window
+                                     			EXTENSION      	RecordValidation(ABC)         
+                                     			CONTROL        	SaveButton(ABC)               
+                                     			CONTROL        	CancelButton(ABC)             
+                                     			EXTENSION      	FormVCRControls(ABC)          
+                                     			EXTENSION      	ViewFormActions(ABC)          
+                                     			EXTENSION      	WindowResize(ABC)             
+                                     			CONTROL        	FileDropCombo(ABC)            
+    
+frm:avcdet                         Window
+                                     			EXTENSION      	RecordValidation(ABC)         
+                                     			CONTROL        	SaveButton(ABC)               
+                                     			CONTROL        	CancelButton(ABC)             
+                                     			EXTENSION      	ViewFormActions(ABC)          
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+frm:avc                            Window
+                                     			EXTENSION      	RecordValidation(ABC)         
+                                     			CONTROL        	SaveButton(ABC)               
+                                     			CONTROL        	CancelButton(ABC)             
+                                     			EXTENSION      	ViewFormActions(ABC)          
+                                     			EXTENSION      	WindowResize(ABC)             
+                                     			CONTROL        	CalendarButton(ABC)           
+    
+frm:avcint                         Window
+                                     			EXTENSION      	RecordValidation(ABC)         
+                                     			CONTROL        	SaveButton(ABC)               
+                                     			CONTROL        	CancelButton(ABC)             
+                                     			CONTROL        	HelpButton(ABC)               
+                                     			EXTENSION      	ViewFormActions(ABC)          
+                                     			EXTENSION      	WindowResize(ABC)             
+                                     			CONTROL        	FieldLookupButton(ABC)        
+    
+rpt:Proyectos_minuta               Report
+                                     			EXTENSION      	TABReportDataExport(TABReportDataExportSupport)
+                                     			CONTROL        	ReportDateStamp(ABC)          
+                                     			CONTROL        	ReportTimeStamp(ABC)          
+    
+rpt:Proyectos_ava                  Report
+                                     			EXTENSION      	TABReportDataExport(TABReportDataExportSupport)
+                                     			CONTROL        	ReportDateStamp(ABC)          
+                                     			CONTROL        	ReportTimeStamp(ABC)          
+    
+Brw:ReqXUsuario                    Window
+                                     			CONTROL        	BrowseBox(ABC)                
+                                     			CONTROL        	BrowseUpdateButtons(ABC)      
+                                     			EXTENSION      	WindowResize(ABC)             
+                                     			CONTROL        	DOSFileLookup(ABC)            
+    
+brw:planificacion                  Window
+                                     			CONTROL        	BrowseBox(ABC)                
+                                     			CONTROL        	BrowseSelectButton(ABC)       
+                                     			CONTROL        	BrowseUpdateButtons(ABC)      
+                                     			CONTROL        	CloseButton(ABC)              
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+UpdatePlanificacion                Window
+                                     			EXTENSION      	RecordValidation(ABC)         
+                                     			CONTROL        	SaveButton(ABC)               
+                                     			CONTROL        	CancelButton(ABC)             
+                                     			CONTROL        	HelpButton(ABC)               
+                                     			EXTENSION      	ViewFormActions(ABC)          
+                                     			EXTENSION      	WindowResize(ABC)             
+                                     			CONTROL        	FieldLookupButton(ABC)        
+                                     			CONTROL        	CalendarButton(ABC)           
+    
+SelectProyectos                    Window
+                                     			CONTROL        	BrowseBox(ABC)                
+                                     			CONTROL        	BrowseSelectButton(ABC)       
+                                     			CONTROL        	CloseButton(ABC)              
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+SelectREQ                          Window
+                                     			CONTROL        	BrowseBox(ABC)                
+                                     			CONTROL        	BrowseSelectButton(ABC)       
+                                     			CONTROL        	CloseButton(ABC)              
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+SelectUSU                          Window
+                                     			CONTROL        	BrowseBox(ABC)                
+                                     			CONTROL        	BrowseSelectButton(ABC)       
+                                     			CONTROL        	CloseButton(ABC)              
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+Brw:SelProyecto                    Window
+                                     			CONTROL        	BrowseBox(ABC)                
+                                     			CONTROL        	BrowseSelectButton(ABC)       
+                                     			CONTROL        	BrowseUpdateButtons(ABC)      
+                                     			CONTROL        	CloseButton(ABC)              
+                                     			EXTENSION      	WindowResize(ABC)             
+    
+Brw:ReqAlarmas                     Window
+                                     			CONTROL        	BrowseBox(ABC)                
+                                     			CONTROL        	BrowseUpdateButtons(ABC)      
+                                     			EXTENSION      	WindowResize(ABC)             
+                                     			CONTROL        	DOSFileLookup(ABC)            
+                                     			CONTROL        	FieldLookupButton(ABC)        
+    
+CerrarProgramacion                 Window
+                                     			EXTENSION      	WindowResize(ABC)             
+                                     			CONTROL        	CalendarButton(ABC)           
+    
+----------------------------------------------------------------------------------------------------
+-CURSOR-FONT-ICONOS-IMAGEN-WALLPAPER                                             (archivos externos)
+----------------------------------------------------------------------------------------------------
+FONT('@Arial Unicode MS',8,,FONT:regular)         
+FONT('@Arial Unicode MS',8,,FONT:regular,CHARSET:ANSI)
+FONT('Arial Narrow',10,,FONT:regular)             
+FONT('Arial Narrow',8,COLOR:Black,FONT:regular)   
+FONT('Arial Narrow',8,COLOR:Navy,FONT:bold,CHARSET:ANSI)
+FONT('Arial',10,,FONT:bold+FONT:italic,CHARSET:ANSI)
+FONT('Arial',10,,FONT:bold,CHARSET:ANSI)          
+FONT('Arial',10,,FONT:regular+FONT:italic,CHARSET:ANSI)
+FONT('Arial',8,,)                                 
+FONT('Arial',8,,FONT:bold+FONT:underline)         
+FONT('Arial',8,,FONT:regular)                     
+FONT('Arial',8,,FONT:regular,CHARSET:ANSI)        
+FONT('Arial',8,COLOR:Black,FONT:regular)          
+FONT('Arial',8,COLOR:Black,FONT:regular,CHARSET:ANSI)
+FONT('Arial',9,,,CHARSET:ANSI)                    
+FONT('Arial',9,,FONT:bold,CHARSET:ANSI)           
+FONT('Arial',9,,FONT:regular)                     
+FONT('Arial',9,,FONT:regular,CHARSET:ANSI)        
+FONT('Arial',9,COLOR:Navy,FONT:bold,CHARSET:ANSI) 
+FONT('Bookman Old Style',12,,,CHARSET:ANSI)       
+FONT('MS Sans Serif',7,COLOR:Black,FONT:regular)  
+FONT('MS Sans Serif',8,,)                         
+FONT('MS Sans Serif',8,,FONT:regular)             
+FONT('Segoe UI Light',8,,)                        
+FONT('Terminal',9,,FONT:regular)                  
+ICON('45.ICO')                                    
+ICON('A.ico')                                     
+ICON('B.ico')                                     
+ICON('C.ico')                                     
+ICON('C:\Dev6\Andromeda\ICONOS\EVOC\32x32 True Color Small\data_down.ico')
+ICON('C:\Dev6\Andromeda\ICONOS\EVOC\32x32 True Color\recycle.ico')
+ICON('C:\Dev6\Andromeda\ICONOS\EVOC\calendar.ico')
+ICON('C:\Dev6\Andromeda\ICONOS\EVOC\disk_blue_ok.ico')
+ICON('C:\Dev6\Andromeda\ICONOS\EVOC\id_cards.ico')
+ICON('C:\Dev6\Andromeda\ICONOS\EVOC\index.ico')   
+ICON('C:\Dev6\Andromeda\ICONOS\EVOC\index_new.ico')
+ICON('C:\Dev6\Andromeda\ICONOS\EVOC\media_play_green.ico')
+ICON('C:\Dev6\Andromeda\ICONOS\EVOC\nav_right_red.ico')
+ICON('C:\Dev6\Andromeda\ICONOS\EVOC\printer.ico') 
+ICON('C:\Dev6\Andromeda\ICONOS\EVOC\printer2.ico')
+ICON('C:\Dev6\Andromeda\ICONOS\EVOC\printer_information.ico')
+ICON('C:\Dev6\Andromeda\ICONOS\EVOC\server_preferences.ico')
+ICON('C:\Dev6\Andromeda\ICONOS\EVOC\stopwatch_run.ico')
+ICON('C:\Dev6\Kixver\ICONOS\EVOC\data_view.ico')  
+ICON('CALENDAR.ICO')                              
+ICON('WACANCEL.ICO')                              
+ICON('WACancel.ico')                              
+ICON('WAHELP.ICO')                                
+ICON('WAOK.ICO')                                  
+ICON('WASELECT.ICO')                              
+ICON('WIZCLOSE.ICO')                              
+ICON('WIZFIND.ICO')                               
+ICON('WIZPRN.ICO')                                
+ICON('_d.ico')                                    
+ICON('_e.ico')                                    
+ICON('_i.ico')                                    
+ICON('_texit.ico')                                
+ICON('aceptar.ICO')                               
+ICON('buscar.ico')                                
+ICON('cancelar.ico')                              
+ICON('copia.ico')                                 
+ICON('elegir.ico')                                
+ICON('exit.ICO')                                  
+ICON('salir.ico')                                 
+ICON('wizcncl.ico')                               
+ICON('wizfind.ico')                               
+ICON('wizmark.ico')                               
+ICON('wizsave.ico')                               
+IMAGE('C:\Dev6\Andromeda\ICONOS\Logo_TI.jpg')     
+WALLPAPER('.\ICONOS\CUADRADO.JPG')                
+WALLPAPER('.\ICONOS\cuadrado.jpg')                
+WALLPAPER('.\iconos\cuadrado.jpg')                
+WALLPAPER('fondowin.jpg')                         
+
+Fin-------------------------------------------------------------------------------------------------
