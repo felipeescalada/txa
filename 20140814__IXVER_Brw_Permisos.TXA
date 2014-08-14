@@ -4,7 +4,7 @@ NAME Brw_Permisos
 DESCRIPTION 'Catálogo de GRU'
 FROM ABC Window
 CATEGORY 'Browse'
-MODIFIED '2014/08/14' '15:09:33'
+MODIFIED '2014/08/14' '15:14:39'
 [DATA]
 [SCREENCONTROLS]
 ! ENTRY(@s80),USE(CurrentTab)
@@ -472,8 +472,6 @@ PROPERTY:END
  ELSE
     loc:permiso = 'Denegado'
  END
- !Prueba de git.
- !Prueba de git.
 [END]
 [END]
 [END]
@@ -1338,8 +1336,7 @@ WHEN  ('loc:permiso') (-1)
 
 %ConditionalColors DEPEND %Control DEPEND %ControlField MULTI LONG TIMES 1
 WHEN  ('?List')TIMES 1
-WHEN  ('loc:permiso') (1, |
-  2)
+WHEN  ('loc:permiso') (1, 2)
 
 %ColorCondition DEPEND %ConditionalColors DEFAULT TIMES 1
 WHEN  ('?List')TIMES 1
